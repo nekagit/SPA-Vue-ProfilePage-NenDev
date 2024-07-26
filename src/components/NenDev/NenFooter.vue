@@ -16,12 +16,10 @@
     </footer>
   </div>
 </template>
-
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import ABaseHorizontalSection from '../atoms/sections/ABaseHorizontalSection.vue'
-import { Facebook, Github, Instagram } from 'lucide-vue-next'
+import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import ABaseHorizontalSection from '../atoms/sections/ABaseHorizontalSection.vue';
 
 const pageTitle = ref('')
 
