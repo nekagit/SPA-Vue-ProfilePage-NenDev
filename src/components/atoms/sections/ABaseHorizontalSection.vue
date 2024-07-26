@@ -27,11 +27,12 @@ const props = defineProps(['title'])
 .separator .line {
   height: 3px;
   flex: 1;
-  background-color: #ffffff;
+  background-color: #000000;
   animation: expandLine 1s forwards;
 }
 
 .separator h2 {
+  color:black;
   padding: 0 2rem;
 }
 
