@@ -23,8 +23,8 @@ onMounted(() => {
 <template>
  <Jumbotron
     :imageSrc="Nenad"
-    title="Turning Vision Into Reality With Code And Design."
-    description="As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. Explore my latest projects and articles, showcasing my expertise in React.js and web development."
+    title="Implementing and Refining any Ui/UX Ideas."
+    description="As an enthusiastic intermediate full-stack developer, I'm on a journey to transform ideas into functional web applications. I'm constantly learning and improving my skills in Vue.js, React.js and web development. Explore my growing portfolio of projects and articles that demonstrate my progress and passion for coding."
     primaryButtonText="Resume"
     secondaryButtonText="Contact"
     @primaryAction="handleResumeClick"
