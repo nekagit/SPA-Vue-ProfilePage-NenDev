@@ -1,6 +1,6 @@
 <template>
-  <div class="grid place-content-center">
-    <div class="calendar-controls grid place-content-center">
+  <div class="calendar-container grid place-content-center">
+    <div class="calendar-controls">
       <button @click="loadPreviousMonth">Previous Month</button>
       <button @click="loadCurrentMonth">Current Month</button>
     </div>
@@ -12,53 +12,91 @@
         <div v-for="day in daysInMonth" :key="day.date" class="calendar-day"
              :style="getDayStyle(day.date)">
           <div class="day-number">{{ day.number }}</div>
-          <div v-if="groupedEvents[day.date]" class="contribution-count">
-            {{ groupedEvents[day.date].length }}
+          <div v-if="groupedCommits[day.date]" class="contribution-count">
+            <!-- {{ groupedCommits[day.date].length }} -->
           </div>
         </div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="color-box" :style="{ backgroundColor: '#fff' }"></div>
+        <span>0 commits</span>
+      </div>
+      <div class="legend-item">
+        <div class="color-box" :style="{ backgroundColor: '#f6e9a0' }"></div>
+        <span>1-5 commits</span>
+      </div>
+      <div class="legend-item">
+        <div class="color-box" :style="{ backgroundColor: '#d4f7d0' }"></div>
+        <span>6-10 commits</span>
+      </div>
+      <div class="legend-item">
+        <div class="color-box" :style="{ backgroundColor: '#4caf50' }"></div>
+        <span>11+ commits</span>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 
-const groupedEvents = ref<any>({});
+const groupedCommits = ref<any>({});
 const daysInMonth = ref<Array<{ date: string; number: number }>>([]);
 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const currentMonth = ref<number>(new Date().getMonth());
 const currentYear = ref<number>(new Date().getFullYear());
 
-// Load events for the current month or previous month
-const loadEvents = async (month: number, year: number) => {
+const token = import.meta.env.VITE_GITHUB_TOKEN; 
+
+const fetchRepositories = async () => {
   try {
-    const response = await fetch(`https://api.github.com/users/nekagit/events?per_page=100`);
-    if (!response.ok) {
+    const reposResponse = await fetch('https://api.github.com/users/nekagit/repos?per_page=100', {
+      headers: {
+        Authorization: `token ${token}`
+      }
+    });
+
+    if (!reposResponse.ok) {
       throw new Error('Network response was not ok');
     }
-    const data = await response.json();
 
-    // Transform events into a calendar-friendly format
-    const events = data.map((event: any) => ({
-      type: event.type,
-      date: new Date(event.created_at).toISOString().split('T')[0]
-    }));
+    const repos = await reposResponse.json();
 
-    const grouped = events.reduce((acc: any, event: any) => {
-      if (!acc[event.date]) {
-        acc[event.date] = [];
+    const fetchAllCommitsPromises = repos.map((repo: any) => 
+      fetch(`https://api.github.com/repos/nekagit/${repo.name}/commits?per_page=100`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(commits => commits.map((commit: any) => ({
+        date: new Date(commit.commit.author.date).toISOString().split('T')[0]
+      })))
+    );
+
+    const commits = await Promise.all(fetchAllCommitsPromises);
+    const flatCommits = commits.flat();
+
+    const grouped = flatCommits.reduce((acc: any, commit: any) => {
+      if (!acc[commit.date]) {
+        acc[commit.date] = [];
       }
-      acc[event.date].push(event.type);
+      acc[commit.date].push(commit);
       return acc;
     }, {});
 
-    groupedEvents.value = grouped;
+    groupedCommits.value = grouped;
 
-    // Generate days for the specified month and year
-    const date = new Date(year, month, 1);
+    const date = new Date(currentYear.value, currentMonth.value, 1);
     const days = [];
-    while (date.getMonth() === month) {
+    while (date.getMonth() === currentMonth.value) {
       days.push({
         date: date.toISOString().split('T')[0],
         number: date.getDate()
@@ -67,16 +105,14 @@ const loadEvents = async (month: number, year: number) => {
     }
     daysInMonth.value = days;
   } catch (err) {
-    console.error('Error fetching GitHub events:', err);
+    console.error('Error fetching commits:', err);
   }
 };
 
-// Load current month's events
 onMounted(() => {
-  loadEvents(currentMonth.value, currentYear.value);
+  fetchRepositories();
 });
 
-// Switch to the previous month
 const loadPreviousMonth = () => {
   if (currentMonth.value === 0) {
     currentMonth.value = 11;
@@ -84,47 +120,72 @@ const loadPreviousMonth = () => {
   } else {
     currentMonth.value -= 1;
   }
-  loadEvents(currentMonth.value, currentYear.value);
+  fetchRepositories();
 };
 
-// Switch to the current month
 const loadCurrentMonth = () => {
   const now = new Date();
   currentMonth.value = now.getMonth();
   currentYear.value = now.getFullYear();
-  loadEvents(currentMonth.value, currentYear.value);
+  fetchRepositories();
 };
 
-// Get style for the day based on the number of contributions
 const getDayStyle = (date: string) => {
-  const count = (groupedEvents.value[date] || []).length;
-  let backgroundColor = '#fff'; // Default color
+  const count = (groupedCommits.value[date] || []).length;
+  let backgroundColor = '#fff'; // Default background color
 
-  if (count > 10) {
-    backgroundColor = '#ffcccc'; // Red for more than 10 contributions
-  } else if (count > 0) {
-    backgroundColor = '#c6f6c6'; // Green for up to 10 contributions
+  if (count > 20) {
+    backgroundColor = '#4caf50'; // Full green for more than 20 commits
+  } else if (count > 10) {
+    backgroundColor = '#d4f7d0'; // Light green for up to 20 commits
+  } else if (count > 5) {
+    backgroundColor = '#f6e9a0'; // Yellow for up to 10 commits
   }
 
   return { backgroundColor };
 };
 </script>
-
 <style scoped>
+.calendar-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.calendar-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 .calendar {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #fafafa;
   border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 .calendar-header {
-  grid-column: span 7;
   text-align: center;
   font-weight: bold;
   padding: 10px 0;
+  font-size: 18px;
 }
 
 .calendar-grid {
@@ -134,27 +195,42 @@ const getDayStyle = (date: string) => {
 
 .calendar-day {
   padding: 5px;
-  border: 1px solid #ddd;
+  border-radius: 4px;
   position: relative;
   text-align: center;
+  background-color: #f9f9f9;
 }
 
 .day-number {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .contribution-count {
-  font-size: 0.75rem;
+  font-size: 12px;
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  color: #333;
 }
 
-.calendar-controls {
-  text-align: center;
-  margin-bottom: 10px;
+.legend {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
-button {
-  margin: 0 5px;
-  padding: 5px 10px;
-  cursor: pointer;
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.color-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 8px;
 }
 </style>
