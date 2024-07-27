@@ -1,10 +1,11 @@
 <!-- StarRating.vue -->
 <template>
   <div class="star-rating">
+    <h3>{{ props.name }}</h3>
     <span
       v-for="n in 5"
       :key="n"
-      :class="{ filled: n <= rating }"
+      :class="{ filled: n <= currentRating }"
       @click="setRating(n)"
       @mouseover="hoverRating(n)"
       @mouseleave="leaveRating"
@@ -15,13 +16,24 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 
-const rating = ref(0);
+const props = defineProps({
+  rating: {
+    type: Number,
+    required: true
+  },
+    name: {
+    type: String,
+    required: true
+  }
+});
+
+const currentRating = ref(props.rating);
 const tempRating = ref(0);
 
 const setRating = (value) => {
-  rating.value = value;
+  currentRating.value = value;
 };
 
 const hoverRating = (value) => {
