@@ -1,9 +1,9 @@
 <template>
   <ABaseHorizontalSection class="charmFont" :title="pageTitle" />
   <div class="container">
-    <footer class="text-black font-medium relative p-3">
+    <footer>
       <div
-        class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center mb-8 font-bold"
       >
         <div class="">
           <a href="mailto:nenad99@hotmail.de" class="text-black opacity-60 hover:text-blue-300">nenad99@hotmail.de</a>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import TimeLine from '@/components/NenDev/TimeLine.vue'
+import { onMounted } from 'vue'
 onMounted(() => {
   window.scrollTo({
     top: 0,
@@ -9,6 +10,8 @@ onMounted(() => {
 </script>
 
 <template>
-   <div>asdf</div>
-
+  <div class="container">
+    <div class="mb-96">d</div>
+    <TimeLine />
+  </div>
 </template>

@@ -28,7 +28,7 @@ const rotationAngle = computed(() => 360 / chars.length)
 .hire-button-container {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   width: 150px;
   height: 150px;
   display: flex;

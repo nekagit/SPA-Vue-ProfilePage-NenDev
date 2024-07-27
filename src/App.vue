@@ -1,9 +1,9 @@
 <template>
   <div>
-    <NavBar v-if="!isLoading" />
-    <AInternetLoadingScreen class="loading" v-if="isLoading" />
-    <router-view v-if="!isLoading" class="router h-screen" />
-    <NenFooter v-if="!isLoading" />
+    <NavBar  />
+    <!-- <AInternetLoadingScreen class="loading" v-if="isLoading" /> -->
+    <router-view  class="router" />
+    <NenFooter  />
     <SpinningButton />
   </div>
 </template>
