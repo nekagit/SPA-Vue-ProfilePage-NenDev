@@ -140,7 +140,7 @@ nav.menu {
   height: 100%;
   padding: 3.25rem 0.625rem 1.25rem;
   background-color: rgba($black, 0.8);
-  z-index: 99999;
+  z-index: 9999;
   transition: 0.25s ease;
 
   &.open {

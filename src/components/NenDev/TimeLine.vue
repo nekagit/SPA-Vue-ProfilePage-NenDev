@@ -21,7 +21,6 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const container = ref(null);
-const cards = ref([]);
 const timelineItems = ref([
   {
     color: '#ffffff',
@@ -34,26 +33,42 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
-    date: 'Jan 2023 - May 2024',
-    title: 'Another Company',
-    subtitle: 'Frontend Developer',
-    description: 'Developed responsive web applications using modern JavaScript frameworks.'
+    date: 'January 2023 – March 2024',
+    title: 'qmBase-Dortmund',
+    subtitle: 'Software Developer',
+    description: 'Developed full-stack web applications using React, TypeScript, ASP.Net, and Azure DevOps. Contributed to the development and maintenance of complex web solutions.'
   },
   {
     color: '#ffffff',
     lineProgress: 0,
-    date: 'Jan 2023 - May 2024',
-    title: 'Another Company',
-    subtitle: 'Frontend Developer',
-    description: 'Developed responsive web applications using modern JavaScript frameworks.'
+    date: 'January 2021 – December 2022',
+    title: 'OrgaTech Solution Engineering Consulting GmbH-Lünen',
+    subtitle: 'Software Developer',
+    description: 'Worked on Java backend development integrated with HTML, CSS, and JavaScript for frontend solutions. Also involved in Flutter mobile development.'
   },
-  {
+    {
     color: '#ffffff',
     lineProgress: 0,
-    date: 'Jan 2023 - May 2024',
-    title: 'Another Company',
-    subtitle: 'Frontend Developer',
-    description: 'Developed responsive web applications using modern JavaScript frameworks.'
+    date: '2020 – 2021',
+    title: 'Decathlon-Dortmund',
+    subtitle: 'Order Picker',
+    description: 'Responsible for efficiently picking and packing orders, ensuring timely and accurate delivery of products.'
+  },
+    {
+    color: '#ffffff',
+    lineProgress: 0,
+    date: '2017 – 2020',
+    title: 'Service am Gast GmbH-Dortmund',
+    subtitle: 'Waiter/Bartender',
+    description: 'Provided excellent customer service in a fast-paced environment, managing orders and ensuring a high-quality dining experience.'
+  },
+     {
+    color: '#ffffff',
+    lineProgress: 0,
+    date: '2015 – 2017',
+    title: 'Kaufland-Dortmund',
+    subtitle: 'Newspaper Delivery',
+    description: 'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
   },
   // Add more items as needed
 ]);
@@ -107,7 +122,7 @@ onUnmounted(() => {
 }
 
 .timeline-item {
-  height: 300px;
+  height: 200px;
   position: relative;
   display: flex;
   margin-bottom: 50px;
