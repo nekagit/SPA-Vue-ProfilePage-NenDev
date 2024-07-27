@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <div class="content-wrapper">
       <div class="image-container">
-        <img :src="imageSrc" alt="Developer portrait" class="portrait-image">
+        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
       <div class="text-content">
         <h1 class="title">{{ title }}</h1>
@@ -66,12 +66,40 @@ const onSecondaryAction = () => emit('secondaryAction')
 
 .image-container {
   flex: 1;
+  perspective: 1000px;
 }
 
 .portrait-image {
   width: 80%;
   height: auto;
   object-fit: cover;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.portrait-image:hover {
+  animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 .text-content {
@@ -88,31 +116,110 @@ const onSecondaryAction = () => emit('secondaryAction')
 }
 
 .description {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
   font-size: 1rem;
   margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+.description:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.description::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.description:hover::after {
+  opacity: 1;
+}
 .button-group {
   display: flex;
+  justify-content: center;
   gap: 1rem;
 }
 
-.primary-button, .secondary-button {
+.primary-button,
+.secondary-button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
 }
+.primary-button, .secondary-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
 
 .primary-button {
   background-color: #000;
   color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.primary-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s;
+}
+
+.primary-button:hover::before {
+  left: 100%;
+}
+
+.primary-button:hover {
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
 }
 
 .secondary-button {
   background-color: transparent;
   color: #000;
-  text-decoration: underline;
+  text-decoration: none;
+  border: 2px solid #000;
+  transition: all 0.3s ease;
+}
+
+.secondary-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.secondary-button:hover {
+  color: #fff;
+}
+
+.secondary-button:hover::after {
+  transform: scaleY(1);
 }
 </style>

@@ -64,7 +64,7 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
   color: #1e1e2f;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  font-size: large;
+  font-size: medium;
 }
 
 .nav-link::after {
@@ -94,7 +94,7 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
 .logo {
   position: absolute;
   top: 3%;
-  left: 47%;
+  left: 48%;
   background-color: #1e1e2f;
   color: white;
   border-radius: 50%;

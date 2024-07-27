@@ -11,7 +11,6 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <div class="mb-96">d</div>
     <TimeLine />
   </div>
 </template>
