@@ -12,16 +12,15 @@
     <div class="flex justify-center flex-1">
       <RouterLink to="/" class="logo">NK</RouterLink>
     </div>
-    <div class="flex items-center space-x-4">
-      <!-- Add this to your HTML -->
-      <div class="flex space-x-8 hidden md:block">
-           <a
+    <div class="flex  items-center space-x-4">
+      <div class="space-x-8 hidden md:flex">
+        <a
           href="https://linkedin.com"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon linkedin"
         >
-          <i class="fa fa-linkedin"></i>
+          <Icon icon="mdi:linkedin" />
         </a>
         <a
           href="https://github.com"
@@ -29,25 +28,23 @@
           rel="noopener noreferrer"
           class="social-icon github"
         >
-          <i class="fa fa-github"></i>
+          <Icon icon="mdi:github" />
         </a>
-     
         <a
-          href="https://github.com"
+          href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon instagram"
         >
-          <i class="fa fa-instagram"></i>
+          <Icon icon="mdi:instagram" />
         </a>
-     
         <a
           href="https://pinterest.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="social-icon facebook"
+          class="social-icon pinterest"
         >
-          <i class="fa fa-facebook"></i>
+          <Icon icon="mdi:pinterest" />
         </a>
       </div>
     </div>
@@ -55,9 +52,9 @@
 </template>
 
 <script setup lang="ts">
-import AMenuButton from '@/components/NenDev/AMenuButton.vue';
+import AMenuButton from '@/components/NenDev/AMenuButton.vue'
+import { Icon } from '@iconify/vue'
 </script>
-
 <style scoped>
 .nav-link {
   position: relative;
@@ -97,7 +94,7 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
   left: 48%;
   background-color: white;
   color: black;
-  border: 1px dotted black ;
+  border: 1px dotted black;
   border-radius: 50%;
   font-weight: bold;
   font-size: 24px;
@@ -131,15 +128,6 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
   }
 }
 
-.fa {
-  font-size: 28px;
-}
-
-.fa:hover {
-  color: gray;
-}
-
-/* Add this to your CSS */
 .social-icon {
   font-size: 24px; /* Adjust size if needed */
   transition: color 0.3s ease;
@@ -157,12 +145,12 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
   color: #0077b5; /* LinkedIn color */
 }
 
-.facebook {
-  color: #0400e6; /* Pinterest color */
+.pinterest {
+  color: #e60023; /* Pinterest color */
 }
 
 .instagram {
-  color: #ea4c89; /* Dribbble color */
+  color: #ea4c89; /* Instagram color */
 }
 
 .custom {

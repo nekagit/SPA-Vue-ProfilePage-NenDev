@@ -1,43 +1,49 @@
 <template>
-  <div class="calendar-container grid place-content-center">
-    <div class="calendar-controls">
-      <button @click="loadPreviousMonth">Previous Month</button>
-      <button @click="loadCurrentMonth">Current Month</button>
-    </div>
-    <div class="calendar">
-      <div class="calendar-header">
-        <span>{{ monthNames[currentMonth] }} {{ currentYear }}</span>
-      </div>
-      <div class="calendar-grid">
-        <div v-for="day in daysInMonth" :key="day.date" class="calendar-day"
-             :style="getDayStyle(day.date)">
-          <div class="day-number">{{ day.number }}</div>
-          <div v-if="groupedCommits[day.date]" class="contribution-count">
-            <!-- {{ groupedCommits[day.date].length }} -->
+  <h1 class="text-center my-12">Public Repository Commits</h1>
+  <div class="flex calendar-wrapper mb-12">
+    <button @click="loadPreviousMonth" class="nav-button">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="calendar-container grid place-content-center">
+      <div class="calendar">
+        <div class="calendar-header">
+          <span>{{ monthNames[currentMonth] }} {{ currentYear }}</span>
+        </div>
+        <div class="calendar-grid">
+          <div v-for="day in daysInMonth" :key="day.date" class="calendar-day"
+               :style="getDayStyle(day.date)">
+            <div class="day-number">{{ day.number }}</div>
+            <div v-if="groupedCommits[day.date]" class="contribution-count">
+              <!-- {{ groupedCommits[day.date].length }} -->
+            </div>
           </div>
         </div>
       </div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="color-box" :style="{ backgroundColor: '#fff' }"></div>
+          <span>0 commits</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" :style="{ backgroundColor: '#f6e9a0' }"></div>
+          <span>1-5 commits</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" :style="{ backgroundColor: '#d4f7d0' }"></div>
+          <span>6-10 commits</span>
+        </div>
+        <div class="legend-item">
+          <div class="color-box" :style="{ backgroundColor: '#4caf50' }"></div>
+          <span>11+ commits</span>
+        </div>
+      </div>
     </div>
-    <div class="legend">
-      <div class="legend-item">
-        <div class="color-box" :style="{ backgroundColor: '#fff' }"></div>
-        <span>0 commits</span>
-      </div>
-      <div class="legend-item">
-        <div class="color-box" :style="{ backgroundColor: '#f6e9a0' }"></div>
-        <span>1-5 commits</span>
-      </div>
-      <div class="legend-item">
-        <div class="color-box" :style="{ backgroundColor: '#d4f7d0' }"></div>
-        <span>6-10 commits</span>
-      </div>
-      <div class="legend-item">
-        <div class="color-box" :style="{ backgroundColor: '#4caf50' }"></div>
-        <span>11+ commits</span>
-      </div>
-    </div>
+    <button @click="loadNextMonth" class="nav-button">
+      <i class="fas fa-chevron-right"></i>
+    </button>
   </div>
 </template>
+
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
@@ -48,24 +54,34 @@ const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'Jul
 const currentMonth = ref<number>(new Date().getMonth());
 const currentYear = ref<number>(new Date().getFullYear());
 
-const token = import.meta.env.VITE_GITHUB_TOKEN; 
+const token = import.meta.env.VITE_GITHUB_TOKEN;
 
 const fetchRepositories = async () => {
   try {
-    const reposResponse = await fetch('https://api.github.com/users/nekagit/repos?per_page=100', {
-      headers: {
-        Authorization: `token ${token}`
+    let allRepos: any[] = [];
+    let page = 1;
+    let reposResponse;
+
+    do {
+      reposResponse = await fetch(`https://api.github.com/user/repos?per_page=100&page=${page}`, {
+        headers: {
+          Authorization: `token ${token}`
+        }
+      });
+
+      if (!reposResponse.ok) {
+        throw new Error('Network response was not ok');
       }
-    });
 
-    if (!reposResponse.ok) {
-      throw new Error('Network response was not ok');
-    }
+      const repos = await reposResponse.json();
+      allRepos = allRepos.concat(repos);
+      page++;
+    } while (reposResponse.headers.get('link')?.includes('rel="next"'));
 
-    const repos = await reposResponse.json();
+    console.log('Fetched Repositories:', allRepos);
 
-    const fetchAllCommitsPromises = repos.map((repo: any) => 
-      fetch(`https://api.github.com/repos/nekagit/${repo.name}/commits?per_page=100`, {
+    const fetchAllCommitsPromises = allRepos.map((repo: any) => 
+      fetch(`https://api.github.com/repos/${repo.full_name}/commits?per_page=100`, {
         headers: {
           Authorization: `token ${token}`
         }
@@ -92,6 +108,7 @@ const fetchRepositories = async () => {
       return acc;
     }, {});
 
+    console.log('Grouped Commits:', grouped);
     groupedCommits.value = grouped;
 
     const date = new Date(currentYear.value, currentMonth.value, 1);
@@ -123,10 +140,13 @@ const loadPreviousMonth = () => {
   fetchRepositories();
 };
 
-const loadCurrentMonth = () => {
-  const now = new Date();
-  currentMonth.value = now.getMonth();
-  currentYear.value = now.getFullYear();
+const loadNextMonth = () => {
+  if (currentMonth.value === 11) {
+    currentMonth.value = 0;
+    currentYear.value += 1;
+  } else {
+    currentMonth.value += 1;
+  }
   fetchRepositories();
 };
 
@@ -145,32 +165,34 @@ const getDayStyle = (date: string) => {
   return { backgroundColor };
 };
 </script>
+
 <style scoped>
 .calendar-container {
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
 }
 
 .calendar-controls {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-bottom: 10px;
 }
 
 button {
-  margin: 0 5px;
+  margin-left: 10px;
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #333; /* Darker color */
   color: #fff;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #555; /* Darker on hover */
 }
 
 .calendar {
