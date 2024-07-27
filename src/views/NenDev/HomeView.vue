@@ -2,6 +2,8 @@
 import { onMounted } from 'vue';
 import Jumbotron from '@/components/NenDev/Jumbotron.vue'
 import Nenad from "@/assets/Nenad.png"
+import SpinningButton from "@/components/NenDev/SpinningButton.vue"
+
 const handleResumeClick = () => {
   // Handle resume button click
 }
@@ -30,4 +32,6 @@ onMounted(() => {
     @primaryAction="handleResumeClick"
     @secondaryAction="handleContactClick"
   />
+    <SpinningButton />
+
 </template>

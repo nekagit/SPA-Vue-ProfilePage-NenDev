@@ -127,7 +127,7 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
 
 @media (max-width: 768px) {
   .logo {
-    left: 43%;
+    left: 40%;
   }
 }
 

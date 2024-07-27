@@ -47,8 +47,8 @@ button {
 
 .menu-button {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 25px;
+  left: 25px;
   display: flex;
   align-items: center;
   justify-content: center;

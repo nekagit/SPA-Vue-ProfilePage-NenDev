@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline-container" ref="container">
+  <div class="timeline-container " ref="container">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
       <div class="date">{{ item.date }}</div>
       <div class="timeline-content">
@@ -21,6 +21,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const container = ref(null);
+const cards = ref([]);
 const timelineItems = ref([
   {
     color: '#ffffff',
@@ -99,12 +100,14 @@ onUnmounted(() => {
 .timeline-container {
   position: relative;
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 20px 20px;
   max-width: 1000px;
   margin: 0 auto;
+
 }
 
 .timeline-item {
+  height: 300px;
   position: relative;
   display: flex;
   margin-bottom: 50px;
@@ -123,6 +126,7 @@ onUnmounted(() => {
 .timeline-content {
   display: flex;
   flex-grow: 1;
+  height: min-content;
 }
 
 .circle {

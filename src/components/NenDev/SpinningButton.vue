@@ -37,6 +37,7 @@ const rotationAngle = computed(() => 360 / chars.length)
   z-index: 1000;
 }
 
+
 .rotating-text {
   position: absolute;
   font-weight: bold;
@@ -68,7 +69,6 @@ const rotationAngle = computed(() => 360 / chars.length)
 }
 
 .hire-button span {
-  display: block;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -104,6 +104,31 @@ const rotationAngle = computed(() => 360 / chars.length)
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 720px) {
+  .hire-button-container {
+    position: absolute;
+    top: 2%;
+    right: 20px;
+    width: 80px;
+    height: 90px;
+  }
+
+  .rotating-text {
+    width: 100%;
+    height: 100%;
+  }
+
+  .rotating-text span {
+    font-size: 8pt;
+    transform-origin: 0 45px; /* Adjusted to position text closer to the button */
+  }
+
+  .hire-button {
+    width: 50px;
+    height: 50px;
+    font-size: 10pt;
   }
 }
 </style>
