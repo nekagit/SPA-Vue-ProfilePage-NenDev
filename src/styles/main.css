@@ -59,15 +59,15 @@ hr {
 body,
 html {
   &::-webkit-scrollbar {
-    background-color: #1e1f26;
+    background-color: rgb(240,240,240);
     height: 20px;
     width: 20px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #383d4d;
+    background: rgb(240,240,240);
     border-radius: 99em;
-    border: 6px solid #1e1f26;
+    border: 6px solid rgb(240,240,240);
   }
 }
 
