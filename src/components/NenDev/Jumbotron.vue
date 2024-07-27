@@ -1,9 +1,7 @@
 <template>
   <div class="jumbotron">
     <div class="content-wrapper">
-      <div class="image-container">
-        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
-      </div>
+    
       <div class="text-content">
         <h1 class="title">{{ title }}</h1>
         <p class="description">{{ description }}</p>
@@ -15,6 +13,9 @@
             {{ secondaryButtonText }}
           </button>
         </div>
+      </div>
+        <div class="image-container">
+        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@ const onSecondaryAction = () => emit('secondaryAction')
 .content-wrapper {
   display: flex;
   max-width: 1200px;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .image-container {

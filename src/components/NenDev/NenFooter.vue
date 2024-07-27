@@ -8,7 +8,8 @@
         <div class="">
           <a href="mailto:nenad99@hotmail.de" class="text-black opacity-60 hover:text-blue-300">nenad99@hotmail.de</a>
         </div>
-        <p class="text-black opacity-60">&copy; 2024 Nenad Kalicanin.</p>
+        <p class="text-black opacity-60">&copy; 2024 Nenad Kalicanin. Inspired by <a target="_blank" class="underline underline-offset-2" href="https://devdreaming.com">CodeBucks</a></p>
+        
         <div class="">
           <a href="docuverse.netlify.app" class="text-black opacity-60 hover:text-blue-300">DocuVerse</a>
         </div>
