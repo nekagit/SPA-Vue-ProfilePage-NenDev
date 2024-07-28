@@ -3,7 +3,43 @@
     <span></span>
   </button>
   <nav class="menu" :class="{ open: isMenuOpen }">
-    <ul>
+
+    <div class="flex flex-col socialLinks">
+      <a
+        href="https://linkedin.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon linkedin"
+      >
+        <Icon icon="mdi:linkedin" />
+      </a>
+      <a
+        href="https://github.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon github"
+      >
+        <Icon icon="mdi:github" />
+      </a>
+      <a
+        href="https://instagram.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon instagram"
+      >
+        <Icon icon="mdi:instagram" />
+      </a>
+      <a
+        href="https://pinterest.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon pinterest"
+      >
+        <Icon icon="mdi:pinterest" />
+      </a>
+    </div>
+
+       <ul>
       <li><RouterLink @click="closeMenu" to="/">Home</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/about">About</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/projects">Projects</RouterLink></li>
@@ -14,6 +50,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
+
 const isMenuOpen = ref(false)
 
 function toggleMenu() {
@@ -43,6 +81,16 @@ $lg: 64rem;
 
 button {
   cursor: pointer;
+}
+
+.socialLinks{
+  
+  position: fixed;
+  bottom: 100px;
+  left:55px;
+  gap:4rem;
+  z-index: 99999;
+
 }
 
 .menu-button {
@@ -154,8 +202,8 @@ nav.menu {
   ul {
     position: absolute;
     bottom: 100px;
-    right:1px;
-    float:right;
+    right: 1px;
+    float: right;
     padding: 0;
     z-index: 99999;
 
@@ -262,4 +310,34 @@ nav.menu {
     transform: translate(0%, 0%);
   }
 }
+
+.social-icon {
+  font-size: 33px; /* Adjust size if needed */
+  transition: color 0.3s ease;
+}
+
+.twitter {
+  color: #1da1f2; /* Twitter color */
+}
+
+.github {
+  color: #ffffff; /* GitHub color */
+}
+
+.linkedin {
+  color: #0077b5; /* LinkedIn color */
+}
+
+.pinterest {
+  color: #e60023; /* Pinterest color */
+}
+
+.instagram {
+  color: #ea4c89; /* Instagram color */
+}
+
+.custom {
+  color: black; /* Custom social icon color */
+}
+
 </style>
