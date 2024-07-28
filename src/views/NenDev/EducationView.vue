@@ -28,7 +28,7 @@ const certificates = [
   }, // German School
   {
     title: 'Finishing Bachelor in Computer Science',
-    imgSrc: 'https://www.designtagebuch.de/wp-content/uploads/2008/01/uni-dortmund-logo-big.gif'
+    imgSrc: 'https://iw-up.com/wp-content/uploads/2013/09/logo-tu-dortmund.jpg'
   } // TU Dortmund Logo
 ]
 

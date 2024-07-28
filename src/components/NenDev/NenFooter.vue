@@ -17,7 +17,7 @@
          <div class="flex items-center space-x-4">
       <div class="space-x-8 flex md:hidden">
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/nenad-kalicanin-23924119a/"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon linkedin"
@@ -25,7 +25,7 @@
           <Icon icon="mdi:linkedin" />
         </a>
         <a
-          href="https://github.com"
+          href="https://github.com/nekagit"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon github"
@@ -33,7 +33,7 @@
           <Icon icon="mdi:github" />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/nenadkal/"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon instagram"
@@ -41,7 +41,7 @@
           <Icon icon="mdi:instagram" />
         </a>
         <a
-          href="https://pinterest.com"
+          href="https://www.pinterest.de/kalicanin1137/"
           target="_blank"
           rel="noopener noreferrer"
           class="social-icon pinterest"
