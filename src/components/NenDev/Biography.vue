@@ -7,7 +7,6 @@
       <div class="text-content">
         <h1 class="title text-center pb-8">{{ title }}</h1>
         <p class="description">{{ description }}</p>
-        <div class="button-group"></div>
       </div>
     </div>
   </div>
@@ -31,12 +30,11 @@ defineProps({
 </script>
 
 <style scoped>
-
 .jumbotron {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
   margin-bottom: 4rem;
 }
 
@@ -44,7 +42,9 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .image-container {
@@ -53,40 +53,16 @@ defineProps({
 }
 
 .portrait-image {
-  width: 90%;
-  padding: 1rem 1rem 2rem 1rem;
-  background-color: rgb(59, 59, 59);
-  max-width: 500px;
+  width: 100%;
+  max-width: 400px;
   height: auto;
-  margin: auto;
-  margin-top: 2rem;
-  object-fit: cover;
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
 }
 
 .portrait-image:hover {
-  transform: translate3d(0, 0, 0);
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, -1px, -1px);
-  }
-  20%,
-  80% {
-    transform: translate3d(2px, 2px, 2px);
-  }
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, -4px, -4px);
-  }
-  40%,
-  60% {
-    transform: translate3d(4px, 4px, 4px);
-  }
+  transform: rotateX(-10deg) translateZ(20px);
 }
 
 .text-content {
@@ -97,117 +73,85 @@ defineProps({
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .description {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
   padding: 2rem;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
   transition: all 0.3s ease;
-  position: relative;
 }
 
 .description:hover {
-  box-shadow: none;
-  transform: translateY(5px);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.description::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.description:hover::after {
-  opacity: 1;
-}
 .button-group {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1rem;
+  margin-top: 2rem;
 }
 
 .primary-button,
 .secondary-button {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
   cursor: pointer;
-  font-weight: bold;
-}
-.primary-button,
-.secondary-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .primary-button {
-  background-color: #000;
+  background-color: #3498db;
   color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.primary-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: all 0.5s;
-}
-
-.primary-button:hover::before {
-  left: 100%;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
 }
 
 .primary-button:hover {
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
 }
 
 .secondary-button {
   background-color: transparent;
-  color: #000;
-  text-decoration: none;
-  border: 2px solid #000;
-  transition: all 0.3s ease;
-}
-
-.secondary-button::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  transform: scaleY(0);
-  transform-origin: bottom center;
-  transition: transform 0.3s ease;
-  z-index: -1;
+  color: #3498db;
+  border: 2px solid #3498db;
 }
 
 .secondary-button:hover {
+  background-color: #3498db;
   color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.1);
 }
 
-.secondary-button:hover::after {
-  transform: scaleY(1);
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .portrait-image {
+    max-width: 300px;
+  }
 }
 </style>
