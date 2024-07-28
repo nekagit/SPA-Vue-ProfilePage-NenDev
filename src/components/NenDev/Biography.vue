@@ -3,6 +3,45 @@
     <div class="content-wrapper flex-col md:flex-row">
       <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
+        <h1 class="flex">Lanugages</h1>
+        <div class="languages flex flex-row">
+          <Icon
+            icon="twemoji:flag-for-flag-germany"
+            class="flag"
+            @mouseover="showModal('German')"
+            @mouseleave="hideModal"
+          />
+          <Icon
+            icon="twemoji:flag-for-flag-serbia"
+            class="flag"
+            @mouseover="showModal('Serbish')"
+            @mouseleave="hideModal"
+          />
+          <Icon
+            icon="twemoji:flag-for-flag-united-kingdom"
+            class="flag"
+            @mouseover="showModal('English')"
+            @mouseleave="hideModal"
+          />
+          <Icon
+            icon="twemoji:flag-for-flag-spain"
+            class="flag"
+            @mouseover="showModal('Spanish')"
+            @mouseleave="hideModal"
+          />
+          <Icon
+            icon="twemoji:flag-for-flag-turkey"
+            class="flag"
+            @mouseover="showModal('Turkish')"
+            @mouseleave="hideModal"
+          />
+          <div v-if="isModalVisible" class="modal">
+            <div class="modal-content">
+              <h3 class="modal-title">{{ currentLanguage }}</h3>
+              <p class="language-level">{{ getLanguageLevel(currentLanguage) }}</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="text-content">
         <h1 class="title text-center pb-8">{{ title }}</h1>
@@ -13,6 +52,9 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { Icon } from '@iconify/vue'
+
 defineProps({
   imageSrc: {
     type: String,
@@ -27,8 +69,31 @@ defineProps({
     required: true
   }
 })
-</script>
 
+const isModalVisible = ref(false)
+const currentLanguage = ref('')
+
+const languageLevels = {
+  German: 'C2',
+  Serbish: 'C2',
+  English: 'C2',
+  Spanish: 'B2',
+  Turkish: 'A1'
+}
+
+const showModal = (language) => {
+  currentLanguage.value = language
+  isModalVisible.value = true
+}
+
+const hideModal = () => {
+  isModalVisible.value = false
+}
+
+const getLanguageLevel = (language) => {
+  return languageLevels[language]
+}
+</script>
 <style scoped>
 .jumbotron {
   display: flex;
@@ -42,14 +107,15 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
   max-width: 1200px;
   width: 100%;
 }
 
 .image-container {
   flex: 1;
-  perspective: 1000px;
+  text-align: center;
+  position: relative;
+  width:min-content;
 }
 
 .portrait-image {
@@ -63,6 +129,62 @@ defineProps({
 
 .portrait-image:hover {
   transform: rotateX(-10deg) translateZ(20px);
+}
+
+.languages {
+  margin-top: 1rem;
+  position: relative;
+}
+
+.flag {
+  width: 40px;
+  height: auto;
+  margin: 0 5px;
+}
+
+.modal {
+  position: absolute;
+  top: 0px;
+  right: 200px;
+  width: 100px;
+  height: 100px;
+  padding: 1rem;
+  background-color: #363636;
+  color: white;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+@media (max-width: 720px) {
+  .modal {
+    top: -100px;
+    right: 0px;
+  }
+}
+@media (max-width: 1200px) {
+  .modal {
+    top: 0px;
+    right: 0px;
+  }
+}
+
+.modal-content {
+  text-align: center;
+  color: white;
+}
+
+.modal-title {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.language-level {
+  color: white;
+  font-size: 1rem;
 }
 
 .text-content {
@@ -105,53 +227,5 @@ defineProps({
 .primary-button,
 .secondary-button {
   padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.primary-button {
-  background-color: #3498db;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
-}
-
-.primary-button:hover {
-  background-color: #2980b9;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
-}
-
-.secondary-button {
-  background-color: transparent;
-  color: #3498db;
-  border: 2px solid #3498db;
-}
-
-.secondary-button:hover {
-  background-color: #3498db;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.1);
-}
-
-@media (max-width: 768px) {
-  .content-wrapper {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
-
-  .portrait-image {
-    max-width: 300px;
-  }
 }
 </style>
