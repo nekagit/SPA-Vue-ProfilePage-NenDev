@@ -1,6 +1,6 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper flex flex-col md:flex-row max-w-[90%]">
+    <div class="content-wrapper flex flex-col md:flex-row max-w-[90%] gap-8">
       <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import resumePdf from '@/../public/Nenad-Kalicanin.pdf'
+import resumePdf from '@/../public/NenadKalicanin.pdf'
 import TypeWriter from '@/components/NenDev/TypeWriter.vue'
 defineProps({
   imageSrc: {
@@ -54,8 +54,6 @@ defineProps({
   }
 })
 
-const emit = defineEmits(['primaryAction', 'secondaryAction'])
-
 
 const handleResumeClick = () => {
   const link = document.createElement('a');
@@ -63,7 +61,6 @@ const handleResumeClick = () => {
   link.download = 'Nenad-Kalicanin.pdf';
   link.click();
 }
-const onSecondaryAction = () => emit('secondaryAction')
 </script>
 
 <style scoped>
@@ -72,10 +69,6 @@ const onSecondaryAction = () => emit('secondaryAction')
   justify-content: center;
   align-items: center;
   padding: 2rem;
-}
-
-.content-wrapper {
-  gap: 4rem;
 }
 
 .image-container {

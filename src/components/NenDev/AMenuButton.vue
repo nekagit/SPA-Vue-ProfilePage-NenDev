@@ -86,8 +86,8 @@ button {
 .socialLinks {
   position: fixed;
   bottom: 100px;
-  left: 55px;
-  gap: 4rem;
+  left: 28px;
+  gap: 1rem;
   z-index: 9999;
 }
 
@@ -186,7 +186,7 @@ nav.menu {
   position: fixed;
   bottom: 1px;
   left: -100%;
-  width: 90%;
+  width: 100%;
   height: 100%;
   padding: 3.25rem 0.625rem 1.25rem;
   background-color: rgba($black, 0.8);

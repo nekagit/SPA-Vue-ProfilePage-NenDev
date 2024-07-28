@@ -11,7 +11,7 @@
     </div>
     <button class="hire-button rounded-full">
       <span><RouterLink to="resume" >Me</RouterLink></span>
-      <span>Hire</span>
+      <span><RouterLink to="resume" >Hire</RouterLink></span>
     </button>
   </div>
 </template>
