@@ -2,7 +2,7 @@
   <div class="timeline-container" ref="container">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
       <div class="date">{{ item.date }}</div>
-      <div class="timeline-content">
+      <div class="timeline-content" :class="{ 'fade-in': item.visible }">
         <div class="circle" :style="{ backgroundColor: item.color }"></div>
         <div class="card">
           <h3 class="card-title">{{ item.title }}</h3>
@@ -25,6 +25,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: 'June 2024 - Present',
     title: 'bytes Coding GmbH',
     subtitle: 'Software Developer (Freelancer)',
@@ -33,6 +34,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: 'January 2023 – March 2024',
     title: 'qmBase-Dortmund',
     subtitle: 'Software Developer',
@@ -41,6 +43,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: 'January 2021 – December 2022',
     title: 'OrgaTech Solution Engineering Consulting GmbH-Lünen',
     subtitle: 'Software Developer',
@@ -49,6 +52,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: '2020 – 2021',
     title: 'Decathlon-Dortmund',
     subtitle: 'Order Picker',
@@ -57,6 +61,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: '2017 – 2020',
     title: 'Service am Gast GmbH-Dortmund',
     subtitle: 'Waiter/Bartender',
@@ -65,6 +70,7 @@ const timelineItems = ref([
   {
     color: '#ffffff',
     lineProgress: 0,
+    visible: false,
     date: '2015 – 2017',
     title: 'Kaufland-Dortmund',
     subtitle: 'Newspaper Delivery',
@@ -72,52 +78,79 @@ const timelineItems = ref([
   },
 ]);
 
-const updateTimeline = () => {
-  if (!container.value) return;
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
 
-  const containerRect = container.value.getBoundingClientRect();
-  const containerHeight = containerRect.height;
-  const scrollPosition = window.scrollY - containerRect.top + window.innerHeight / 2;
-
-  timelineItems.value.forEach((item, index) => {
-    const itemPosition = (index / (timelineItems.value.length - 1)) * containerHeight;
-    const progress = (scrollPosition - itemPosition) / (containerHeight / (timelineItems.value.length - 1));
-    
-    if (progress >= 1) {
-      item.color = '#4a0e4e';
-    } else if (progress > 0) {
-      const r = Math.round(255 - progress * (255 - 74));
-      const g = Math.round(255 - progress * (255 - 14));
-      const b = Math.round(255 - progress * (255 - 78));
-      item.color = `rgb(${r}, ${g}, ${b})`;
-    } else {
-      item.color = '#ffffff';
-    }
-
-    if (index < timelineItems.value.length - 1) {
-      item.lineProgress = Math.max(0, Math.min(100, progress * 100));
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const index = parseInt(entry.target.dataset.index);
+      timelineItems.value[index].visible = true;
+      observer.unobserve(entry.target);
     }
   });
 };
 
+let observer;
+
 onMounted(() => {
-  window.addEventListener('scroll', updateTimeline);
-  updateTimeline();
+  observer = new IntersectionObserver(observerCallback, observerOptions);
+  
+  const timelineElements = container.value.querySelectorAll('.timeline-item');
+  timelineElements.forEach((el, index) => {
+    el.dataset.index = index;
+    observer.observe(el);
+  });
+
+  const updateColors = () => {
+    const containerRect = container.value.getBoundingClientRect();
+    const containerHeight = containerRect.height;
+    const scrollPosition = window.scrollY - containerRect.top + window.innerHeight / 2;
+
+    timelineItems.value.forEach((item, index) => {
+      const itemPosition = (index / (timelineItems.value.length - 1)) * containerHeight;
+      const progress = (scrollPosition - itemPosition) / (containerHeight / (timelineItems.value.length - 1));
+      
+      if (progress >= 1) {
+        item.color = '#4a0e4e';
+      } else if (progress > 0) {
+        const r = Math.round(255 - progress * (255 - 74));
+        const g = Math.round(255 - progress * (255 - 14));
+        const b = Math.round(255 - progress * (255 - 78));
+        item.color = `rgb(${r}, ${g}, ${b})`;
+      } else {
+        item.color = '#ffffff';
+      }
+
+      if (index < timelineItems.value.length - 1) {
+        item.lineProgress = Math.max(0, Math.min(100, progress * 100));
+      }
+    });
+  };
+
+  window.addEventListener('scroll', updateColors);
+  updateColors();
 });
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateTimeline);
+  if (observer) {
+    observer.disconnect();
+  }
+  window.removeEventListener('scroll', updateColors);
 });
 </script>
 
 <style scoped>
 .timeline-container {
-  display:grid;
+  display: grid;
   place-content: center;
   min-height: 100vh;
   padding: 20px 20px;
   max-width: 1000px;
-  width:90%;
+  width: 90%;
   margin: 2rem auto;
 }
 
@@ -142,6 +175,14 @@ onUnmounted(() => {
   display: flex;
   flex-grow: 1;
   height: min-content;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.timeline-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .circle {
@@ -210,10 +251,10 @@ onUnmounted(() => {
 }
 
 @media (max-width: 480px) {
-  .card{
-  max-width: 300px;
-  max-height: 200px;
-  overflow: auto;
+  .card {
+    max-width: 300px;
+    max-height: 200px;
+    overflow: auto;
   }
   .timeline-container {
     padding: 5px;

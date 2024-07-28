@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 import { ref, onMounted } from 'vue';
 import ProjectCard from '@/components/NenDev/ProjectCard.vue'
 import GithubCalender from '@/components/NenDev/GithubCalender.vue'
@@ -48,12 +48,35 @@ const cards = ref([
   },
 ]);
 
-// Scroll to top on mount
+// Ref for the container of project cards
+const projectContainer = ref(null);
+// Scroll to top on mount and setup Intersection Observer
 onMounted(() => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth'
   });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  });
+
+  // Observe each project card
+  if (projectContainer.value) {
+    const projectCards = projectContainer.value.querySelectorAll('.projectCard');
+    projectCards.forEach((card) => {
+      observer.observe(card);
+    });
+  }
 });
 </script>
 
@@ -61,7 +84,7 @@ onMounted(() => {
   <div class="hidden md:block">
     <GithubCalender />
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 mx-auto pt-8">
+  <div ref="projectContainer" class="grid grid-cols-1 md:grid-cols-3 mx-auto pt-8">
     <ProjectCard
       v-for="(card, index) in cards"
       class="projectCard"
@@ -75,6 +98,7 @@ onMounted(() => {
   </div>
 </template>
 
+
 <style scoped>
 .projectCard {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -83,6 +107,14 @@ onMounted(() => {
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.projectCard.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .projectCard:hover {
