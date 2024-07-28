@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import type { BaseSection } from '@/components/atoms/sections/ABaseSection.vue';
 import { defineProps } from 'vue';
 
@@ -20,4 +20,4 @@ defineProps<BaseSection>();
 </template>
 
 <style>
-</style>
+</style> -->
