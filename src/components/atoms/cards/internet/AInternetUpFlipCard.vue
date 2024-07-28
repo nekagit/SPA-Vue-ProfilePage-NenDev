@@ -1,9 +1,9 @@
 <template>
   <div class="card">
     <img :src="imgSrc" alt="asdf" />
-    <div class="card__content">
-      <p class="card__title text-wrap">{{ title }}</p>
-      <p class="card__description text-wrap" v-html="formattedDescription"></p>
+    <div class="card__content grid place-content-center">
+      <h1 class="card__title text-wrap text-center text-3xl text-bold">{{ title }}</h1>
+      <!-- <p class="card__description text-wrap" v-html="formattedDescription"></p> -->
     </div>
   </div>
 </template>
@@ -14,16 +14,16 @@ import { defineProps, computed } from 'vue'
 const props = defineProps({
   imgSrc: {
     type: String,
-    required: true,
+    required: true
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 })
 
 const formattedDescription = computed(() => {
@@ -38,14 +38,14 @@ const formattedDescription = computed(() => {
   height: auto;
   max-width: 400px;
   max-height: 300px;
-  background-color: #f2f2f2;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #313131;
   perspective: 1000px;
-  box-shadow: 0 0 0 5px #ffffff80;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -62,7 +62,7 @@ const formattedDescription = computed(() => {
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #f2f2f2;
+  background-color: #313131;
   overflow-y: auto;
   transform: rotateX(-90deg);
   transform-origin: bottom;
@@ -75,9 +75,19 @@ const formattedDescription = computed(() => {
 
 .card__title {
   margin: 0;
-  font-size: 24px;
-  color: #333;
   font-weight: 700;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card__description {
