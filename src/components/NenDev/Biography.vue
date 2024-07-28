@@ -31,6 +31,9 @@ defineProps({
 </script>
 
 <style scoped>
+img {
+  animation: fadeInUpP 1.5s ease-out;
+}
 .jumbotron {
   display: flex;
   justify-content: center;
@@ -52,10 +55,13 @@ defineProps({
 }
 
 .portrait-image {
-  width: 80%;
+  width: 90%;
+  padding: 1rem 1rem 2rem 1rem;
+  background-color: rgb(59, 59, 59);
+  max-width: 500px;
   height: auto;
-  margin:auto;
-  margin-top:2rem;
+  margin: auto;
+  margin-top: 2rem;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;

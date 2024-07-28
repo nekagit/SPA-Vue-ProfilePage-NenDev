@@ -1,14 +1,17 @@
 <template>
   <div class="jumbotron">
     <div class="content-wrapper flex flex-col md:flex-row max-w-[90%]">
-         <div class="image-container">
+      <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
       <div class="text-content">
-        <div class="title text-center ">
-          <TypeWriter class="hidden xl:flex" :texts="[title, 'I am a developer', 'Jesus is King!']" />
+        <div class="title text-center">
+          <TypeWriter
+            class="hidden xl:flex"
+            :texts="[title, 'I am a developer', 'Jesus is King!']"
+          />
           <div class="flex xl:hidden pb-8">
-            <h3>{{ title }}</h3>
+            <h3 class="hover:text-white">{{ title }}</h3>
           </div>
         </div>
         <p class="description">{{ description }}</p>
@@ -21,13 +24,12 @@
           </button>
         </div>
       </div>
-   
     </div>
   </div>
 </template>
 
 <script setup>
-import TypeWriter from '@/components/NenDev/TypeWriter.vue';
+import TypeWriter from '@/components/NenDev/TypeWriter.vue'
 defineProps({
   imageSrc: {
     type: String,
@@ -58,6 +60,9 @@ const onSecondaryAction = () => emit('secondaryAction')
 </script>
 
 <style scoped>
+img {
+  animation: fadeInUpP 1s ease-out;
+}
 .jumbotron {
   display: flex;
   justify-content: center;
@@ -74,10 +79,11 @@ const onSecondaryAction = () => emit('secondaryAction')
 }
 
 .portrait-image {
-  width: 80%;
+  width: 90%;
+  max-width: 500px;
   height: auto;
-  margin:auto;
-  margin-top:3rem;
+  margin: auto;
+  margin-top: 3rem;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
@@ -176,7 +182,7 @@ const onSecondaryAction = () => emit('secondaryAction')
 }
 
 .primary-button {
-  background-color: rgb(26, 32, 44);;
+  background-color: rgb(26, 32, 44);
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -215,7 +221,7 @@ const onSecondaryAction = () => emit('secondaryAction')
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(26, 32, 44);;
+  background-color: rgb(26, 32, 44);
   transform: scaleY(0);
   transform-origin: bottom center;
   transition: transform 0.3s ease;
