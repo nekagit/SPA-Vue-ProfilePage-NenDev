@@ -15,7 +15,23 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nenad Kalicanin</title>
+    <!-- Include Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
     <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      p,
+      h1,
+      h2,
+      h3 {
+        font-family: 'Roboto', sans-serif;
+      }
+
       @keyframes fadeInUpH1 {
         0% {
           opacity: 0;
@@ -29,6 +45,7 @@
           transform: translateY(0);
         }
       }
+
       @keyframes fade {
         0% {
           opacity: 0.1;
@@ -48,7 +65,7 @@
         }
         100% {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateX(0);
         }
       }
 
@@ -76,16 +93,29 @@
         }
         100% {
           opacity: 1;
-          transform: translateY(0);
+          transform: translateX(0);
         }
       }
 
+      img {
+        animation: fadeInUpP 1.5s ease-out;
+      }
       p {
         animation: fadeInUpP 0.5s ease-out;
       }
 
       input {
         animation: fadeInUpInput 1.5s ease-out;
+      }
+
+      h1,
+      h2,
+      h3 {
+        animation: fadeInUpH1 1s ease-out;
+      }
+
+      a {
+        animation: fade 1s ease-out;
       }
     </style>
   </head>

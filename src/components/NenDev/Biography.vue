@@ -31,9 +31,7 @@ defineProps({
 </script>
 
 <style scoped>
-img {
-  animation: fadeInUpP 1.5s ease-out;
-}
+
 .jumbotron {
   display: flex;
   justify-content: center;

@@ -60,9 +60,6 @@ const onSecondaryAction = () => emit('secondaryAction')
 </script>
 
 <style scoped>
-img {
-  animation: fadeInUpP 1s ease-out;
-}
 .jumbotron {
   display: flex;
   justify-content: center;
@@ -86,13 +83,8 @@ img {
   margin-top: 3rem;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease-in-out;
 }
 
-.portrait-image:hover {
-  animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-}
 
 @keyframes shake {
   10%,
