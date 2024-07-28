@@ -5,8 +5,11 @@
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
       <div class="text-content">
-        <div class="title text-center">
-          <TypeWriter :texts="[title, 'I am a developer', 'Jesus is King!']" />
+        <div class="title text-center ">
+          <TypeWriter class="hidden xl:flex" :texts="[title, 'I am a developer', 'Jesus is King!']" />
+          <div class="flex xl:hidden pb-8">
+            <h3>{{ title }}</h3>
+          </div>
         </div>
         <p class="description">{{ description }}</p>
         <div class="button-group">

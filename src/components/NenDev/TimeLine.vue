@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline-container " ref="container">
+  <div class="timeline-container" ref="container">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
       <div class="date">{{ item.date }}</div>
       <div class="timeline-content">
@@ -46,7 +46,7 @@ const timelineItems = ref([
     subtitle: 'Software Developer',
     description: 'Worked on Java backend development integrated with HTML, CSS, and JavaScript for frontend solutions. Also involved in Flutter mobile development.'
   },
-    {
+  {
     color: '#ffffff',
     lineProgress: 0,
     date: '2020 – 2021',
@@ -54,7 +54,7 @@ const timelineItems = ref([
     subtitle: 'Order Picker',
     description: 'Responsible for efficiently picking and packing orders, ensuring timely and accurate delivery of products.'
   },
-    {
+  {
     color: '#ffffff',
     lineProgress: 0,
     date: '2017 – 2020',
@@ -62,7 +62,7 @@ const timelineItems = ref([
     subtitle: 'Waiter/Bartender',
     description: 'Provided excellent customer service in a fast-paced environment, managing orders and ensuring a high-quality dining experience.'
   },
-     {
+  {
     color: '#ffffff',
     lineProgress: 0,
     date: '2015 – 2017',
@@ -70,7 +70,6 @@ const timelineItems = ref([
     subtitle: 'Newspaper Delivery',
     description: 'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
   },
-  // Add more items as needed
 ]);
 
 const updateTimeline = () => {
@@ -113,12 +112,13 @@ onUnmounted(() => {
 
 <style scoped>
 .timeline-container {
-  position: relative;
+  display:grid;
+  place-content: center;
   min-height: 100vh;
   padding: 20px 20px;
   max-width: 1000px;
-  margin: 0 auto;
-
+  width:90%;
+  margin: 2rem auto;
 }
 
 .timeline-item {
@@ -129,7 +129,7 @@ onUnmounted(() => {
 }
 
 .date {
-  width: 150px;
+  width: 100px;
   text-align: right;
   padding-right: 30px;
   font-size: 14px;
@@ -160,7 +160,7 @@ onUnmounted(() => {
   background-color: #f9f9f9;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
 }
 
@@ -187,9 +187,9 @@ onUnmounted(() => {
   width: 2px;
   background-color: #e0e0e0;
   position: absolute;
-  left: 159px;
-  top: 20px;
-  bottom: -30px;
+  left: 109px;
+  top: 25px;
+  bottom: -20px;
   z-index: 1;
 }
 
@@ -200,5 +200,39 @@ onUnmounted(() => {
   bottom: 0;
   left: 0;
   transition: height 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card{
+  max-width: 300px;
+  max-height: 200px;
+  overflow: auto;
+  }
+  .timeline-container {
+    padding: 5px;
+  }
+  
+  .timeline-item {
+    margin-bottom: 30px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-subtitle, .card-description {
+    font-size: 14px;
+  }
 }
 </style>

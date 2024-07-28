@@ -1,9 +1,9 @@
 <template>
-  <div class="md:hidden">
+  <div class="xl:hidden">
     <AMenuButton />
   </div>
   <nav class="flex items-center justify-between p-32 pt-8 pb-8">
-    <div class="flex space-x-8 hidden md:block">
+    <div class="flex space-x-8 hidden xl:block">
       <RouterLink to="/" class="nav-link" active-class="activeLink">Home</RouterLink>
       <RouterLink to="/about" class="nav-link" active-class="activeLink">About</RouterLink>
       <RouterLink to="/projects" class="nav-link" active-class="activeLink">Projects</RouterLink>
@@ -13,7 +13,7 @@
       <RouterLink to="/" class="logo">NK</RouterLink>
     </div>
     <div class="flex  items-center space-x-4">
-      <div class="space-x-8 hidden md:flex">
+      <div class="space-x-8 hidden xl:flex">
         <a
           href="https://linkedin.com"
           target="_blank"

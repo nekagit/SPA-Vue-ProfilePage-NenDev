@@ -36,6 +36,7 @@ defineProps({
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  margin-bottom: 4rem;
 }
 
 .content-wrapper {
