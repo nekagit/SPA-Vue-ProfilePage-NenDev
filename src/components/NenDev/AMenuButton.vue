@@ -3,7 +3,7 @@
     <span></span>
   </button>
   <nav class="menu" :class="{ open: isMenuOpen }">
-    <div :class="['flex flex-col socialLinks', { 'hide-social': !isMenuOpen }]">
+    <div :class="['flex flex-col socialLinks fade', { 'hide-social': !isMenuOpen }]">
       <a
         href="https://linkedin.com"
         target="_blank"
@@ -185,7 +185,7 @@ button {
 nav.menu {
   position: fixed;
   bottom: 1px;
-  right: -100%;
+  left: -100%;
   width: 90%;
   height: 100%;
   padding: 3.25rem 0.625rem 1.25rem;
@@ -194,7 +194,7 @@ nav.menu {
   transition: 0.25s ease;
 
   &.open {
-    right: 0%;
+    left: 0%;
 
     @media (min-width: $med) {
       width: 40%;
@@ -290,9 +290,9 @@ nav.menu {
 
 .fade {
   -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 1s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
 }
 
 @keyframes fade {
