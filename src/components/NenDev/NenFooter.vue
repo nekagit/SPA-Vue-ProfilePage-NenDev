@@ -1,5 +1,5 @@
 <template>
-  <ABaseHorizontalSection class="charmFont" :title="'Contact'" />
+  <ABaseHorizontalSection class="font-bold" :title="'Contact'" />
   <div class="container">
     <footer>
       <div
