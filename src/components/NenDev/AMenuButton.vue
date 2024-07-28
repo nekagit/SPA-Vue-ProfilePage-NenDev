@@ -3,8 +3,7 @@
     <span></span>
   </button>
   <nav class="menu" :class="{ open: isMenuOpen }">
-
-    <div class="flex flex-col socialLinks">
+    <div :class="['flex flex-col socialLinks', { 'hide-social': !isMenuOpen }]">
       <a
         href="https://linkedin.com"
         target="_blank"
@@ -39,7 +38,7 @@
       </a>
     </div>
 
-       <ul>
+    <ul>
       <li><RouterLink @click="closeMenu" to="/">Home</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/about">About</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/projects">Projects</RouterLink></li>
@@ -47,6 +46,7 @@
     </ul>
   </nav>
 </template>
+
 
 <script setup lang="ts">
 import { ref } from 'vue'
@@ -83,14 +83,16 @@ button {
   cursor: pointer;
 }
 
-.socialLinks{
-  
+.socialLinks {
   position: fixed;
   bottom: 100px;
-  left:55px;
-  gap:4rem;
-  z-index: 99999;
+  left: 55px;
+  gap: 4rem;
+  z-index: 9999;
+}
 
+.hide-social {
+  display: none;
 }
 
 .menu-button {
@@ -339,5 +341,4 @@ nav.menu {
 .custom {
   color: black; /* Custom social icon color */
 }
-
 </style>
