@@ -1,13 +1,13 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper">
+    <div class="content-wrapper flex-col md:flex-row">
+      <div class="image-container">
+        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
+      </div>
       <div class="text-content">
         <h1 class="title text-center pb-8">{{ title }}</h1>
         <p class="description">{{ description }}</p>
         <div class="button-group"></div>
-      </div>
-      <div class="image-container">
-        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
     </div>
   </div>
@@ -40,8 +40,9 @@ defineProps({
 
 .content-wrapper {
   display: flex;
-  max-width: 90%;
-  gap: 8rem;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .image-container {
@@ -52,6 +53,8 @@ defineProps({
 .portrait-image {
   width: 80%;
   height: auto;
+  margin:auto;
+  margin-top:2rem;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;

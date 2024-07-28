@@ -154,11 +154,8 @@ nav.menu {
   ul {
     position: absolute;
     bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin: 0;
+    right:1px;
+    float:right;
     padding: 0;
     z-index: 99999;
 
