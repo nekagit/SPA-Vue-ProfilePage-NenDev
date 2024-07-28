@@ -27,7 +27,7 @@ const props = defineProps({
 const displayText = ref('')
 let currentIndex = 0
 let isTyping = true
-let timeoutId = null
+let timeoutId = undefined
 
 const typeText = () => {
   const currentText = props.texts[currentIndex]

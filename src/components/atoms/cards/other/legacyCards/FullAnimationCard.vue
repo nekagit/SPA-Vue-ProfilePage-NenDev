@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import {
   Accordion,
   AccordionContent,
@@ -35,7 +35,6 @@ const homeCard = {
       </div>
     </div>  
     <div class="text">
-      <!-- <img class="inset" :src="cardPic" alt="" /> -->
       <div v-for="sectionHeader in homeCard.sectionHeaders" :key="sectionHeader.title">
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
@@ -45,7 +44,6 @@ const homeCard = {
               </h5>
             </AccordionTrigger>
             <AccordionContent>
-              <!-- <img :src="sectionHeader.img" alt="sponsori" /> -->
             </AccordionContent>
           </AccordionItem>
         </Accordion>
@@ -256,4 +254,4 @@ const homeCard = {
 .delay-8 {
   animation-delay: 2.4s;
 }
-</style>
+</style> -->

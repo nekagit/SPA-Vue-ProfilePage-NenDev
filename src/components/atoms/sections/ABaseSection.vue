@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="grid md:grid-cols-2 md:w-[100%] w-full grid-cols-1 w[50%] mx-auto text-white">
     <div class="">
       <h1
@@ -36,4 +36,4 @@ export interface BaseSection {
 defineProps<BaseSection>()
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from 'vue'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
@@ -63,4 +63,4 @@ const slides = [
       </vueper-slide>
     </vueper-slides>
   </div>
-</template>
+</template> -->

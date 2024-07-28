@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import LinearProgressBar from "@/components/atoms/bars/LinearProgressBar.vue";
 import ABaseHorizontalSection from "@/components/atoms/sections/ABaseHorizontalSection.vue";
 import BaseSection from '@/components/atoms/sections/ABaseSection.vue';
@@ -41,4 +41,4 @@ const chooseSection = {
 </template>
 
 <style scoped>
-</style>
+</style> -->

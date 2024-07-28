@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import ABaseGallery from '@/components/molekules/img/MBaseGallery.vue';
 import { onMounted, ref } from 'vue';
 
@@ -91,4 +91,4 @@ ul.tabs li a.active {
 #terms > div:first-child {
   display: block;
 }
-</style>
+</style> -->

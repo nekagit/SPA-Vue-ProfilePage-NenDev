@@ -1,4 +1,4 @@
-<<template>
+<!-- <<template>
   <div class="wrap animate pop" :style="{ borderImage: borderGradient }">
     <div class="overlay" :style="{ background: overlayBackgroundColor }">
       <div class="overlay-content animate slide-left delay-2">
@@ -284,4 +284,4 @@ p {
 .delay-8 {
   animation-delay: 2.4s;
 }
-</style>
+</style> -->

@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 
 </script>
 <template>
     <div class="login-box ">
-      <h1 class="font-bold text-2xl" :class="{ 'float-end': position === 'right', 'text-center': position === 'center' }">{{ sectionItem.title }}</h1> <!-- Adjusted class binding -->
+      <h1 class="font-bold text-2xl" :class="{ 'float-end': position === 'right', 'text-center': position === 'center' }">{{ sectionItem.title }}</h1> 
       <form>
         <div class="user-box">
           <p v-for="content in sectionItem.content" class="text-slate-400" :key="content">
@@ -178,4 +178,4 @@
     bottom: 100%;
   }
 }
-</style>
+</style> -->
