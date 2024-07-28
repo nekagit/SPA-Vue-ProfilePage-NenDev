@@ -3,7 +3,7 @@
   <div class="star-rating">
     <h3>{{ props.name }}</h3>
     <span
-      v-for="n in 5"
+      v-for="n in 10"
       :key="n"
       :class="{ filled: n <= currentRating }"
       @click="setRating(n)"
