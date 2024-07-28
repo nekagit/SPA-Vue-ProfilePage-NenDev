@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import ResumeView from '@/views/NenDev/ResumeView.vue'
 import HomeView from '../views/NenDev/HomeView.vue'
 import AboutView from '@/views/NenDev/AboutView.vue'
 import EducationView from '@/views/NenDev/EducationView.vue'
@@ -28,6 +28,11 @@ const router = createRouter({
       name: 'projects',
       component: ProjectsView
     },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: ResumeView
+    }
   ]
 })
 

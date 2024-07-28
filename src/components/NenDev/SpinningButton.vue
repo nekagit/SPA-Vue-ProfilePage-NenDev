@@ -10,7 +10,7 @@
       </span>
     </div>
     <button class="hire-button rounded-full">
-      <span>Me</span>
+      <span><RouterLink to="resume" >Me</RouterLink></span>
       <span>Hire</span>
     </button>
   </div>
@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-
+import { RouterLink } from 'vue-router';
 const text = 'Full Stack Developer • UI/UX Designer •'
 const chars = text.split('')
 const rotationAngle = computed(() => 360 / chars.length)

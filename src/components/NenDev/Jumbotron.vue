@@ -5,7 +5,7 @@
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
       <div class="text-content">
-        <div class="title text-center">
+        <div class="title text-center align-center">
           <TypeWriter
             class="hidden xl:flex"
             :texts="[title, 'I am a developer', 'Jesus is King!']"
@@ -19,7 +19,7 @@
           <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
           </button> -->
-          <button class="secondary-button" @click="onSecondaryAction">
+          <button class="secondary-button" @click="handleResumeClick">
             {{ secondaryButtonText }}
           </button>
         </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script setup>
+import resumePdf from '@/../public/Nenad-Kalicanin.pdf'
 import TypeWriter from '@/components/NenDev/TypeWriter.vue'
 defineProps({
   imageSrc: {
@@ -55,7 +56,13 @@ defineProps({
 
 const emit = defineEmits(['primaryAction', 'secondaryAction'])
 
-const onPrimaryAction = () => emit('primaryAction')
+
+const handleResumeClick = () => {
+  const link = document.createElement('a');
+  link.href = resumePdf;
+  link.download = 'Nenad-Kalicanin.pdf';
+  link.click();
+}
 const onSecondaryAction = () => emit('secondaryAction')
 </script>
 
@@ -116,7 +123,6 @@ const onSecondaryAction = () => emit('secondaryAction')
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 }
 
 .description {
