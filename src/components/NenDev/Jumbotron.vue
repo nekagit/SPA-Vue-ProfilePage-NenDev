@@ -13,9 +13,9 @@
         </div>
         <p class="description">{{ description }}</p>
         <div class="button-group">
-          <button class="primary-button" @click="onPrimaryAction">
+          <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
-          </button>
+          </button> -->
           <button class="secondary-button" @click="onSecondaryAction">
             {{ secondaryButtonText }}
           </button>
