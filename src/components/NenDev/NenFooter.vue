@@ -13,6 +13,42 @@
         <div class="">
           <a href="docuverse.netlify.app" class="text-black opacity-60 hover:text-blue-300">DocuVerse</a>
         </div>
+         <div class="flex items-center space-x-4">
+      <div class="space-x-8 flex md:hidden">
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-icon linkedin"
+        >
+          <Icon icon="mdi:linkedin" />
+        </a>
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-icon github"
+        >
+          <Icon icon="mdi:github" />
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-icon instagram"
+        >
+          <Icon icon="mdi:instagram" />
+        </a>
+        <a
+          href="https://pinterest.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-icon pinterest"
+        >
+          <Icon icon="mdi:pinterest" />
+        </a>
+      </div>
+    </div>
       </div>
     </footer>
   </div>

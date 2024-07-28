@@ -11,9 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import StarRating from '@/components/NenDev/StarRating.vue';
 import { Icon } from '@iconify/vue';
-import StarRating from './StarRating.vue';
+import { ref } from 'vue';
 
 interface Technology {
   name: string;

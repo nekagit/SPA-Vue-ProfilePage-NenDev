@@ -170,7 +170,7 @@ const onSecondaryAction = () => emit('secondaryAction')
 }
 
 .primary-button {
-  background-color: #000;
+  background-color: rgb(26, 32, 44);;
   color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -209,7 +209,7 @@ const onSecondaryAction = () => emit('secondaryAction')
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: rgb(26, 32, 44);;
   transform: scaleY(0);
   transform-origin: bottom center;
   transition: transform 0.3s ease;

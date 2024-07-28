@@ -7,7 +7,7 @@
       <RouterLink to="/" class="nav-link" active-class="activeLink">Home</RouterLink>
       <RouterLink to="/about" class="nav-link" active-class="activeLink">About</RouterLink>
       <RouterLink to="/projects" class="nav-link" active-class="activeLink">Projects</RouterLink>
-      <RouterLink to="/articles" class="nav-link" active-class="activeLink">Articles</RouterLink>
+      <RouterLink to="/education" class="nav-link" active-class="activeLink">Education</RouterLink>
     </div>
     <div class="flex justify-center flex-1">
       <RouterLink to="/" class="logo">NK</RouterLink>

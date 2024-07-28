@@ -28,11 +28,15 @@ body {
   padding: 0;
   scroll-behavior: smooth;
   height: 100%;
-  background-color: rgb(240,240,240);
+  background-color: rgb(227, 227, 227);
   /* background-color: rgb(33, 42, 88); */
 
   font-optical-sizing: auto;
   font-style: normal;
+}
+
+h1,p,h2,h3,h4 {
+  color:rgb(26, 32, 44);
 }
 
 .charmFont {

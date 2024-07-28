@@ -5,46 +5,46 @@ import GithubCalender from '@/components/NenDev/GithubCalender.vue'
 // Sample card data
 const cards = ref([
   {
-    title: 'Project A',
-    stars: 4,
-    description: 'A description of Project A.',
+    title: 'ArtPage',
+    stars: 0,
+    description: 'E-Commerce for selling paintings.  www.stankovicart.com ',
     technology: 'Vue.js',
-    codeLink: 'https://github.com/user/project-a'
+    codeLink: 'https://github.com/nekagit/VueProfileArtPage'
   },
   {
-    title: 'Project B',
-    stars: 5,
-    description: 'A description of Project B.',
-    technology: 'React',
-    codeLink: 'https://github.com/user/project-b'
-  },
-  {
-    title: 'Project C',
-    stars: 3,
-    description: 'A description of Project C.',
+    title: 'ProfilePage',
+    stars: 0,
+    description: 'Profile of a sports club in Rotterdam. www.stichtingsoprotterdam.nl ',
     technology: 'Angular',
-    codeLink: 'https://github.com/user/project-c'
+    codeLink: 'https://github.com/nekagit/soprotterdam'
   },
   {
-    title: 'Project A',
-    stars: 4,
-    description: 'A description of Project A.',
+    title: 'Simple ChatBot Extension',
+    stars: 0,
+    description: 'An extension that can be connected to local llama3 or directly communicate with OpenAI, to feed PDFs of current website for query.(BachelorThesis)',
+    technology: 'Javascript',
+    codeLink: 'https://github.com/nekagit/BASimpleChatBotExtension'
+  },
+  {
+    title: 'Leaflet Map with MySQL Data',
+    stars: 0,
+    description: 'Different Markers shown on Map regarding Package details.',
     technology: 'Vue.js',
-    codeLink: 'https://github.com/user/project-a'
+    codeLink: 'https://github.com/nekagit/LeafletMySQLVue'
   },
   {
-    title: 'Project B',
-    stars: 5,
-    description: 'A description of Project B.',
-    technology: 'React',
-    codeLink: 'https://github.com/user/project-b'
+    title: 'DocuVerse: Documentation Website',
+    stars: 0,
+    description: 'Knowledge i gathered on one place.',
+    technology: 'React/Docusaurus',
+    codeLink: 'https://github.com/nekagit/docuVerse'
   },
   {
-    title: 'Project C',
-    stars: 3,
-    description: 'A description of Project C.',
-    technology: 'Angular',
-    codeLink: 'https://github.com/user/project-c'
+    title: 'WebApp qmBase',
+    stars: 0,
+    description: 'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
+    technology: 'React, C#',
+    codeLink: 'https://github.com/qmBase/docs'
   },
 ]);
 
@@ -58,8 +58,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <GithubCalender />
-  <div class="grid grid-cols-3">
+  <div class="hidden md:block">
+    <GithubCalender />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 mx-auto pt-8">
     <ProjectCard
       v-for="(card, index) in cards"
       class="projectCard"

@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h3 class="title">{{ title }}</h3>
-    <div class="rating">{{ stars }} Stars</div>
+    <div class="rating">{{ stars }} ★</div>
     <p class="description">{{ description }}</p>
     <p class="technology">{{ technology }}</p>
     <p class="codeLink"><a :href="codeLink" target="_blank" rel="noopener noreferrer">View Code</a></p>
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   title: {
     type: String,
     required: true
@@ -35,6 +35,9 @@ const props = defineProps({
 
 <style scoped>
 .card {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: rgb(37, 37, 37);
   color: white;
   border-radius: 8px;
@@ -48,6 +51,7 @@ const props = defineProps({
   font-size: 1.5rem;
   margin-bottom: 8px;
   font-weight: bold;
+  color:white;
 }
 
 .rating {
@@ -56,6 +60,7 @@ const props = defineProps({
 }
 
 .description {
+  color:white;
   font-size: 0.875rem;
   margin-bottom: 12px;
 }

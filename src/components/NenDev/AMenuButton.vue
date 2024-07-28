@@ -6,8 +6,8 @@
     <ul>
       <li><RouterLink @click="closeMenu" to="/">Home</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/about">About</RouterLink></li>
-      <li><RouterLink @click="closeMenu" to="/education">Education</RouterLink></li>
       <li><RouterLink @click="closeMenu" to="/projects">Projects</RouterLink></li>
+      <li><RouterLink @click="closeMenu" to="/education">Education</RouterLink></li>
     </ul>
   </nav>
 </template>
