@@ -2,7 +2,9 @@
   <div class="jumbotron">
     <div class="content-wrapper">
       <div class="text-content">
-        <h1 class="title text-center pb-8">{{ title }}</h1>
+        <div class="title text-center pb-8">
+          <TypeWriter :texts="[title, 'I am a developer', 'Jesus is King!']" />
+        </div>
         <p class="description">{{ description }}</p>
         <div class="button-group">
           <button class="primary-button" @click="onPrimaryAction">
@@ -21,6 +23,7 @@
 </template>
 
 <script setup>
+import TypeWriter from '@/components/NenDev/TypeWriter.vue';
 defineProps({
   imageSrc: {
     type: String,
