@@ -139,7 +139,6 @@ onUnmounted(() => {
   if (observer) {
     observer.disconnect();
   }
-  window.removeEventListener('scroll', updateColors);
 });
 </script>
 
