@@ -1,60 +1,58 @@
 <template>
-<div class="typewriter-container">
+  <div class="typewriter-container">
     <h3 class="typewriter-text">{{ displayText }}<span class="cursor">|</span></h3>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
-const props = defineProps({
-  texts: {
-    type: Array,
-    required: true
-  },
-  typingSpeed: {
-    type: Number,
-    default: 100
-  },
-  erasingSpeed: {
-    type: Number,
-    default: 50
-  },
-  delayBetweenTexts: {
-    type: Number,
-    default: 2000
-  }
+
+interface Props {
+  texts: string[];
+  typingSpeed?: number;
+  erasingSpeed?: number;
+  delayBetweenTexts?: number;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  typingSpeed: 100,
+  erasingSpeed: 50,
+  delayBetweenTexts: 2000
 })
+
 const displayText = ref('')
 let currentIndex = 0
 let isTyping = true
-let timeoutId = undefined
+let timeoutId: number | undefined = undefined
 
 const typeText = () => {
   const currentText = props.texts[currentIndex]
+  if (currentText === undefined) return
+
   if (isTyping && displayText.value.length < currentText.length) {
     displayText.value += currentText[displayText.value.length]
-    timeoutId = setTimeout(typeText, props.typingSpeed)
+    timeoutId = window.setTimeout(typeText, props.typingSpeed)
   } else if (isTyping && displayText.value.length === currentText.length) {
     isTyping = false
-    timeoutId = setTimeout(eraseText, props.delayBetweenTexts)
+    timeoutId = window.setTimeout(eraseText, props.delayBetweenTexts)
   } else if (!isTyping && displayText.value.length > 0) {
     displayText.value = displayText.value.slice(0, -1)
-    timeoutId = setTimeout(eraseText, props.erasingSpeed)
+    timeoutId = window.setTimeout(eraseText, props.erasingSpeed)
   } else {
     isTyping = true
     currentIndex = (currentIndex + 1) % props.texts.length
-    timeoutId = setTimeout(typeText, props.typingSpeed)
+    timeoutId = window.setTimeout(typeText, props.typingSpeed)
   }
 }
 
 const eraseText = () => {
   if (displayText.value.length > 0) {
     displayText.value = displayText.value.slice(0, -1)
-    timeoutId = setTimeout(eraseText, props.erasingSpeed)
+    timeoutId = window.setTimeout(eraseText, props.erasingSpeed)
   } else {
     isTyping = true
     currentIndex = (currentIndex + 1) % props.texts.length
-    timeoutId = setTimeout(typeText, props.typingSpeed)
+    timeoutId = window.setTimeout(typeText, props.typingSpeed)
   }
 }
 
@@ -63,9 +61,10 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (timeoutId) clearTimeout(timeoutId)
+  if (timeoutId !== undefined) window.clearTimeout(timeoutId)
 })
 </script>
+
 <style scoped>
 .typewriter-container {
   width: 100%; /* Adjust as needed */
