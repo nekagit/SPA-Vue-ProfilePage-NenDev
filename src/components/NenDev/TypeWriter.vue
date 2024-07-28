@@ -68,7 +68,7 @@ onUnmounted(() => {
 <style scoped>
 .typewriter-container {
   width: 100%; /* Adjust as needed */
-  height: 2.8em; /* Adjust based on your needs */
+  height: auto; /* Adjust based on your needs */
   overflow: hidden;
 }
 

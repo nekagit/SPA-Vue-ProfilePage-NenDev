@@ -1,8 +1,11 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper">
+    <div class="content-wrapper flex flex-col md:flex-row max-w-[90%]">
+         <div class="image-container">
+        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
+      </div>
       <div class="text-content">
-        <div class="title text-center pb-8">
+        <div class="title text-center">
           <TypeWriter :texts="[title, 'I am a developer', 'Jesus is King!']" />
         </div>
         <p class="description">{{ description }}</p>
@@ -15,9 +18,7 @@
           </button>
         </div>
       </div>
-      <div class="image-container">
-        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
-      </div>
+   
     </div>
   </div>
 </template>
@@ -62,19 +63,18 @@ const onSecondaryAction = () => emit('secondaryAction')
 }
 
 .content-wrapper {
-  display: flex;
-  max-width: 90%;
-  gap: 8rem;
+  gap: 4rem;
 }
 
 .image-container {
   flex: 1;
-  perspective: 1000px;
 }
 
 .portrait-image {
   width: 80%;
   height: auto;
+  margin:auto;
+  margin-top:3rem;
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease-in-out;
