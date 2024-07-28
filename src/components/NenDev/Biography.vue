@@ -43,7 +43,7 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .image-container {
