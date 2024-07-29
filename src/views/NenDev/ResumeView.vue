@@ -1,6 +1,6 @@
 <template>
   <div class="resume">
-    <div class="header grid grid-cols-1 xl:grid-cols-3 ">
+    <div class="header grid grid-cols-1 xl:grid-cols-3">
       <div class="mx-auto">
         <h1 class="text-black">Nenad Kalicanin</h1>
         <h2 class="text-gold">Software Developer</h2>
@@ -33,14 +33,13 @@
           <h3 class="text-aqua">PROFILE</h3>
           <p class="text-black">
             A software engineer with a strong commitment to developing innovative software
-            solutions. With proficiency in <strong class="text-gold">TypeScript</strong> and <strong class="text-gold">MSSQL</strong>, I have extensive experience in
-            creating web applications, APIs, and database-driven software. 
+            solutions. With proficiency in <strong class="text-gold">TypeScript</strong> and
+            <strong class="text-gold">MSSQL</strong>, I have extensive experience in creating web
+            applications, APIs, and database-driven software.
           </p>
-            <p class="text-black" >
-              
-            My strengths include
-            working collaboratively within team environments and utilizing critical thinking to
-            solve problems and implement effective solutions.
+          <p class="text-black">
+            My strengths include working collaboratively within team environments and utilizing
+            critical thinking to solve problems and implement effective solutions.
           </p>
         </section>
         <section>
@@ -48,9 +47,11 @@
           <div class="project">
             <h4 class="pt-4 text-aqua">qmBase</h4>
             <p><strong>React.ts</strong> / <strong>C#</strong></p>
-            <p class="text-black">Fully developed enterprise application for ISO 9001 certificates.</p>
+            <p class="text-black">
+              Fully developed enterprise application for ISO 9001 certificates.
+            </p>
           </div>
-          <hr class="project-divider"/>
+          <hr class="project-divider" />
           <div class="project">
             <h4 class="text-aqua">Simple ChatBot Extension</h4>
             <p><strong>JavaScript</strong></p>
@@ -58,7 +59,9 @@
               Developed an extension that connects to local Llama3 or OpenAI to query PDFs of the
               current website.
             </p>
-            <p class="text-black">Designed to enhance user interaction by providing instant information retrieval.</p>
+            <p class="text-black">
+              Designed to enhance user interaction by providing instant information retrieval.
+            </p>
           </div>
         </section>
       </div>
@@ -82,21 +85,25 @@
         <section>
           <h3 class="text-aqua">HARD SKILLS</h3>
           <p class="text-black mt-4">
-            <strong>Frontend:</strong> <br/> HTML, CSS, ReactJS, VueJS, TypeScript
+            <strong>Frontend:</strong> <br />
+            HTML, CSS, ReactJS, VueJS, TypeScript
           </p>
           <p class="text-black">
-            <strong>Backend:</strong> <br/> C#, NodeJS, Java, Python
+            <strong>Backend:</strong> <br />
+            C#, NodeJS, Java, Python
           </p>
           <p class="text-black">
-            <strong>Database:</strong> <br/> MySQL, MSSQL, MongoDB, Serverless
+            <strong>Database:</strong> <br />
+            MySQL, MSSQL, MongoDB, Serverless
           </p>
           <p class="text-black">
-            <strong>Online Collaboration Tool:</strong> <br/> Figma, Github
+            <strong>Online Collaboration Tool:</strong> <br />
+            Figma, Github
           </p>
         </section>
         <section>
           <h3 class="text-aqua">LANGUAGE</h3>
-            <ul class="pt-4 text-black">
+          <ul class="pt-4 text-black">
             <li>English (C2)</li>
             <li>German (C2)</li>
             <li>Serbish (C2)</li>
@@ -121,10 +128,11 @@ import { Icon } from '@iconify/vue'
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-p{
+p {
   padding: 0.3rem;
-  font-size:large;
+  font-size: large;
 }
+
 
 .resume {
   font-family: 'Roboto', sans-serif;
@@ -163,12 +171,24 @@ p{
   vertical-align: middle;
 }
 
-.map-icon { color: #ff6347; }
-.email-icon { color: #ffa500; }
-.web-icon { color: #4682b4; }
-.phone-icon { color: #32cd32; }
-.github-icon { color: #333; }
-.linkedin-icon { color: #0077b5; }
+.map-icon {
+  color: #ff6347;
+}
+.email-icon {
+  color: #ffa500;
+}
+.web-icon {
+  color: #4682b4;
+}
+.phone-icon {
+  color: #32cd32;
+}
+.github-icon {
+  color: #333;
+}
+.linkedin-icon {
+  color: #0077b5;
+}
 
 .profile-img {
   max-width: 180px;
@@ -228,7 +248,6 @@ ul {
   margin-top: 5px;
   list-style-type: disc; /* Adds bullets */
   list-style-position: inside; /* Ensures bullets appear inside the padding */
-
 }
 
 .footer {
@@ -236,5 +255,21 @@ ul {
   text-align: center;
   font-size: 14px;
   color: #000000;
+}
+
+
+@media (max-width: 730px) {
+  .resume {
+    padding: 0;
+  }
+  .content{
+    display:block;
+  }
+  p {
+    font-size: small;
+  }
+  li {
+    font-size: small;
+  }
 }
 </style>
