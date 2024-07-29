@@ -17,7 +17,7 @@
           <Icon icon="mdi:web" class="contact-icon web-icon" /> nenadkalicanin.netlify.app
         </p>
         <p class="text-black">
-          <Icon icon="mdi:phone" class="contact-icon phone-icon" /> 01781109558
+          <Icon icon="mdi:phone" class="contact-icon phone-icon" /> +491781109558
         </p>
         <p class="text-black">
           <Icon icon="mdi:github" class="contact-icon github-icon" /> nekagit
