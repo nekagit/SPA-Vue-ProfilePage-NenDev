@@ -1,44 +1,46 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper flex-col md:flex-row">
+    <div class="content-wrapper flex-col md:flex-row gap-8">
       <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
-        <h1 class="flex">Lanugages</h1>
-        <div class="languages flex flex-row">
-          <Icon
-            icon="twemoji:flag-for-flag-germany"
-            class="flag"
-            @mouseover="showModal('German')"
-            @mouseleave="hideModal"
-          />
-          <Icon
-            icon="twemoji:flag-for-flag-serbia"
-            class="flag"
-            @mouseover="showModal('Serbish')"
-            @mouseleave="hideModal"
-          />
-          <Icon
-            icon="twemoji:flag-for-flag-united-kingdom"
-            class="flag"
-            @mouseover="showModal('English')"
-            @mouseleave="hideModal"
-          />
-          <Icon
-            icon="twemoji:flag-for-flag-spain"
-            class="flag"
-            @mouseover="showModal('Spanish')"
-            @mouseleave="hideModal"
-          />
-          <Icon
-            icon="twemoji:flag-for-flag-turkey"
-            class="flag"
-            @mouseover="showModal('Turkish')"
-            @mouseleave="hideModal"
-          />
-          <div v-if="isModalVisible" class="modal">
-            <div class="modal-content">
-              <h3 class="modal-title">{{ currentLanguage }}</h3>
-              <p class="language-level">{{ getLanguageLevel(currentLanguage) }}</p>
+        <div>
+          <h1 class="flex">Lanugages</h1>
+          <div class="languages flex flex-row">
+            <Icon
+              icon="twemoji:flag-for-flag-germany"
+              class="flag"
+              @mouseover="showModal('German')"
+              @mouseleave="hideModal"
+            />
+            <Icon
+              icon="twemoji:flag-for-flag-serbia"
+              class="flag"
+              @mouseover="showModal('Serbish')"
+              @mouseleave="hideModal"
+            />
+            <Icon
+              icon="twemoji:flag-for-flag-united-kingdom"
+              class="flag"
+              @mouseover="showModal('English')"
+              @mouseleave="hideModal"
+            />
+            <Icon
+              icon="twemoji:flag-for-flag-spain"
+              class="flag"
+              @mouseover="showModal('Spanish')"
+              @mouseleave="hideModal"
+            />
+            <Icon
+              icon="twemoji:flag-for-flag-turkey"
+              class="flag"
+              @mouseover="showModal('Turkish')"
+              @mouseleave="hideModal"
+            />
+            <div v-if="isModalVisible" class="modal">
+              <div class="modal-content">
+                <h3 class="modal-title">{{ currentLanguage }}</h3>
+                <p class="language-level">{{ getLanguageLevel(currentLanguage) }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -119,7 +121,7 @@ const getLanguageLevel = (language) => {
 
 .portrait-image {
   width: 100%;
-  max-width: 600px;
+  max-width: 500px;
   height: auto;
   border-radius: 15px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
@@ -144,7 +146,7 @@ const getLanguageLevel = (language) => {
 .modal {
   position: absolute;
   top: 0px;
-  right: 200px;
+  left: 200px;
   width: 100px;
   height: 100px;
   padding: 1rem;
