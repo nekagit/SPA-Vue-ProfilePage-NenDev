@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html class="dark" lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -20,107 +21,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
-    <style>
-      body {
-        font-family: 'Roboto', sans-serif;
-      }
-
-      p,
-      h1,
-      h2,
-      h3 {
-        font-family: 'Roboto', sans-serif;
-      }
-
-      @keyframes fadeInUpH1 {
-        0% {
-          opacity: 0;
-          transform: translateY(-300px);
-        }
-        70% {
-          opacity: 0.3;
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fade {
-        0% {
-          opacity: 0.1;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @keyframes fadeInUpA {
-        0% {
-          opacity: 0;
-          transform: translateX(-200px);
-        }
-        70% {
-          opacity: 0.3;
-        }
-        100% {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes fadeInUpP {
-        0% {
-          opacity: 0;
-          transform: translateY(100px);
-        }
-        70% {
-          opacity: 0.3;
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes fadeInUpInput {
-        0% {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        70% {
-          opacity: 0.3;
-        }
-        100% {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      img {
-        animation: fadeInUpP 1.5s ease-out;
-      }
-      p {
-        animation: fadeInUpP 0.5s ease-out;
-      }
-
-      input {
-        animation: fadeInUpInput 1.5s ease-out;
-      }
-
-      h1,
-      h2,
-      h3 {
-        animation: fadeInUpH1 1s ease-out;
-      }
-
-      a {
-        animation: fade 1s ease-out;
-      }
-    </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div class="bg-white dark:bg-gray-900 text-black dark:text-white" id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

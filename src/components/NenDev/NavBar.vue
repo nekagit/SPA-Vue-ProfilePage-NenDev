@@ -3,7 +3,7 @@
     <AMenuButton />
   </div>
   <nav class="flex items-center justify-between p-32 pt-8 pb-8">
-    <div class="flex space-x-8 hidden xl:block">
+    <div class="flex space-x-8 hidden xl:block dark:text-white">
       <RouterLink to="/" class="nav-link" active-class="activeLink">Home</RouterLink>
       <RouterLink to="/about" class="nav-link" active-class="activeLink">About</RouterLink>
       <RouterLink to="/projects" class="nav-link" active-class="activeLink">Projects</RouterLink>
@@ -12,7 +12,7 @@
     <div class="flex justify-center flex-1">
       <RouterLink to="/" class="logo">NK</RouterLink>
     </div>
-    <div class="flex  items-center space-x-4">
+    <div class="flex items-center space-x-4">
       <div class="space-x-8 hidden xl:flex">
         <a
           href="https://www.linkedin.com/in/nenad-kalicanin-23924119a/"
@@ -48,17 +48,18 @@
         </a>
       </div>
     </div>
+    <DarkModeToggle />
   </nav>
 </template>
 
 <script setup lang="ts">
-import AMenuButton from '@/components/NenDev/AMenuButton.vue';
-import { Icon } from '@iconify/vue';
+import AMenuButton from '@/components/NenDev/AMenuButton.vue'
+import { Icon } from '@iconify/vue'
+import DarkModeToggle from '@/components/NenDev/DarkModeToggle.vue'
 </script>
 <style scoped>
 .nav-link {
   position: relative;
-  color: #1e1e2f;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   font-size: medium;

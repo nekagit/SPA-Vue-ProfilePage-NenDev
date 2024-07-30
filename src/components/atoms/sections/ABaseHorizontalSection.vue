@@ -1,9 +1,9 @@
 <template>
     <div class="horizontalBody text-white">
-        <div class="separator">
-            <div class="line"></div>
-            <h2 class="text-white">{{ props.title }}</h2>
-            <div class="line"></div>
+        <div class="separator ">
+            <div class="line bg-black dark:bg-white"></div>
+            <h2 class="text-black dark:text-white">{{ props.title }}</h2>
+            <div class="line bg-black dark:bg-white"></div>
         </div>
     </div>
 </template>
@@ -27,7 +27,6 @@ const props = defineProps(['title'])
 .separator .line {
   height: 3px;
   flex: 1;
-  background-color: #000000;
   animation: expandLine 1s forwards;
 }
 

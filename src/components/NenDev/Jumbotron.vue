@@ -14,12 +14,12 @@
             <h3 class="hover:text-white">{{ title }}</h3>
           </div>
         </div>
-        <p class="description">{{ description }}</p>
+        <p class="description  text-black">{{ description }}</p>
         <div class="button-group">
           <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
           </button> -->
-          <button class="secondary-button" @click="handleResumeClick">
+          <button class="secondary-button dark:border-white" @click="handleResumeClick">
             {{ secondaryButtonText }}
           </button>
         </div>
@@ -175,7 +175,6 @@ const handleResumeClick = () => {
 
 .primary-button {
   background-color: rgb(26, 32, 44);
-  color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -200,9 +199,7 @@ const handleResumeClick = () => {
 
 .secondary-button {
   background-color: transparent;
-  color: #000;
   text-decoration: none;
-  border: 2px solid #000;
   transition: all 0.3s ease;
 }
 
