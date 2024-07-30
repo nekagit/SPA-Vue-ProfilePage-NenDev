@@ -199,7 +199,6 @@ const getLanguageLevel = (language) => {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #2c3e50;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 

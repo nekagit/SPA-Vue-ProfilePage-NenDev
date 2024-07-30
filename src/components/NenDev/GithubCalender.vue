@@ -1,6 +1,6 @@
 <template>
   <h1 class="text-center my-12">Public Repository Commits</h1>
-  <div class="flex calendar-wrapper mb-12">
+  <div class="flex calendar-wrapper mb-12 text-black">
     <button @click="loadPreviousMonth" class="nav-button">
       <i class="fas fa-chevron-left"></i>
     </button>
@@ -19,8 +19,8 @@
           </div>
         </div>
       </div>
-      <div class="legend">
-        <div class="legend-item">
+      <div class="legend dark:text-white">
+        <div class="legend-item ">
           <div class="color-box" :style="{ backgroundColor: '#fff' }"></div>
           <span>0 commits</span>
         </div>

@@ -82,7 +82,6 @@ const technologies = ref<Technology[]>([
 
 .tech-name {
   font-size: 14px;
-  color: #333;
 }
 
 .modal {
