@@ -146,7 +146,7 @@ const getLanguageLevel = (language) => {
 .modal {
   position: absolute;
   top: 0px;
-  left: 200px;
+  left: 250px;
   width: 100px;
   height: 100px;
   padding: 1rem;
