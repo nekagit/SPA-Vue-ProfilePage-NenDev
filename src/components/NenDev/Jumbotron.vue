@@ -14,12 +14,15 @@
             <h3 class="hover:text-white">{{ title }}</h3>
           </div>
         </div>
-        <p class="description  text-black">{{ description }}</p>
+        <p class="description text-black">{{ description }}</p>
         <div class="button-group">
           <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
           </button> -->
-          <button class="secondary-button dark:border-white" @click="handleResumeClick">
+          <button
+            class="secondary-button bg-white text-black dark:bg-gray-800 dark:text-white border border-black dark:border-white transition-colors duration-300"
+            @click="handleResumeClick"
+          >
             {{ secondaryButtonText }}
           </button>
         </div>
@@ -54,12 +57,11 @@ defineProps({
   }
 })
 
-
 const handleResumeClick = () => {
-  const link = document.createElement('a');
-  link.href = resumePdf;
-  link.download = 'Nenad-Kalicanin.pdf';
-  link.click();
+  const link = document.createElement('a')
+  link.href = resumePdf
+  link.download = 'Nenad-Kalicanin.pdf'
+  link.click()
 }
 </script>
 
@@ -84,7 +86,6 @@ const handleResumeClick = () => {
   object-fit: cover;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
-
 
 @keyframes shake {
   10%,
@@ -217,9 +218,6 @@ const handleResumeClick = () => {
   z-index: -1;
 }
 
-.secondary-button:hover {
-  color: #fff;
-}
 
 .secondary-button:hover::after {
   transform: scaleY(1);
