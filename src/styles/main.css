@@ -7,8 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-/* background-color: rgb(33, 42, 88); */
-/* rgb(227, 227, 227) */
+
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
@@ -24,11 +23,13 @@
     @apply text-white;
   }
 }
+
 @layer utilities {
   .dark .dark\:text-white {
     color: white !important;
   }
 }
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
@@ -40,6 +41,7 @@ body {
   font-optical-sizing: auto;
   font-family: 'Roboto', sans-serif;
 }
+
 * {
   padding: 0;
   margin: 0;

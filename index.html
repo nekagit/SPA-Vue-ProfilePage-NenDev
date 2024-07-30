@@ -25,5 +25,8 @@
   <body>
     <div class="bg-white dark:bg-gray-900 text-black dark:text-white" id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      localStorage.setItem('dark-mode', isDarkMode.value.toString())
+    </script>
   </body>
 </html>
