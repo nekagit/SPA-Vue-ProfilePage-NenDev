@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import TimeLine from '@/components/NenDev/TimeLine.vue'
-import Biography from '@/components/NenDev/Biography.vue'
-import SkillGrid from '@/components/NenDev/SkillGrid.vue'
 import Nenad from "@/assets/NenadOG.jpg"
+import Biography from '@/components/rySport/Biography.vue'
+import SkillGrid from '@/components/rySport/SkillGrid.vue'
+import TimeLine from '@/components/rySport/TimeLine.vue'
 import { onMounted } from 'vue'
 onMounted(() => {
   window.scrollTo({

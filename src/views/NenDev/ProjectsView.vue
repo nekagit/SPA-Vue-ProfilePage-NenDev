@@ -1,7 +1,7 @@
 <script setup >
-import { ref, onMounted } from 'vue';
-import ProjectCard from '@/components/NenDev/ProjectCard.vue'
-import GithubCalender from '@/components/NenDev/GithubCalender.vue'
+import GithubCalender from '@/components/rySport/GithubCalender.vue';
+import ProjectCard from '@/components/rySport/ProjectCard.vue';
+import { onMounted, ref } from 'vue';
 // Sample card data
 const cards = ref([
   {
