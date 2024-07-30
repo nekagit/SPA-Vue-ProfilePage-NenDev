@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import Nenad from "@/assets/Nenad.png";
+import Jumbotron from '@/components/NenDev/Jumbotron.vue';
+import SpinningButton from "@/components/NenDev/SpinningButton.vue";
 import { onMounted } from 'vue';
-import Jumbotron from '@/components/NenDev/Jumbotron.vue'
-import Nenad from "@/assets/Nenad.png"
-import SpinningButton from "@/components/NenDev/SpinningButton.vue"
 
 
 const handleContactClick = () => {

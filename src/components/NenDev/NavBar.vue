@@ -53,9 +53,9 @@
 </template>
 
 <script setup lang="ts">
-import AMenuButton from '@/components/NenDev/AMenuButton.vue'
-import { Icon } from '@iconify/vue'
-import DarkModeToggle from '@/components/NenDev/DarkModeToggle.vue'
+import AMenuButton from '@/components/NenDev/AMenuButton.vue';
+import DarkModeToggle from '@/components/NenDev/DarkModeToggle.vue';
+import { Icon } from '@iconify/vue';
 </script>
 <style scoped>
 .nav-link {

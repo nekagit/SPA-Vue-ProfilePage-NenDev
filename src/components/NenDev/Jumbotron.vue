@@ -5,7 +5,7 @@
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
       <div class="text-content">
-        <div class="title text-center align-center">
+        <div class="title text-center align-center pb-4">
           <TypeWriter
             class="hidden xl:flex"
             :texts="[title, 'I am a developer', 'Jesus is King!']"
@@ -39,8 +39,8 @@
 </template>
 
 <script setup>
-import resumePdf from '@/../public/NenadKalicanin.pdf'
-import TypeWriter from '@/components/NenDev/TypeWriter.vue'
+import resumePdf from '@/../public/NenadKalicanin.pdf';
+import TypeWriter from '@/components/NenDev/TypeWriter.vue';
 defineProps({
   imageSrc: {
     type: String,
