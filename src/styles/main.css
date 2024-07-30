@@ -8,10 +8,11 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+
 .dark {
   --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 10;
-  --background-end-rgb: 0, 0, 0;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 17, 24, 39;
 }
 
 @layer base {
@@ -88,15 +89,16 @@ hr {
 body,
 html {
   &::-webkit-scrollbar {
-    background-color: rgb(240, 240, 240);
+    display: none;
+    background-color: none;
     height: 20px;
     width: 20px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgb(240, 240, 240);
+    background: none;
     border-radius: 99em;
-    border: 6px solid rgb(240, 240, 240);
+    border: 6px solid none;
   }
 }
 
