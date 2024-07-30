@@ -35,9 +35,7 @@ const applyDarkMode = () => {
 }
 
 onMounted(() => {
-  isDarkMode.value =
-    localStorage.getItem('dark-mode') === 'true' ||
-    (!('dark-mode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  isDarkMode.value = localStorage.getItem('dark-mode') !== 'false'
   applyDarkMode()
 })
 
