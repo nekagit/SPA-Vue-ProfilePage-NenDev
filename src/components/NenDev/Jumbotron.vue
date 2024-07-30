@@ -20,10 +20,17 @@
             {{ primaryButtonText }}
           </button> -->
           <button
-            class="secondary-button bg-white text-black dark:bg-gray-800 dark:text-white border border-black dark:border-white transition-colors duration-300"
+            class="secondary-button relative overflow-hidden px-6 py-3 rounded-lg font-bold transition-colors duration-300 bg-white text-black dark:bg-black  dark:text-white border-2 border-black dark:border-white group"
             @click="handleResumeClick"
           >
-            {{ secondaryButtonText }}
+            <span
+              class="relative z-10 transition-colors duration-300 group-hover:text-white dark:group-hover:text-black"
+            >
+              {{ secondaryButtonText }}
+            </span>
+            <span
+              class="absolute inset-0 bg-black dark:bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
           </button>
         </div>
       </div>
@@ -198,28 +205,5 @@ const handleResumeClick = () => {
   box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
 }
 
-.secondary-button {
-  background-color: transparent;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
 
-.secondary-button::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(26, 32, 44);
-  transform: scaleY(0);
-  transform-origin: bottom center;
-  transition: transform 0.3s ease;
-  z-index: -1;
-}
-
-
-.secondary-button:hover::after {
-  transform: scaleY(1);
-}
 </style>
