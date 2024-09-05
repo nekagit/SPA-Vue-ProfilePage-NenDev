@@ -7,7 +7,7 @@
     >
       <p class="text-amber-400 text-2xl font-semibold mb-2">{{ item.label }}</p>
       <TypeWriter
-        class="text-5xl font-extrabold text-white text-center"
+        class="text-5xl font-extrabold text-black dark:text-white text-center"
         v-if="item.label !== 'AGE'"
         :texts="[item.value]"
         playOne="true"
