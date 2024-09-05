@@ -4,12 +4,15 @@
       <h2 class="row-title">Frontend Technologies</h2>
       <div class="tech-items-container">
         <div class="tech-items move-left-to-right">
-          <div v-for="tech in [...frontendTech, ...frontendTech]" :key="`${tech.name}-${tech.id}`" class="tech-item" @mouseover="showModal(tech.name)" @mouseleave="hideModal">
+          <div
+            v-for="tech in [...frontendTech, ...frontendTech]"
+            :key="`${tech.name}-${tech.id}`"
+            class="tech-item"
+            @mouseover="showModal(tech.name)"
+            @mouseleave="hideModal"
+          >
             <Icon :icon="tech.icon" class="tech-icon" />
             <span class="tech-name">{{ tech.name }}</span>
-            <div v-if="activeTech === tech.name" class="modal">
-              <StarRating :rating="tech.rating" :name="tech.name" />
-            </div>
           </div>
         </div>
       </div>
@@ -18,12 +21,15 @@
       <h2 class="row-title">Backend Technologies</h2>
       <div class="tech-items-container">
         <div class="tech-items move-right-to-left">
-          <div v-for="tech in [...backendTech, ...backendTech]" :key="`${tech.name}-${tech.id}`" class="tech-item" @mouseover="showModal(tech.name)" @mouseleave="hideModal">
+          <div
+            v-for="tech in [...backendTech, ...backendTech]"
+            :key="`${tech.name}-${tech.id}`"
+            class="tech-item"
+            @mouseover="showModal(tech.name)"
+            @mouseleave="hideModal"
+          >
             <Icon :icon="tech.icon" class="tech-icon" />
             <span class="tech-name">{{ tech.name }}</span>
-            <div v-if="activeTech === tech.name" class="modal">
-              <StarRating :rating="tech.rating" :name="tech.name" />
-            </div>
           </div>
         </div>
       </div>
@@ -32,26 +38,25 @@
 </template>
 
 <script setup lang="ts">
-import StarRating from '@/components/NenDev/StarRating.vue';
-import { Icon } from '@iconify/vue';
-import { ref, computed } from 'vue';
+import { Icon } from '@iconify/vue'
+import { computed, ref } from 'vue'
 
 interface Technology {
-  name: string;
-  icon: string;
-  rating: number;
-  type: 'frontend' | 'backend';
+  name: string
+  icon: string
+  rating: number
+  type: 'frontend' | 'backend'
 }
 
-const activeTech = ref<string | null>(null);
+const activeTech = ref<string | null>(null)
 
 const showModal = (name: string) => {
-  activeTech.value = name;
-};
+  activeTech.value = name
+}
 
 const hideModal = () => {
-  activeTech.value = null;
-};
+  activeTech.value = null
+}
 
 const technologies = ref<Technology[]>([
   { name: 'Vue', icon: 'logos:vue', rating: 8, type: 'frontend' },
@@ -70,16 +75,16 @@ const technologies = ref<Technology[]>([
   { name: 'MySQL', icon: 'logos:mysql', rating: 6, type: 'backend' },
   { name: 'Mongo DB', icon: 'logos:mongodb-icon', rating: 7, type: 'backend' },
   { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', rating: 6, type: 'backend' },
-  { name: 'Postman', icon: 'simple-icons:postman', rating: 4, type: 'backend' },
-]);
+  { name: 'Postman', icon: 'simple-icons:postman', rating: 4, type: 'backend' }
+])
 
-const frontendTech = computed(() => technologies.value.filter(tech => tech.type === 'frontend'));
-const backendTech = computed(() => technologies.value.filter(tech => tech.type === 'backend'));
+const frontendTech = computed(() => technologies.value.filter((tech) => tech.type === 'frontend'))
+const backendTech = computed(() => technologies.value.filter((tech) => tech.type === 'backend'))
 </script>
 
 <style scoped>
 .tech-grid {
-  margin:auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -170,7 +175,9 @@ const backendTech = computed(() => technologies.value.filter(tech => tech.type =
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
   opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
+  transition:
+    opacity 0.3s,
+    transform 0.3s;
 }
 
 .tech-item:hover .modal {

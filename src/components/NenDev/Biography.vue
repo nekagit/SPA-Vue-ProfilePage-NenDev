@@ -1,67 +1,23 @@
 <template>
-  <div class="jumbotron">
-    <div class="content-wrapper flex-col md:flex-row gap-8">
-      <div class="image-container">
-        <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
-        <div>
-          <h1 class="flex">Lanugages</h1>
-          <div class="languages flex flex-row">
-            <Icon
-              icon="twemoji:flag-for-flag-germany"
-              class="flag"
-              @mouseover="showModal('German')"
-              @mouseleave="hideModal"
-            />
-            <Icon
-              icon="twemoji:flag-for-flag-serbia"
-              class="flag"
-              @mouseover="showModal('Serbish')"
-              @mouseleave="hideModal"
-            />
-            <Icon
-              icon="twemoji:flag-for-flag-united-kingdom"
-              class="flag"
-              @mouseover="showModal('English')"
-              @mouseleave="hideModal"
-            />
-            <Icon
-              icon="twemoji:flag-for-flag-spain"
-              class="flag"
-              @mouseover="showModal('Spanish')"
-              @mouseleave="hideModal"
-            />
-            <Icon
-              icon="twemoji:flag-for-flag-turkey"
-              class="flag"
-              @mouseover="showModal('Turkish')"
-              @mouseleave="hideModal"
-            />
-            <div v-if="isModalVisible" class="modal">
-              <div class="modal-content">
-                <h3 class="modal-title">{{ currentLanguage }}</h3>
-                <p class="language-level">{{ getLanguageLevel(currentLanguage) }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="text-content">
-        <h1 class="title text-center pb-8">{{ title }}</h1>
-        <p class="description">{{ description }}</p>
-      </div>
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <ImageLanguageSection/>
+    <PersonalInfoSection />
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 container">
+    <AbilitySection />
+    <div class="text-content my-auto">
+      <h1 class="title text-center pb-8">{{ title }}</h1>
+      <p class="description shadow-2xl" v-html="description"></p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { Icon } from '@iconify/vue'
+import AbilitySection from './AbilitySection.vue';
+import ImageLanguageSection from './ImageLanguageSection.vue';
+import PersonalInfoSection from './PersonalInfoSection.vue';
 
 defineProps({
-  imageSrc: {
-    type: String,
-    required: true
-  },
   title: {
     type: String,
     required: true
@@ -72,121 +28,8 @@ defineProps({
   }
 })
 
-const isModalVisible = ref(false)
-const currentLanguage = ref('')
-
-const languageLevels = {
-  German: 'C2',
-  Serbish: 'C2',
-  English: 'C2',
-  Spanish: 'B2',
-  Turkish: 'A1'
-}
-
-const showModal = (language) => {
-  currentLanguage.value = language
-  isModalVisible.value = true
-}
-
-const hideModal = () => {
-  isModalVisible.value = false
-}
-
-const getLanguageLevel = (language) => {
-  return languageLevels[language]
-}
 </script>
 <style scoped>
-.jumbotron {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  margin-bottom: 4rem;
-}
-
-.content-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.image-container {
-  flex: 1;
-  text-align: center;
-  position: relative;
-}
-
-.portrait-image {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease-in-out;
-}
-
-.portrait-image:hover {
-  transform: rotateX(-10deg) translateZ(20px);
-}
-
-.languages {
-  margin-top: 1rem;
-  position: relative;
-}
-
-.flag {
-  width: 40px;
-  height: auto;
-  margin: 0 5px;
-}
-
-.modal {
-  position: absolute;
-  top: 0px;
-  left: 250px;
-  width: 100px;
-  height: 100px;
-  padding: 1rem;
-  background-color: #363636;
-  color: white;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-@media (max-width: 720px) {
-  .modal {
-    top: -100px;
-  left: 200px;
-  }
-}
-@media (min-width: 720px) {
-  .modal {
-    top: 0px;
-    right: 0px;
-  }
-}
-
-.modal-content {
-  text-align: center;
-  color: white;
-}
-
-.modal-title {
-  text-align: center;
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.language-level {
-  color: white;
-  font-size: 1rem;
-}
 
 .text-content {
   flex: 1;
