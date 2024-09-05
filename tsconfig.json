@@ -10,8 +10,8 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
-   "paths": {
-      "@/*": ["src/*"]
+    "paths": {
+      "@/*": ["./src/*"]
     },
     "target": "ESNext", 
     "module": "ESNext", 
