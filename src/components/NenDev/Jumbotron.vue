@@ -1,6 +1,6 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper flex flex-col xl:flex-row max-w-[90%] gap-8">
+    <div class="content-wrapper flex flex-col xl:flex-row xl:max-w-[90%] gap-8">
       <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>
@@ -14,7 +14,7 @@
             <h3 class="hover:text-white">{{ title }}</h3>
           </div>
         </div>
-        <p class="description text-black max-w-[80%] mx-auto">{{ description }}</p>
+        <p class="description text-black xl:max-w-[80%] mx-auto">{{ description }}</p>
         <div class="button-group">
           <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
