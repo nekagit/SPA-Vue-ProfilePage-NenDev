@@ -161,7 +161,7 @@ const getLanguageLevel = (language) => {
 @media (max-width: 720px) {
   .modal {
     top: -100px;
-    right: 0px;
+  left: 200px;
   }
 }
 @media (min-width: 720px) {

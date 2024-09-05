@@ -1,51 +1,70 @@
 <script setup >
-import GithubCalender from '@/components/NenDev/GithubCalender.vue';
 import ProjectCard from '@/components/NenDev/ProjectCard.vue';
 import { onMounted, ref } from 'vue';
+import WebsiteShowcase from '@/components/NenDev/WebsiteShowcase.vue';
 // Sample card data
 const cards = ref([
+    {
+    title: 'WebApp TimeIT',
+    description: 'My own WebApp. Measuring working time and enabling several features like spread sheet generation',
+    technology: 'React, Node.js',
+    codeLink: 'https://github.com/timeIT'
+  },
+    {
+    title: 'WebApp OrgaTech',
+   description: 'I worked for 2 years on the application of OrgaTech as a Working Student.(I don not claim its my application or work! All rights reserved to OrgaTech/Adesso)',
+    technology: 'Java, Flutter, Javascript',
+    codeLink: 'https://github.com/nekagit'
+  },
+    {
+    title: 'WebApp qmBase',
+    description: 'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
+    technology: 'React, C#',
+    codeLink: 'https://github.com/qmBase/docs'
+  },
   {
     title: 'ArtPage',
-    stars: 0,
     description: 'E-Commerce for selling paintings.  www.stankovicart.com ',
     technology: 'Vue.js',
     codeLink: 'https://github.com/nekagit/VueProfileArtPage'
   },
   {
     title: 'ProfilePage',
-    stars: 0,
     description: 'Profile of a sports club in Rotterdam. www.stichtingsoprotterdam.nl ',
     technology: 'Angular',
     codeLink: 'https://github.com/nekagit/soprotterdam'
   },
+   {
+    title: 'ProfilePage',
+    description: 'Profile of a soccer player Kosta Kalicanin. kostakalicanin.netlify.app ',
+    technology: 'Vue',
+    codeLink: 'kostakalicanin.netlify.app'
+  },
+   {
+    title: 'ProfilePage',
+    description: 'Profile of a personal fitness coach Robin Schroeder, rysport.netlfiy.app ',
+    technology: 'Vue',
+    codeLink: 'rysport.netlfiy.app '
+  },
   {
     title: 'Simple ChatBot Extension',
-    stars: 0,
     description: 'An extension that can be connected to local llama3 or directly communicate with OpenAI, to feed PDFs of current website for query.(BachelorThesis)',
     technology: 'Javascript',
     codeLink: 'https://github.com/nekagit/BASimpleChatBotExtension'
   },
   {
     title: 'Leaflet Map with MySQL Data',
-    stars: 0,
     description: 'Different Markers shown on Map regarding Package details.',
     technology: 'Vue.js',
     codeLink: 'https://github.com/nekagit/LeafletMySQLVue'
   },
   {
     title: 'DocuVerse: Documentation Website',
-    stars: 0,
     description: 'Knowledge i gathered on one place.',
     technology: 'React/Docusaurus',
     codeLink: 'https://github.com/nekagit/docuVerse'
   },
-  {
-    title: 'WebApp qmBase',
-    stars: 0,
-    description: 'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
-    technology: 'React, C#',
-    codeLink: 'https://github.com/qmBase/docs'
-  },
+
 ]);
 
 // Ref for the container of project cards
@@ -81,9 +100,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="hidden md:block">
-    <GithubCalender />
-  </div>
   <div ref="projectContainer" class="grid grid-cols-1 md:grid-cols-3 mx-auto pt-8">
     <ProjectCard
       v-for="(card, index) in cards"
@@ -96,6 +112,9 @@ onMounted(() => {
       :codeLink="card.codeLink"
     />
   </div>
+
+  <!-- Add this line to include the new WebsiteShowcase component -->
+  <WebsiteShowcase />
 </template>
 
 

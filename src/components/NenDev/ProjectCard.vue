@@ -1,10 +1,9 @@
 <template>
   <div class="card">
     <h3 class="title">{{ title }}</h3>
-    <div class="rating">{{ stars }} ★</div>
     <p class="description">{{ description }}</p>
     <p class="technology">{{ technology }}</p>
-    <p class="codeLink"><a :href="codeLink" target="_blank" rel="noopener noreferrer">View Code</a></p>
+    <p class="codeLink"><a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a></p>
   </div>
 </template>
 
