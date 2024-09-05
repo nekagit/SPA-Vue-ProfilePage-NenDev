@@ -53,14 +53,13 @@
           </div>
           <hr class="project-divider" />
           <div class="project">
-            <h4 class="text-aqua">Simple ChatBot Extension</h4>
-            <p><strong>JavaScript</strong></p>
+            <h4 class="text-aqua">Many more!</h4>
+            <p><strong>https://nenadkalicanin.netlify.app/about</strong></p>
             <p class="text-black">
-              Developed an extension that connects to local Llama3 or OpenAI to query PDFs of the
-              current website.
+              More than 3 years of working experience in different companies!
             </p>
             <p class="text-black">
-              Designed to enhance user interaction by providing instant information retrieval.
+              And many more private webpages and projects done!
             </p>
           </div>
         </section>

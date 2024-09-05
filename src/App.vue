@@ -1,15 +1,36 @@
-<!-- App.vue or your main layout component -->
+<!-- App.vue -->
 <template>
   <div>
-    <LoadingScreen />
-    <NavBar />
-    <router-view class="router bg-white dark:bg-gray-900 text-black dark:text-white" />
-    <NenFooter />
+    <LoadingScreen v-if="isLoading" />
+    <NavBar v-if="!isLoading" />
+    <transition name="fade" mode="out-in">
+      <router-view v-if="!isLoading" class="router bg-white dark:bg-gray-900 text-black dark:text-white" />
+    </transition>
+    <NenFooter v-if="!isLoading" />
   </div>
 </template>
 
 <script setup lang="ts">
-import NavBar from './components/NenDev/NavBar.vue';
-import NenFooter from '@/components/NenDev/NenFooter.vue';
 import LoadingScreen from '@/components/LoadingScreen.vue';
+import NenFooter from '@/components/NenDev/NenFooter.vue';
+import { onMounted, ref } from 'vue';
+import NavBar from './components/NenDev/NavBar.vue';
+
+const isLoading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    isLoading.value = false; // Hide loading screen after 3 seconds
+  }, 3000);
+});
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
+</style>

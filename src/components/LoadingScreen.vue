@@ -31,7 +31,7 @@ onMounted(() => {
   justify-content: center;
   z-index: 9999;
   opacity: 1;
-  transition: opacity 1s ease-in-out; /* Smooth fade-in and fade-out */
+  transition: opacity 2s ease-out; /* Smooth fade-in and fade-out */
 }
 
 .fade-out {
