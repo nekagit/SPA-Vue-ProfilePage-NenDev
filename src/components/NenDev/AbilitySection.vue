@@ -1,6 +1,6 @@
 <template>
   <div class="abilities my-auto">
-    <ul class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <li v-for="(ability, index) in abilities" :key="index" class="flex flex-col items-center mb-8">
         <div class="text-center mb-4">
           <span class="text-2xl font-semibold">{{ ability.name }}</span>
