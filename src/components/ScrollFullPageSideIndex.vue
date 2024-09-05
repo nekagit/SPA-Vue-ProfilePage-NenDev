@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav__wrapper p-0 pr-12 pb-10 md:pb-96 pl-2.5" id="navbar-example">
+  <nav class="nav__wrapper p-0 pr-12 pb-10 xl:pb-96 pl-2.5" id="navbar-example">
     <ul class="nav">
       <li
         v-for="(sideListItem, index) in sideList"
@@ -37,7 +37,7 @@
       :delay="100"
       :duration="1200"
     />
-    <div class="xs:mt-0 md:mx-8">
+    <div class="xs:mt-0 xl:mx-8">
       <OBaseImgModal
         :key="index"
         :title="sectionTitles[index]"
@@ -51,11 +51,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { onBeforeRouteLeave } from 'vue-router'
 import InternetLines from '@/components/background/InternetLines.vue'
 import InternetRotateShine from '@/components/background/InternetMiddleRotateShine.vue'
 import OBaseImgModal from '@/components/organisms/OBaseImgModal.vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
 
 const props = defineProps<{
   sideList: string[]

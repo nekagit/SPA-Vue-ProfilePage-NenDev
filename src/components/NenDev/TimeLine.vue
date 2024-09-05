@@ -4,7 +4,7 @@
       <div class="date">{{ item.date }}</div>
       <div class="timeline-content" :class="{ 'fade-in': item.visible }">
         <div class="circle" :style="{ backgroundColor: item.color }"></div>
-        <div class="card md:max-w-[75%] mx-auto">
+        <div class="card xl:max-w-[75%] mx-auto">
           <h3 class="card-title">{{ item.title }}</h3>
           <h4 class="card-subtitle">{{ item.subtitle }}</h4>
           <p class="card-description">{{ item.description }}</p>
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const container = ref(null);
 const timelineItems = ref([

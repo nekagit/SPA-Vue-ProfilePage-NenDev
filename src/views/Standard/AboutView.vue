@@ -25,7 +25,7 @@ const chooseSection = {
     <BaseSection class="w-[50%]" :button="true" :position="'center'"  :sectionItem="weAreSection" />
     <hr />
     <ABaseHorizontalSection class="charmFont"  :content="'Home | About'" />
-    <div class="md:flex flex-row my-10 gap-10 p-10">
+    <div class="xl:flex flex-row my-10 gap-10 p-10">
       <div class=" w-[50%]">
 
         <BaseSection :button="false" :position="'right'" :sectionItem="chooseSection" />

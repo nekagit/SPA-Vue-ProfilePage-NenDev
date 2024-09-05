@@ -13,7 +13,7 @@ const imageSrc = (path: string) => computed(() => path)
 </script>
 
 <template>
-  <div class="card sm:w-screen md:w-32 lg:w-screen mx-5">
+  <div class="card sm:w-screen xl:w-32 lg:w-screen mx-5">
     <div class="cardContent">
       <div v-for="sectionHeader in props.sectionHeaders" :key="sectionHeader.title">
         <Accordion type="single" collapsible>

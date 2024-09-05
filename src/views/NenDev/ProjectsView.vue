@@ -1,7 +1,7 @@
 <script setup >
 import ProjectCard from '@/components/NenDev/ProjectCard.vue';
-import { onMounted, ref } from 'vue';
 import WebsiteShowcase from '@/components/NenDev/WebsiteShowcase.vue';
+import { onMounted, ref } from 'vue';
 // Sample card data
 const cards = ref([
     {
@@ -100,7 +100,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="projectContainer" class="grid grid-cols-1 md:grid-cols-3 mx-auto pt-8">
+  <div ref="projectContainer" class="grid grid-cols-1 xl:grid-cols-3 mx-auto pt-8">
     <ProjectCard
       v-for="(card, index) in cards"
       class="projectCard"

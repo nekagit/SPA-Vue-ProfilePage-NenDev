@@ -1,6 +1,6 @@
 <template>
   <div
-    class="grid sm:grid-cols-2 items-center gap-8 p-8 md:m-auto max-w-[800px] bg-white shadow-2xl rounded-md text-[#333] font-[sans-serif]"
+    class="grid sm:grid-cols-2 items-center gap-8 p-8 xl:m-auto max-w-[800px] bg-white shadow-2xl rounded-md text-[#333] font-[sans-serif]"
   >
     <div>
       <h1 class="text-3xl font-extrabold">{{ title }}</h1>
@@ -69,7 +69,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 const props = defineProps({
   title: String,

@@ -1,6 +1,6 @@
 <template>
   <div class="jumbotron">
-    <div class="content-wrapper flex flex-col md:flex-row max-w-[90%] gap-8">
+    <div class="content-wrapper flex flex-col xl:flex-row max-w-[90%] gap-8">
       <div class="image-container">
         <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
       </div>

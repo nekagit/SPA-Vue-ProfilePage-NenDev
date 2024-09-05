@@ -1,8 +1,8 @@
 <template>
   <div id="page" ref="page">
     <div class="pane">
-      <div class="flex flex-col p-4 md:p-12">
-        <h1 class="text-center text-white underline text-3xl md:text-2xl lg:text-4xl">
+      <div class="flex flex-col p-4 xl:p-12">
+        <h1 class="text-center text-white underline text-3xl xl:text-2xl lg:text-4xl">
           SOP Rotterdam School
         </h1>
         <OInternetAnimationCard
@@ -24,8 +24,8 @@
       </div>
     </div>
     <div class="pane">
-      <div class="flex flex-col p-4 md:p-12 gap-4 xs:gap-16 h-screen">
-        <h1 class="text-center text-white underline text-3xl md:text-2xl lg:text-4xl">
+      <div class="flex flex-col p-4 xl:p-12 gap-4 xs:gap-16 h-screen">
+        <h1 class="text-center text-white underline text-3xl xl:text-2xl lg:text-4xl">
           General Information
         </h1>
         <AInternetUpFlipCard
@@ -46,12 +46,12 @@
       </div>
     </div>
     <div class="pane flex flex-col">
-      <h1 class="text-center text-white underline text-3xl md:text-2xl lg:text-4xl">
+      <h1 class="text-center text-white underline text-3xl xl:text-2xl lg:text-4xl">
         Working Staff
       </h1>
       <ABaseContactCard :full-name="'Biljana Krum'" :title="'Teacher'" :img-src="Rihana" />
       <ABaseAnimationCard
-        class="max-w-full md:max-w-[400px]"
+        class="max-w-full xl:max-w-[400px]"
         title="'School'"
         :content="'Удружење Српско Омладинско Пријатељство Ротердам admin@stichtingsoprotterdam.nl Амбасада Републике Србије у Краљевини Холандији konzularno.hag@mfa.rs Биљана Крчум krcumb@gmail.com'"
       />
@@ -67,19 +67,19 @@
 </template>
 
 <script setup lang="ts">
+import Card1 from '@/assets/SOP/schoolPage/card1.jpg'
+import Rihana from '@/assets/SOP/schoolPage/rihana.jpg'
+import schoolBag from '@/assets/SOP/schoolPage/schoolBag.jpg'
+import SchoolBuilding from '@/assets/SOP/schoolPage/schoolBuilding-Photoroom.jpg'
+import SchoolHeader from '@/assets/SOP/schoolPage/schoolHeader.jpg'
+import SchoolLogo from '@/assets/SOP/schoolPage/schoolLogo.jpg'
+import ABaseAnimationCard from '@/components/atoms/cards/ABaseAnimationCard.vue'
+import ABaseContactCard from '@/components/atoms/cards/ABaseContactCard.vue'
+import AInternetContactCard from '@/components/atoms/cards/AInternetContactCard.vue'
+import AInternetUpFlipCard from '@/components/atoms/cards/internet/AInternetUpFlipCard.vue'
+import OInternetAnimationCard from '@/components/organisms/OInternetAnimationCard.vue'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
-import OInternetAnimationCard from '@/components/organisms/OInternetAnimationCard.vue'
-import AInternetUpFlipCard from '@/components/atoms/cards/internet/AInternetUpFlipCard.vue'
-import SchoolHeader from '@/assets/SOP/schoolPage/schoolHeader.jpg'
-import Card1 from '@/assets/SOP/schoolPage/card1.jpg'
-import SchoolBuilding from '@/assets/SOP/schoolPage/schoolBuilding-Photoroom.jpg'
-import schoolBag from '@/assets/SOP/schoolPage/schoolBag.jpg'
-import SchoolLogo from '@/assets/SOP/schoolPage/schoolLogo.jpg'
-import Rihana from '@/assets/SOP/schoolPage/rihana.jpg'
-import ABaseContactCard from '@/components/atoms/cards/ABaseContactCard.vue'
-import ABaseAnimationCard from '@/components/atoms/cards/ABaseAnimationCard.vue'
-import AInternetContactCard from '@/components/atoms/cards/AInternetContactCard.vue'
 
 const page = ref<HTMLElement | null>(null)
 const initialScroll = ref(false)

@@ -1,5 +1,5 @@
 <!-- <template>
-  <div class="grid md:grid-cols-2 md:w-[100%] w-full grid-cols-1 w[50%] mx-auto text-white">
+  <div class="grid xl:grid-cols-2 xl:w-[100%] w-full grid-cols-1 w[50%] mx-auto text-white">
     <div class="">
       <h1
         class="font-bold text-2xl"
@@ -10,7 +10,7 @@
     </div>
     <ABaseImgModal class="w-full h-fit my-auto" />
   </div>
-  <div class="user-box md:w-[50%] md:mx-auto p-6">
+  <div class="user-box xl:w-[50%] xl:mx-auto p-6">
     <p v-for="content in sectionItem.content" class="text-slate-400" :key="content">
       {{ content }}
     </p>

@@ -3,7 +3,7 @@
   <div class="container">
     <footer>
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center mb-8 font-bold"
+        class="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center mb-8 font-bold"
       >
         <div class="">
           <a href="mailto:nenad99@hotmail.de" class="opacity-60 hover:text-blue-300"
@@ -19,7 +19,7 @@
         </p>
 
         <div class="flex items-center space-x-4">
-          <div class="space-x-8 flex md:hidden">
+          <div class="space-x-8 flex xl:hidden">
             <a
               href="https://www.linkedin.com/in/nenad-kalicanin-23924119a/"
               target="_blank"
@@ -59,5 +59,5 @@
   </div>
 </template>
 <script setup lang="ts">
-import ABaseHorizontalSection from '../atoms/sections/ABaseHorizontalSection.vue'
+import ABaseHorizontalSection from '../atoms/sections/ABaseHorizontalSection.vue';
 </script>

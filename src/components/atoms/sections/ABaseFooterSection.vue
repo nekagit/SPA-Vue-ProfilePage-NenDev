@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 
-  <div class="flex justify-around flex-col md:flex-row">
+  <div class="flex justify-around flex-col xl:flex-row">
     <img
       class="background-image2 hidden xl:flex rounded-xl shadow-xl"
       src="../../../assets/SOP/img/logoo.png"
@@ -12,7 +12,7 @@
   <footer class="text-white font-medium relative p-3">
     <AMenuButton class="h-[30vh]" />
     <div
-      class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center"
+      class="mt-10 grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center"
     >
       <div class="">
         <h3 class="text-lg header mb-4">Contact</h3>
@@ -60,10 +60,8 @@
 </template>
 
 <script setup lang="ts">
-import AMenuButton from '@/components/atoms/nav/AMenuButton.vue'
-import { Facebook } from 'lucide-vue-next'
-import { Instagram } from 'lucide-vue-next'
-import { Github } from 'lucide-vue-next'
+import AMenuButton from '@/components/atoms/nav/AMenuButton.vue';
+import { Facebook, Github, Instagram } from 'lucide-vue-next';
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tech-grid mb-20 md:max-w-[75%]">
+  <div class="tech-grid mb-20 xl:max-w-[75%]">
     <div class="tech-row">
       <h2 class="row-title">Frontend Technologies</h2>
       <div class="tech-items-container">
