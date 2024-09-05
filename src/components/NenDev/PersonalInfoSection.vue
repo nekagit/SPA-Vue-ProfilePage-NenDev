@@ -1,16 +1,16 @@
 <template>
-  <div class="grid grid-cols-2 space-y-8 bg-white">
+  <div class="grid grid-cols-2 gap-8 p-6 my-8">
     <div
       v-for="(item, index) in infoItems"
       :key="index"
-      class="flex justify-between items-center p-4 rounded-lg shadow-md bg-black"
+      class="flex flex-col items-center p-6 rounded-full shadow-lg "
     >
-      <p class="text-4xl" v-if="item.label !== 'AGE'">{{ item.value }}</p>
-      <p class="text-4xl" v-else><span ref="ageRef">0</span> years</p>
+      <p class="text-amber-400 text-2xl font-semibold mb-2">{{ item.label }}</p>
+      <p class="text-5xl font-extrabold text-white text-center" v-if="item.label !== 'AGE'">{{ item.value }}</p>
+      <p class="text-5xl font-extrabold text-white text-center" v-else><span ref="ageRef">0</span> years</p>
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 import gsap from 'gsap'
@@ -18,11 +18,10 @@ import gsap from 'gsap'
 const ageRef = ref(null)
 
 const infoItems = reactive([
+  { label: 'AGE', value: '' },
   { label: 'PLACE OF BIRTH', value: 'Germany, Dortmund' },
   { label: 'DATE OF BIRTH', value: '16-10-1999' },
-  { label: 'AGE', value: '' },
   { label: 'ACADEMICS', value: 'Computer Science Bachelor' },
-  { label: 'HEIGHT', value: '1.85 m' },
 ])
 
 onMounted(() => {

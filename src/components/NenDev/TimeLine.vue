@@ -189,7 +189,7 @@ onUnmounted(() => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid #4a0e4e;
+  border: 2px solid rgb(217 119 6 / var(--tw-text-opacity));
   background-color: #fff;
   transition: background-color 0.3s ease;
   margin-right: 20px;
@@ -208,7 +208,7 @@ onUnmounted(() => {
 .card-title {
   margin: 0;
   font-size: 25px;
-  color: #4a0e4e;
+  color: rgb(217 119 6 / var(--tw-text-opacity));
 }
 
 .card-subtitle {
