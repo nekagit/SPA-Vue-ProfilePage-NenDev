@@ -23,7 +23,7 @@
         <div class="tech-items move-right-to-left">
           <div
             v-for="tech in [...backendTech, ...backendTech]"
-            :key="`${tech.name}-${tech.id}`"
+            :key="`${tech.name}`"
             class="tech-item"
             @mouseover="showModal(tech.name)"
             @mouseleave="hideModal"
