@@ -12,7 +12,7 @@
         :texts="[item.value]"
         playOne="true"
       />
-      <p class="text-5xl font-extrabold text-white text-center" v-else>
+      <p class="text-5xl font-extrabold text-black dark:text-white text-center" v-else>
         <span ref="ageRef">0</span> years
       </p>
     </div>
