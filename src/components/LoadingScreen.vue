@@ -1,4 +1,3 @@
-<!-- components/LoadingScreen.vue -->
 <template>
   <div v-if="isVisible" :class="{'loading-screen': true, 'fade-out': !isVisible}">
     <img src="./../../public/N.png" alt="Logo" class="logo" />
@@ -14,9 +13,10 @@ onMounted(() => {
   // Simulate a delay before hiding the loading screen
   setTimeout(() => {
     isVisible.value = false;
-  }, 3000); // Adjust the delay time as needed
+  }, 4000); // Adjust the delay time as needed
 });
 </script>
+
 
 <style scoped>
 .loading-screen {
@@ -39,14 +39,26 @@ onMounted(() => {
 }
 
 .logo {
-  width: 300px; /* Adjust size as needed */
+  width: 150px; /* Adjust size as needed */
   height: auto;
-  animation: blink 1s infinite;
+  animation: rotate-scale 3s;
 }
 
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+@keyframes rotate-scale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(360deg) scale(1.5); /* Rotate 360 degrees and scale up */
+  }
+    70% {
+    transform: rotate(180deg) scale(1); /* Rotate 360 degrees and scale up */
+  }
+    80% {
+    transform: rotate(360deg) scale(1.5); /* Rotate 360 degrees and scale up */
+  }
+  100% {
+    transform: rotate(720deg) scale(5); /* Rotate 720 degrees and scale back to original size */
+  }
 }
 </style>
