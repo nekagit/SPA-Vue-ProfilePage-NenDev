@@ -4,7 +4,7 @@
       <div class="date">{{ item.date }}</div>
       <div class="timeline-content" :class="{ 'fade-in': item.visible }">
         <div class="circle" :style="{ backgroundColor: item.color }"></div>
-        <div class="card">
+        <div class="card md:max-w-[75%] mx-auto">
           <h3 class="card-title">{{ item.title }}</h3>
           <h4 class="card-subtitle">{{ item.subtitle }}</h4>
           <p class="card-description">{{ item.description }}</p>
@@ -154,7 +154,7 @@ onUnmounted(() => {
 }
 
 .timeline-item {
-  height: 200px;
+  height: 250px;
   position: relative;
   display: flex;
   margin-bottom: 50px;
@@ -164,7 +164,7 @@ onUnmounted(() => {
   width: 100px;
   text-align: right;
   padding-right: 30px;
-  font-size: 14px;
+  font-size: 21px;
   color: #666;
   flex-shrink: 0;
   padding-top: 3px;
@@ -177,6 +177,7 @@ onUnmounted(() => {
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.5s, transform 0.5s;
+
 }
 
 .timeline-content.fade-in {
@@ -206,7 +207,7 @@ onUnmounted(() => {
 
 .card-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 25px;
   color: #4a0e4e;
 }
 
@@ -219,7 +220,7 @@ onUnmounted(() => {
 
 .card-description {
   margin: 10px 0 0;
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
 }
 
@@ -263,16 +264,6 @@ onUnmounted(() => {
     margin-bottom: 30px;
   }
 
-  .date {
-    font-size: 12px;
-  }
 
-  .card-title {
-    font-size: 16px;
-  }
-
-  .card-subtitle, .card-description {
-    font-size: 14px;
-  }
 }
 </style>
