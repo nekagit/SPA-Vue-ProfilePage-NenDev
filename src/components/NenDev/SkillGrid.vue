@@ -6,7 +6,7 @@
         <div class="tech-items move-left-to-right">
           <div
             v-for="tech in [...frontendTech, ...frontendTech]"
-            :key="`${tech.name}-${tech.id}`"
+            :key="`${tech.name}`"
             class="tech-item"
             @mouseover="showModal(tech.name)"
             @mouseleave="hideModal"
@@ -42,7 +42,6 @@ import { Icon } from '@iconify/vue';
 import { computed, ref } from 'vue';
 
 interface Technology {
-  id: string
   name: string
   icon: string
   rating: number
