@@ -38,10 +38,11 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-import { computed, ref } from 'vue'
+import { Icon } from '@iconify/vue';
+import { computed, ref } from 'vue';
 
 interface Technology {
+  id: string
   name: string
   icon: string
   rating: number
