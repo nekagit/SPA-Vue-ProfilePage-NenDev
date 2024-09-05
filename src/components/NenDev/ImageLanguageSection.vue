@@ -1,8 +1,7 @@
 <template>
-  <div class="image-container mx-auto">
+  <div class="image-container mx-auto my-8">
     <img :src="imageSrc" alt="Developer portrait" class="portrait-image" />
     <div>
-      <h1 class="flex">Languages</h1>
       <div class="languages flex flex-row">
         <Icon
           icon="twemoji:flag-for-flag-germany"

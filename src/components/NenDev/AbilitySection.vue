@@ -1,6 +1,6 @@
 <template>
   <div class="abilities my-auto">
-    <ul class="grid grid-cols-2 gap-8">
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <li v-for="(ability, index) in abilities" :key="index" class="flex flex-col items-center mb-8">
         <div class="text-center mb-4">
           <span class="text-2xl font-semibold">{{ ability.name }}</span>
@@ -10,12 +10,12 @@
             <circle
               class="circle-background"
               cx="36" cy="36" r="32"
-              fill="none" stroke="#e6e6e6" stroke-width="4"
+              fill="none" stroke="#e6e6e6" stroke-width="8"
             />
             <circle
               class="circle-progress"
               cx="36" cy="36" r="32"
-              fill="none" stroke="#4f46e5" stroke-width="4"
+              fill="none" stroke="#4f46e5" stroke-width="8"
               stroke-dasharray="100, 100"
               :data-percentage="ability.percentage"
             />
@@ -34,27 +34,34 @@ import { reactive, onMounted } from 'vue'
 import gsap from 'gsap'
 
 const abilities = reactive([
-  { name: 'DevOps', percentage: '85%' },
-  { name: 'Database', percentage: '90%' },
-  { name: 'Backend', percentage: '95%' },
-  { name: 'Frontend', percentage: '98%' }
+  { name: 'DevOps', percentage: '53%' },
+  { name: 'Database', percentage: '63%' },
+  { name: 'Backend', percentage: '68%' },
+  { name: 'Frontend', percentage: '73%' }
 ])
 
 onMounted(() => {
-  gsap.to('.circle-progress', {
-    strokeDasharray: (index, target) => {
-      const percentage = parseFloat(target.getAttribute('data-percentage'));
-      const radius = target.r.baseVal.value;
+  const animateCircles = () => {
+    document.querySelectorAll('.circle-progress').forEach((circle) => {
+      const percentage = parseFloat(circle.getAttribute('data-percentage'));
+      const radius = circle.r.baseVal.value;
       const circumference = 2 * Math.PI * radius;
       const progress = (percentage / 100) * circumference;
-      return `${progress}, ${circumference}`;
-    },
-    duration: 1.5,
-    ease: 'power2.out',
-    stagger: 0.2
-  });
+
+      gsap.set(circle, { strokeDasharray: `${0}, ${circumference}` }); // Start with 0%
+      gsap.to(circle, {
+        strokeDasharray: `${progress}, ${circumference}`, // Animate to the percentage
+        duration: 3,
+        ease: 'power2.out',
+        stagger: 0.5
+      });
+    });
+  }
+
+  animateCircles();
 })
 </script>
+
 
 <style scoped>
 .circular-progress {

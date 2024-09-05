@@ -85,6 +85,7 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
 <style scoped>
 .tech-grid {
   margin: auto;
+  margin-top:3rem;
   display: flex;
   flex-direction: column;
   gap: 40px;

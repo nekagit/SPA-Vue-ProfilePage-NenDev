@@ -1,15 +1,16 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 container">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 container">
+    <PersonalInfoSection />
+    <AbilitySection />
+   
+  </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 container">
     <ImageLanguageSection/>
      <div class="text-content my-auto">
       <h1 class="title text-center pb-8 text-amber-400">{{ title }}</h1>
       <p class="description shadow-2xl" v-html="description"></p>
     </div>
-  </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-16 container">
-    <PersonalInfoSection />
-    <AbilitySection />
-   
   </div>
 </template>
 

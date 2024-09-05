@@ -7,14 +7,14 @@
       <div class="text-content">
         <div class="title text-center align-center pb-4">
           <TypeWriter
-            class="hidden xl:flex"
+            class="hidden xl:flex text-center"
             :texts="[title, 'I am a developer', 'Jesus is King!']"
           />
           <div class="flex xl:hidden pb-8">
             <h3 class="hover:text-white">{{ title }}</h3>
           </div>
         </div>
-        <p class="description text-black">{{ description }}</p>
+        <p class="description text-black max-w-[80%] mx-auto">{{ description }}</p>
         <div class="button-group">
           <!-- <button class="primary-button" @click="onPrimaryAction">
             {{ primaryButtonText }}
@@ -78,6 +78,7 @@ const handleResumeClick = () => {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  
 }
 
 .image-container {
