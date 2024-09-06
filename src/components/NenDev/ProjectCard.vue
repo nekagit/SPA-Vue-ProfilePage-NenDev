@@ -1,12 +1,25 @@
 <template>
-  <div class="card text-center gap-2 relative">
+  <div class="card text-center relative">
     <img :src="imgSrc" alt="" class="card-image" />
     <div class="tech-icons">
-      <Icon v-for="(tech, index) in technologyIcons" :key="tech.name" :icon="tech.icon" width="48" height="48" />
+      <Icon
+        v-for="(tech) in technologyIcons"
+        :key="tech.name"
+        :icon="tech.icon"
+        width="48"
+        height="48"
+      />
     </div>
     <h3 class="title">{{ title }}</h3>
     <p class="description">{{ description }}</p>
-    <p class="technology">{{ technology.split(',').map(t => t.trim()).join(', ') }}</p>
+    <p class="technology">
+      {{
+        technology
+          .split(',')
+          .map((t) => t.trim())
+          .join(', ')
+      }}
+    </p>
     <p class="codeLink">
       <a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a>
     </p>
@@ -14,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { Icon } from '@iconify/vue';
+import { ref, computed } from 'vue'
+import { Icon } from '@iconify/vue'
 
 const props = defineProps({
   title: {
@@ -37,16 +50,17 @@ const props = defineProps({
   imgSrc: {
     type: String,
     required: true
-  },
-});
+  }
+})
 
 interface Technology {
-  name: string;
-  icon: string;
-  type: 'frontend' | 'backend';
+  name: string
+  icon: string
+  type: 'frontend' | 'backend'
 }
 
 const technologies = ref<Technology[]>([
+  { name: 'Java', icon: 'logos:java', type: 'frontend' },
   { name: 'Vue', icon: 'logos:vue', type: 'frontend' },
   { name: 'Angular', icon: 'logos:angular-icon', type: 'frontend' },
   { name: 'React', icon: 'logos:react', type: 'frontend' },
@@ -57,6 +71,7 @@ const technologies = ref<Technology[]>([
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', type: 'frontend' },
   { name: 'Bootstrap', icon: 'logos:bootstrap', type: 'frontend' },
   { name: 'Sass', icon: 'logos:sass', type: 'frontend' },
+  { name: 'Flutter', icon: 'logos:flutter', type: 'frontend' },
   { name: 'Docker', icon: 'logos:docker-icon', type: 'backend' },
   { name: 'Git', icon: 'logos:git-icon', type: 'backend' },
   { name: 'Express', icon: 'simple-icons:express', type: 'backend' },
@@ -66,12 +81,12 @@ const technologies = ref<Technology[]>([
   { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', type: 'backend' },
   { name: 'Postman', icon: 'simple-icons:postman', type: 'backend' },
   { name: 'C#', icon: 'logos:dotnet', type: 'backend' }
-]);
+])
 
 const technologyIcons = computed(() => {
-  const techArray = props.technology.split(',').map(tech => tech.trim());
-  return technologies.value.filter(tech => techArray.includes(tech.name));
-});
+  const techArray = props.technology.split(',').map((tech) => tech.trim())
+  return technologies.value.filter((tech) => techArray.includes(tech.name))
+})
 </script>
 
 <style scoped>
@@ -82,13 +97,13 @@ const technologyIcons = computed(() => {
   background-color: rgb(37, 37, 37);
   color: white;
   border-radius: 8px;
-  padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
   max-width: 300px;
   margin: 1rem auto;
   transition: all 0.3s ease;
-  position: relative;
+  padding-bottom:1rem;
+  
 }
 
 .card-image {
@@ -99,11 +114,10 @@ const technologyIcons = computed(() => {
   margin-bottom: 1rem;
 }
 
-
 .tech-icons {
   position: absolute;
-  top: -0.5rem;
-  left: 0rem;
+  top: -1.5rem;
+  left: -1rem;
   width: 80px;
   height: 80px;
 }
@@ -115,48 +129,71 @@ const technologyIcons = computed(() => {
   border-radius: 4px;
   padding: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.096);
   transition: transform 0.3s ease;
   transform-origin: bottom right;
 }
 
-.tech-icons:hover :deep(svg) {
-  transform: rotate(0deg) translate(-5px, -5px) !important;
-  gap:16px!important;
-}
-
 /* Staggered movement and rotation */
 .tech-icons svg:nth-child(1) {
-   margin-right: 0px;
-  transform: rotate(-5deg);
+  margin-right: 5px;
+  transform: rotate(-10deg);
   z-index: 5;
 }
 
 .tech-icons svg:nth-child(2) {
-   margin-right: 25px;
+  margin-right: 15px;
   transform: rotate(-25deg);
   z-index: 4;
-
 }
 
 .tech-icons svg:nth-child(3) {
-   margin-right: 40px;
-  transform: rotate(-35deg);
+  margin-right: 25px;
+  transform: rotate(-40deg);
   z-index: 3;
-
 }
 
 .tech-icons svg:nth-child(4) {
-   margin-right: 20px;
+  margin-right: 20px;
   transform: rotate(-15deg);
   z-index: 2;
-
 }
 
 .tech-icons svg:nth-child(5) {
-   margin-right: 20px;
+  margin-right: 20px;
   transform: rotate(-15deg);
   z-index: 1;
+}
 
+/* Staggered movement and rotation */
+.tech-icons svg:nth-child(1):hover {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.tech-icons svg:nth-child(2):hover {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.tech-icons svg:nth-child(3):hover {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.tech-icons svg:nth-child(4):hover {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.tech-icons svg:nth-child(5):hover {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+  z-index: 6;
+  background-color: rgba(0, 0, 0, 0.801);
 }
 .title {
   font-size: 1.25rem;
@@ -168,6 +205,7 @@ const technologyIcons = computed(() => {
 .description {
   color: white;
   font-size: 0.875rem;
+  padding:1rem;
   margin-bottom: 0.75rem;
 }
 
@@ -198,7 +236,9 @@ const technologyIcons = computed(() => {
     font-size: 1.1rem;
   }
 
-  .description, .technology, .codeLink a {
+  .description,
+  .technology,
+  .codeLink a {
     font-size: 0.8rem;
   }
 }
@@ -212,7 +252,9 @@ const technologyIcons = computed(() => {
     font-size: 1rem;
   }
 
-  .description, .technology, .codeLink a {
+  .description,
+  .technology,
+  .codeLink a {
     font-size: 0.75rem;
   }
 }

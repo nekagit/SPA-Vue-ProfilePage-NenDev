@@ -2,67 +2,87 @@
 import ProjectCard from '@/components/NenDev/ProjectCard.vue';
 import WebsiteShowcase from '@/components/NenDev/WebsiteShowcase.vue';
 import { onMounted, ref } from 'vue';
+import CodePic from "@/../public/code.jpg"
 // Sample card data
 const cards = ref([
     {
     title: 'WebApp TimeIT',
     description: 'My own WebApp. Measuring working time and enabling several features like spread sheet generation',
     technology: 'NodeJS, React, TypeScript',
-    codeLink: 'https://github.com/timeIT'
+    codeLink: 'https://github.com/timeIT',
+    imgSrc:CodePic
   },
     {
     title: 'WebApp OrgaTech',
    description: 'I worked for 2 years on the application of OrgaTech as a Working Student.(I don not claim its my application or work! All rights reserved to OrgaTech/Adesso)',
     technology: 'Java, Flutter, Javascript',
-    codeLink: 'https://github.com/nekagit'
+    codeLink: 'https://github.com/nekagit',
+    imgSrc:CodePic
+
   },
     {
     title: 'WebApp qmBase',
     description: 'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
     technology: 'React, C#, TypeScript',
-    codeLink: 'https://github.com/qmBase/docs'
+    codeLink: 'https://github.com/qmBase/docs',
+    imgSrc:CodePic
+
   },
   {
     title: 'ArtPage',
     description: 'E-Commerce for selling paintings.  www.stankovicart.com ',
-    technology: 'Vue',
-    codeLink: 'https://github.com/nekagit/VueProfileArtPage'
+    technology: 'Vue, TypeScript',
+    codeLink: 'https://github.com/nekagit/VueProfileArtPage',
+    imgSrc:CodePic
+
   },
   {
     title: 'ProfilePage',
     description: 'Profile of a sports club in Rotterdam. www.stichtingsoprotterdam.nl ',
-    technology: 'Angular',
-    codeLink: 'https://github.com/nekagit/soprotterdam'
+    technology: 'Angular, TypeScript',
+    codeLink: 'https://github.com/nekagit/soprotterdam',
+    imgSrc:CodePic
+
   },
    {
     title: 'ProfilePage',
     description: 'Profile of a soccer player Kosta Kalicanin. kostakalicanin.netlify.app ',
-    technology: 'Vue',
-    codeLink: 'kostakalicanin.netlify.app'
+    technology: 'Vue, TypeScript',
+    codeLink: 'kostakalicanin.netlify.app',
+    imgSrc:CodePic
+
   },
    {
     title: 'ProfilePage',
     description: 'Profile of a personal fitness coach Robin Schroeder, rysport.netlfiy.app ',
-    technology: 'Vue',
-    codeLink: 'rysport.netlfiy.app '
+    technology: 'Vue, TypeScript',
+    codeLink: 'rysport.netlfiy.app',
+    imgSrc:CodePic
+
   },
   {
     title: 'Simple ChatBot Extension',
     description: 'An extension that can be connected to local llama3 or directly communicate with OpenAI, to feed PDFs of current website for query.(BachelorThesis)',
     technology: 'Javascript',
-    codeLink: 'https://github.com/nekagit/BASimpleChatBotExtension'
+    codeLink: 'https://github.com/nekagit/BASimpleChatBotExtension',
+    imgSrc:CodePic
+
   },
   {
     title: 'Leaflet Map with MySQL Data',
     description: 'Different Markers shown on Map regarding Package details.',
     technology: 'Vue, TypeScript',
-    codeLink: 'https://github.com/nekagit/LeafletMySQLVue'
+    codeLink: 'https://github.com/nekagit/LeafletMySQLVue',
+    imgSrc:CodePic
+
   },
   {
     title: 'DocuVerse: Documentation Website',
     description: 'Knowledge i gathered on one place.',
     technology: 'React, Docusaurus',
-    codeLink: 'https://github.com/nekagit/docuVerse'
+    codeLink: 'https://github.com/nekagit/docuVerse',
+    imgSrc:CodePic
+
   },
 
 ]);
@@ -121,11 +141,7 @@ onMounted(() => {
 <style scoped>
 .projectCard {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
   transition: all 0.3s ease;
-  position: relative;
   opacity: 0;
   transform: translateY(50px);
 }
