@@ -3,7 +3,7 @@
     <LoadingScreen v-if="isLoading" />
     <NavBar v-if="!isLoading" />
     <transition name="fade" mode="out-in">
-      <router-view v-if="!isLoading" class="router bg-white dark:bg-gray-900 text-black dark:text-white" />
+      <router-view v-if="!isLoading" class="router bg-white dark:bg-[#090E19] text-black dark:text-white" />
     </transition>
     <div class="">
 

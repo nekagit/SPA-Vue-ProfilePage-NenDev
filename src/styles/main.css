@@ -31,6 +31,14 @@
   }
 }
 
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
@@ -165,11 +173,6 @@ html {
 
 main {
   display: block;
-}
-
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
 }
 
 pre {

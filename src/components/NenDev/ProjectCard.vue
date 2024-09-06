@@ -129,7 +129,7 @@ const technologyIcons = computed(() => {
   border-radius: 4px;
   padding: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  background-color: rgba(255, 255, 255, 0.096);
+  background-color: rgba(0, 0, 0, 0.63);
   transition: transform 0.3s ease;
   transform-origin: bottom right;
 }
@@ -169,36 +169,38 @@ const technologyIcons = computed(() => {
 .tech-icons svg:nth-child(1):hover {
   transform: rotate(0deg) translate(-5px, -5px) !important;
   z-index: 6;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0);
 }
 
 .tech-icons svg:nth-child(2):hover {
   transform: rotate(0deg) translate(-5px, -5px) !important;
   z-index: 6;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0);
 }
 
 .tech-icons svg:nth-child(3):hover {
   transform: rotate(0deg) translate(-5px, -5px) !important;
   z-index: 6;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0);
 }
 
 .tech-icons svg:nth-child(4):hover {
   transform: rotate(0deg) translate(-5px, -5px) !important;
   z-index: 6;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0);
 }
 
 .tech-icons svg:nth-child(5):hover {
   transform: rotate(0deg) translate(-5px, -5px) !important;
   z-index: 6;
-  background-color: rgba(0, 0, 0, 0.801);
+  background-color: rgba(0, 0, 0);
 }
 .title {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  padding:1rem;
+  padding-bottom:0;
   color: white;
 }
 

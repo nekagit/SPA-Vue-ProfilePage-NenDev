@@ -21,6 +21,7 @@
     "lucide-vue-next": "^0.376.0",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.7",
+    "prismjs": "^1.29.0",
     "vanilla-tilt": "^1.8.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
