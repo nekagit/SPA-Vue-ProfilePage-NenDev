@@ -7,7 +7,7 @@ const cards = ref([
     {
     title: 'WebApp TimeIT',
     description: 'My own WebApp. Measuring working time and enabling several features like spread sheet generation',
-    technology: 'React, NodeJS, TypeScript',
+    technology: 'NodeJS, React, TypeScript',
     codeLink: 'https://github.com/timeIT'
   },
     {
@@ -61,7 +61,7 @@ const cards = ref([
   {
     title: 'DocuVerse: Documentation Website',
     description: 'Knowledge i gathered on one place.',
-    technology: 'React/Docusaurus',
+    technology: 'React, Docusaurus',
     codeLink: 'https://github.com/nekagit/docuVerse'
   },
 

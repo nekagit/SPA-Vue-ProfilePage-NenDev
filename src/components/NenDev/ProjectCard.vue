@@ -2,7 +2,7 @@
   <div class="card text-center gap-2 relative">
     <img :src="imgSrc" alt="" class="card-image" />
     <div class="tech-icons">
-      <Icon v-for="(tech, index) in technologyIcons" :key="tech.name" :icon="tech.icon" width="32" height="32" />
+      <Icon v-for="(tech, index) in technologyIcons" :key="tech.name" :icon="tech.icon" width="48" height="48" />
     </div>
     <h3 class="title">{{ title }}</h3>
     <p class="description">{{ description }}</p>
@@ -102,10 +102,10 @@ const technologyIcons = computed(() => {
 
 .tech-icons {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 32px;
-  height: 32px;
+  top: -0.5rem;
+  left: 0rem;
+  width: 80px;
+  height: 80px;
 }
 
 .tech-icons :deep(svg) {
@@ -121,13 +121,43 @@ const technologyIcons = computed(() => {
 
 .tech-icons:hover :deep(svg) {
   transform: rotate(0deg) translate(-5px, -5px) !important;
+  gap:16px!important;
 }
-.tech-icons :deep(svg:not(:first-child)) {
-  margin-right: -24px;
+
+/* Staggered movement and rotation */
+.tech-icons svg:nth-child(1) {
+   margin-right: 0px;
+  transform: rotate(-5deg);
+  z-index: 5;
+}
+
+.tech-icons svg:nth-child(2) {
+   margin-right: 25px;
+  transform: rotate(-25deg);
+  z-index: 4;
+
+}
+
+.tech-icons svg:nth-child(3) {
+   margin-right: 40px;
+  transform: rotate(-35deg);
+  z-index: 3;
+
+}
+
+.tech-icons svg:nth-child(4) {
+   margin-right: 20px;
   transform: rotate(-15deg);
+  z-index: 2;
+
 }
 
+.tech-icons svg:nth-child(5) {
+   margin-right: 20px;
+  transform: rotate(-15deg);
+  z-index: 1;
 
+}
 .title {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
