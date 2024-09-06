@@ -1,8 +1,7 @@
 <template>
 
-  <div class="grid grid-cols-1 xl:grid-cols-2 gap-16 container">
+  <div class="container">
     <PersonalInfoSection />
-    <AbilitySection />
    
   </div>
     <div class="grid grid-cols-1 xl:grid-cols-2 container">
@@ -15,7 +14,6 @@
 </template>
 
 <script setup>
-import AbilitySection from './AbilitySection.vue';
 import ImageLanguageSection from './ImageLanguageSection.vue';
 import PersonalInfoSection from './PersonalInfoSection.vue';
 

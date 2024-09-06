@@ -57,8 +57,11 @@ onMounted(() => {
     80% {
     transform: rotate(360deg) scale(1.5); /* Rotate 360 degrees and scale up */
   }
-  100% {
+  90% {
     transform: rotate(720deg) scale(5); /* Rotate 720 degrees and scale back to original size */
+  }
+    100% {
+    transform: rotate(720deg) scale(0); /* Rotate 720 degrees and scale back to original size */
   }
 }
 </style>

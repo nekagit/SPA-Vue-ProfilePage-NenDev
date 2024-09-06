@@ -1,23 +1,30 @@
 <template>
-  <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 p-6 my-8">
+  <div class="flex xl:flex-row flex-col justify-around items-center gap-8 p-6 my-8 w-full">
     <div
       v-for="(item, index) in infoItems"
       :key="index"
-      class="flex flex-col items-center p-6 rounded-full"
+      class="flex flex-col items-center p-6 w-full xl:flex-grow"
     >
-      <p class="text-amber-400 text-2xl font-semibold mb-2">{{ item.label }}</p>
+      <p class="text-amber-400 text-2xl font-semibold mb-2 text-center w-full">
+        {{ item.label }}
+      </p>
       <TypeWriter
-        class="text-5xl font-extrabold text-black dark:text-white text-center"
+        class="text-5xl font-extrabold text-black dark:text-white text-center w-full"
         v-if="item.label !== 'AGE'"
         :texts="[item.value]"
         playOne="true"
       />
-      <p class="text-5xl font-extrabold text-black dark:text-white text-center" v-else>
+      <p
+        class="text-5xl font-extrabold text-black dark:text-white text-center w-full"
+        v-else
+      >
         <span ref="ageRef">0</span> years
       </p>
     </div>
   </div>
 </template>
+
+
 <script setup>
 import gsap from 'gsap';
 import { onMounted, reactive, ref } from 'vue';
