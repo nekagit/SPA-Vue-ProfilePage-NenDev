@@ -7,7 +7,7 @@ const cards = ref([
     {
     title: 'WebApp TimeIT',
     description: 'My own WebApp. Measuring working time and enabling several features like spread sheet generation',
-    technology: 'React, Node.js',
+    technology: 'React, NodeJS, TypeScript',
     codeLink: 'https://github.com/timeIT'
   },
     {
@@ -19,13 +19,13 @@ const cards = ref([
     {
     title: 'WebApp qmBase',
     description: 'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
-    technology: 'React, C#',
+    technology: 'React, C#, TypeScript',
     codeLink: 'https://github.com/qmBase/docs'
   },
   {
     title: 'ArtPage',
     description: 'E-Commerce for selling paintings.  www.stankovicart.com ',
-    technology: 'Vue.js',
+    technology: 'Vue',
     codeLink: 'https://github.com/nekagit/VueProfileArtPage'
   },
   {
@@ -55,7 +55,7 @@ const cards = ref([
   {
     title: 'Leaflet Map with MySQL Data',
     description: 'Different Markers shown on Map regarding Package details.',
-    technology: 'Vue.js',
+    technology: 'Vue, TypeScript',
     codeLink: 'https://github.com/nekagit/LeafletMySQLVue'
   },
   {

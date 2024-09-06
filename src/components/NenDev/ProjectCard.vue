@@ -1,20 +1,25 @@
 <template>
-  <div class="card">
+  <div class="card text-center gap-2 relative">
+    <img :src="imgSrc" alt="" class="card-image" />
+    <div class="tech-icons">
+      <Icon v-for="(tech, index) in technologyIcons" :key="tech.name" :icon="tech.icon" width="32" height="32" />
+    </div>
     <h3 class="title">{{ title }}</h3>
     <p class="description">{{ description }}</p>
-    <p class="technology">{{ technology }}</p>
-    <p class="codeLink"><a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a></p>
+    <p class="technology">{{ technology.split(',').map(t => t.trim()).join(', ') }}</p>
+    <p class="codeLink">
+      <a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a>
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { ref, computed } from 'vue';
+import { Icon } from '@iconify/vue';
+
+const props = defineProps({
   title: {
     type: String,
-    required: true
-  },
-  stars: {
-    type: Number,
     required: true
   },
   description: {
@@ -29,7 +34,44 @@ defineProps({
     type: String,
     required: true
   },
-})
+  imgSrc: {
+    type: String,
+    required: true
+  },
+});
+
+interface Technology {
+  name: string;
+  icon: string;
+  type: 'frontend' | 'backend';
+}
+
+const technologies = ref<Technology[]>([
+  { name: 'Vue', icon: 'logos:vue', type: 'frontend' },
+  { name: 'Angular', icon: 'logos:angular-icon', type: 'frontend' },
+  { name: 'React', icon: 'logos:react', type: 'frontend' },
+  { name: 'Javascript', icon: 'logos:javascript', type: 'frontend' },
+  { name: 'TypeScript', icon: 'logos:typescript-icon', type: 'frontend' },
+  { name: 'HTML', icon: 'logos:html-5', type: 'frontend' },
+  { name: 'CSS', icon: 'logos:css-3', type: 'frontend' },
+  { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', type: 'frontend' },
+  { name: 'Bootstrap', icon: 'logos:bootstrap', type: 'frontend' },
+  { name: 'Sass', icon: 'logos:sass', type: 'frontend' },
+  { name: 'Docker', icon: 'logos:docker-icon', type: 'backend' },
+  { name: 'Git', icon: 'logos:git-icon', type: 'backend' },
+  { name: 'Express', icon: 'simple-icons:express', type: 'backend' },
+  { name: 'NodeJS', icon: 'logos:nodejs-icon', type: 'backend' },
+  { name: 'MySQL', icon: 'logos:mysql', type: 'backend' },
+  { name: 'Mongo DB', icon: 'logos:mongodb-icon', type: 'backend' },
+  { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', type: 'backend' },
+  { name: 'Postman', icon: 'simple-icons:postman', type: 'backend' },
+  { name: 'C#', icon: 'logos:dotnet', type: 'backend' }
+]);
+
+const technologyIcons = computed(() => {
+  const techArray = props.technology.split(',').map(tech => tech.trim());
+  return technologies.value.filter(tech => techArray.includes(tech.name));
+});
 </script>
 
 <style scoped>
@@ -46,18 +88,51 @@ defineProps({
   max-width: 300px;
   margin: 1rem auto;
   transition: all 0.3s ease;
+  position: relative;
 }
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+
+.tech-icons {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 32px;
+  height: 32px;
+}
+
+.tech-icons :deep(svg) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 4px;
+  padding: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  transform-origin: bottom right;
+}
+
+.tech-icons:hover :deep(svg) {
+  transform: rotate(0deg) translate(-5px, -5px) !important;
+}
+.tech-icons :deep(svg:not(:first-child)) {
+  margin-right: -24px;
+  transform: rotate(-15deg);
+}
+
 
 .title {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: white;
-}
-
-.rating {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
 }
 
 .description {
@@ -93,7 +168,7 @@ defineProps({
     font-size: 1.1rem;
   }
 
-  .rating, .description, .technology, .codeLink a {
+  .description, .technology, .codeLink a {
     font-size: 0.8rem;
   }
 }
@@ -107,7 +182,7 @@ defineProps({
     font-size: 1rem;
   }
 
-  .rating, .description, .technology, .codeLink a {
+  .description, .technology, .codeLink a {
     font-size: 0.75rem;
   }
 }
