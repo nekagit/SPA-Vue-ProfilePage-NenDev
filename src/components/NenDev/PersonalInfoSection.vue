@@ -8,12 +8,11 @@
       <p class="text-amber-400 text-xl font-semibold mb-2 text-center">
         {{ item.label }}
       </p>
-      <TypeWriter
+      <p
         class="text-4xl font-extrabold text-black dark:text-white text-center"
         v-if="item.label !== 'AGE'"
-        :texts="[item.value]"
-        playOne="true"
-      />
+        >{{ item.value }}
+      </p>
       <p
         class="text-4xl font-extrabold text-black dark:text-white text-center"
         v-else

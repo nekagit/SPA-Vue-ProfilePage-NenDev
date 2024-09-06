@@ -1,6 +1,6 @@
 <template>
   <ABaseHorizontalSection class="font-bold" :title="'Contact'" />
-  <div class="container">
+  <div class="container pb-8">
     <footer>
       <div
         class="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center mb-8 font-bold"

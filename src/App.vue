@@ -1,13 +1,14 @@
 <!-- App.vue -->
 <template>
-  <div>
     <LoadingScreen v-if="isLoading" />
     <NavBar v-if="!isLoading" />
     <transition name="fade" mode="out-in">
       <router-view v-if="!isLoading" class="router bg-white dark:bg-gray-900 text-black dark:text-white" />
     </transition>
-    <NenFooter v-if="!isLoading" />
-  </div>
+    <div class="">
+
+      <NenFooter v-if="!isLoading"  />
+    </div>
 </template>
 
 <script setup lang="ts">
