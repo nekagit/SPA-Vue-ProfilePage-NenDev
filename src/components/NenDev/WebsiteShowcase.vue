@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4 py-8">
     <h2 class="text-3xl font-bold mb-6 text-center">Featured Websites</h2>
     <div class="grid grid-cols-1 gap-6">
-      <div v-for="(site, index) in websites" :key="index" class="bg-orange-100 rounded-lg shadow-lg overflow-hidden">
+      <div v-for="(site, index) in websites" :key="index" class="bg-white rounded-lg shadow-lg overflow-hidden">
         <div class="p-4 cursor-pointer" @click="toggleIframe(index)">
           <h3 class="text-xl font-semibold mb-2 text-black">{{ site.title }}</h3>
           <p class="text-gray-600 mb-4">{{ site.description }}</p>
