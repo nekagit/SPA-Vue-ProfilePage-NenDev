@@ -1,5 +1,5 @@
 <template>
-  <div class="tech-grid mb-20 xl:max-w-[75%]">
+  <div class="tech-grid">
     <div class="tech-row">
       <h2 class="row-title">Frontend Technologies</h2>
       <div class="tech-items-container">
@@ -85,12 +85,12 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
 <style scoped>
 .tech-grid {
   margin: auto;
-  margin-top:3rem;
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 20px;
   overflow: hidden;
+  margin-bottom:2rem;
 }
 
 .tech-row {
@@ -113,7 +113,7 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
 
 .tech-items {
   display: flex;
-  gap: 10px;
+  gap: 24px;
   width: fit-content;
 }
 
@@ -150,7 +150,16 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
   align-items: center;
   text-align: center;
   flex: 0 0 auto;
-  width: 120px;
+  width: 150px;
+  height: 130px;
+  background-color:rgba(0, 0, 0, 0.342);
+  padding:1.5rem;
+  margin:auto;
+  border-radius:15%
+}
+
+.tech-item:hover {
+  background-color:black;
 }
 
 .tech-icon {

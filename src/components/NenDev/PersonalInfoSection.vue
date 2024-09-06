@@ -3,7 +3,7 @@
     <div
       v-for="(item, index) in infoItems"
       :key="index"
-      class="flex flex-col items-center p-6 w-full xl:flex-grow"
+      class="flex flex-col items-center p-6 w-full xl:flex-grow h-fit"
     >
       <p class="text-amber-400 text-2xl font-semibold mb-2 text-center w-full">
         {{ item.label }}

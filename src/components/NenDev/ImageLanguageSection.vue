@@ -80,6 +80,7 @@ const getLanguageLevel = (language) => {
   flex: 1;
   text-align: center;
   position: relative;
+  margin:2rem;
 }
 
 .portrait-image {

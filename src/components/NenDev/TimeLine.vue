@@ -159,7 +159,9 @@ onUnmounted(() => {
   display: flex;
   margin-bottom: 50px;
 }
-
+.timeline-item:nth-last-child() {
+  margin-bottom: 0px;
+}
 .date {
   width: 100px;
   text-align: right;
