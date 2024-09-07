@@ -129,7 +129,7 @@ const technologyIcons = computed(() => {
   border-radius: 4px;
   padding: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  background-color: rgba(0, 0, 0, 0.63);
+  /* background-color: rgba(0, 0, 0, 0.63); */
   transition: transform 0.3s ease;
   transform-origin: bottom right;
 }

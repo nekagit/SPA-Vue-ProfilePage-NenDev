@@ -28,16 +28,14 @@ const props = defineProps({
 
 const formattedDescription = computed(() => {
   return props.description.replace(/\n/g, '<br>')
-})
+}) 
 </script>
 
 <style scoped>
 .card {
   position: relative;
   width: 100%;
-  height: auto;
-  max-width: 400px;
-  max-height: 300px;
+  height: 100%;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -53,14 +51,16 @@ const formattedDescription = computed(() => {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
-
+.card img{
+width:100%;
+height: 100%;
+}
 .card__content {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 20px;
   box-sizing: border-box;
   background-color: #313131;
   overflow-y: auto;

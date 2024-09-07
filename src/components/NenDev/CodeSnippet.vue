@@ -39,28 +39,30 @@ import { FC } from "react";
 
 type WelcomeProps = {
   uses:
-    | "explore new tech"
+    | "master current tech"
     | "display my skills"
     | "find freelancing opportunities"
-    | "find a fulltime job";
+    | "find a part-time job";
 };
 
-export const Welcome = ({ uses }) => {
+export const Greetings = ({ application }) => {
   return (
     <div>
-      <h1>This is my little slice of the internet.</h1>
+      <h1>Welcome fellow Visitor.</h1>
       <p>
-        I use this site to <em>{uses}</em>.
+        I use this site to <em>{application}</em>.
       </p>
     </div>
   );
 };
 
-export default Welcome;
+export default Greetings;
         </code>
       </pre>
     </div>
-    <div class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-6 xl:top-auto xl:-right-auto bouncing-element ">
+    <div
+      class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-6 xl:top-auto xl:-right-auto bouncing-element"
+    >
       <div class="flex items-center">
         <img
           src="/src/assets/NenadOG.jpg"
@@ -72,16 +74,17 @@ export default Welcome;
           <span class="text-sm text-gray-300">@nenadkal</span>
         </div>
         <button class="ml-auto px-4 py-2 rounded-2xl bg-[#3855a5c7] text-white hover:bg-blue-700">
-          Follow
+         <a href="https://www.instagram.com/nenadkal/">Follow</a> 
         </button>
       </div>
       <p class="mt-3 text-gray-400">
-        Hey, I'm new to Twitter and not really a social media person 😟. I'm looking to connect with
-        fellow developers and to learn about the latest...
+        Hello! I'm exploring the world of development and eager to connect with fellow developers.
+        Looking forward on collaborating on
+        exciting projects 🌟
       </p>
       <div class="flex justify-between mt-4 text-sm">
-        <span>218 Following</span>
-        <span>44 Followers</span>
+        <span>180 Following</span>
+        <span>377 Followers</span>
       </div>
     </div>
   </div>
@@ -100,7 +103,8 @@ onMounted(() => {
 
 <style scoped>
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0); /* Initial position */
   }
   50% {
@@ -111,7 +115,7 @@ onMounted(() => {
 .bouncing-element {
   /* background: linear-gradient(90deg, #06b6d4, #3b82f6); */
   box-shadow: 0 0 25px rgba(0, 140, 255, 0.363);
-  border:1px solid rgba(255, 255, 255, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   animation: float 6s ease-in-out infinite; /* Animation duration and infinite loop */
 }
 
@@ -130,7 +134,7 @@ onMounted(() => {
   align-items: center;
   padding: 1rem 0.5rem;
   border-radius: 5px;
-  border-bottom:1px solid rgba(255, 255, 255, 0.233);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.233);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }

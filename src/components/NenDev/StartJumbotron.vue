@@ -48,19 +48,19 @@
     <div class="flex flex-col mt-16">
       <section class="flex space-x-2 my-4 xl:justify-center flex-wrap gap-2 justify-end">
         <span class="h-fit bg-[#2a6172] px-3 py-1 rounded-md text-sm font-medium text-white"
-          >Hiker</span
+          >Christian</span
         >
         <span class="h-fit bg-[#255a3b] px-3 py-1 rounded-md text-sm font-medium text-white"
-          >Chef</span
+          >Developer</span
         >
         <span class="h-fit bg-[#925131] px-3 py-1 rounded-md text-sm font-medium text-white"
-          >Runner</span
+          >Swimmer</span
         >
         <span class="h-fit bg-[#8a2b53] px-3 py-1 rounded-md text-sm font-medium text-white"
-          >Mixologist</span
+          >Serbian</span
         >
         <span class="h-fit bg-[#1f2636] px-3 py-1 rounded-md text-sm font-medium text-white"
-          >Space Enthusiast</span
+          >Diligent worker</span
         >
       </section>
       <section>
