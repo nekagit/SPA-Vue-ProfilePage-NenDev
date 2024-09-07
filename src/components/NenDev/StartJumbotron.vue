@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container">
+  <div class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container mb-44">
     <div>
       <header>
         <h1 class="text-amber-400 text-lg">Welcome to my site.</h1>
@@ -22,7 +22,7 @@
           >
         </div>
       </header>
-      <section class="my-4 roboto max-w-[90%] text-gray-400 leading-relaxed space-y-4">
+      <section class="my-4 roboto max-w-full text-gray-400 leading-relaxed space-y-4">
         <p>
           I love writing code that takes things next level creating highly performant websites,
           automated API integrations, building my own dev-tools, and creating stunning user
@@ -41,14 +41,14 @@
     </div>
 
     <div class="flex flex-col mt-16">
-      <section class="flex space-x-2 my-4 justify-center">
-        <span class="bg-[#2a6172] px-3 py-1 rounded-md text-sm font-medium text-white">Hiker</span>
-        <span class="bg-[#255a3b] px-3 py-1 rounded-md text-sm font-medium text-white">Chef</span>
-        <span class="bg-[#925131] px-3 py-1 rounded-md text-sm font-medium text-white">Runner</span>
-        <span class="bg-[#8a2b53] px-3 py-1 rounded-md text-sm font-medium text-white"
+      <section class="flex space-x-2 my-4 justify-center flex-wrap gap-2">
+        <span class="h-fit bg-[#2a6172] px-3 py-1 rounded-md text-sm font-medium text-white">Hiker</span>
+        <span class="h-fit bg-[#255a3b] px-3 py-1 rounded-md text-sm font-medium text-white">Chef</span>
+        <span class="h-fit bg-[#925131] px-3 py-1 rounded-md text-sm font-medium text-white">Runner</span>
+        <span class="h-fit bg-[#8a2b53] px-3 py-1 rounded-md text-sm font-medium text-white"
           >Mixologist</span
         >
-        <span class="bg-[#1f2636] px-3 py-1 rounded-md text-sm font-medium text-white"
+        <span class="h-fit bg-[#1f2636] px-3 py-1 rounded-md text-sm font-medium text-white"
           >Space Enthusiast</span
         >
       </section>
@@ -95,9 +95,9 @@ import { Icon } from '@iconify/vue'
   -webkit-text-fill-color: transparent;
 }
 .shadow__btn {
-  padding: 10px 20px;
+  padding: 0px 20px;
   border: none;
-  font-size: 17px;
+  font-size: 12px;
   color: #fff;
   border-radius: 7px;
   letter-spacing: 4px;
@@ -121,7 +121,7 @@ import { Icon } from '@iconify/vue'
 }
 .btn {
   position: relative;
-  font-size: 17px;
+  font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
   padding: 1em 1.5em;

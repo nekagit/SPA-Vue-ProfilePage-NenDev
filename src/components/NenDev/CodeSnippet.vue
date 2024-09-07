@@ -1,7 +1,7 @@
 <template>
 
-  <div class="card shadow-xl relative xl:max-w-lg">
-    <div class="header flex justify-between items-center">
+  <div class="card shadow-xl relative xl:max-w-l">
+    <div class="header flex justify-between items-center align-center">
       <!-- Circles on the left -->
       <div class="flex space-x-1">
         <div class="circle red"></div>
@@ -10,7 +10,7 @@
       </div>
 
       <!-- Centered title -->
-      <p id="title2">index.tsx</p>
+      <p class="" id="title2">index.tsx</p>
 
       <!-- Copy SVG icon on the right -->
       <svg
@@ -33,7 +33,6 @@
         ></path>
       </svg>
     </div>
-
     <div class="code-container">
       <pre class="language-jsx">
         <code class="language-jsx">
@@ -62,7 +61,7 @@ export default Welcome;
         </code>
       </pre>
     </div>
-    <div class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 bouncing-element ">
+    <div class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-8 xl:top-auto xl:-right-auto bouncing-element ">
       <div class="flex items-center">
         <img
           src="https://pbs.twimg.com/profile_images/1639008402361382912/g_4l71rM_400x400.jpg"
@@ -101,9 +100,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.shadow__btn {
- 
-}
 
 .shadow__btn:hover {
   box-shadow:
@@ -140,9 +136,11 @@ onMounted(() => {
 }
 
 .header {
-  margin: 5px;
-  padding: 0 1rem;
+  align-items: center;;
+  padding: 0 0.5rem;
   border-radius: 5px;
+  border-bottom:1px solid rgba(255, 255, 255, 0.233);
+  padding-bottom: 1rem;
 }
 
 .circle {
