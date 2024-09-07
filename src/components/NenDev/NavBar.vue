@@ -2,6 +2,8 @@
   <div class="xl:hidden">
     <AMenuButton />
   </div>
+    <SpinningButton />
+
   <nav class="flex items-center justify-between p-32 pt-8 pb-12 bg-[#00000057] sticky top-0 z-10">
     <div class="flex space-x-8 hidden xl:block dark:text-white">
       <RouterLink to="/" class="nav-link" active-class="activeLink">Home</RouterLink>
@@ -55,7 +57,9 @@
 <script setup lang="ts">
 import AMenuButton from '@/components/NenDev/AMenuButton.vue';
 import DarkModeToggle from '@/components/NenDev/DarkModeToggle.vue';
+import SpinningButton from "@/components/NenDev/SpinningButton.vue";
 import { Icon } from '@iconify/vue';
+
 </script>
 <style scoped>
 .nav-link {

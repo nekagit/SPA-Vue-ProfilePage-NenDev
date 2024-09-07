@@ -6,9 +6,9 @@
       <router-view v-if="!isLoading" class="router bg-white dark:bg-[#090E19] text-black dark:text-white" />
     </transition>
     <div class="">
-
       <NenFooter v-if="!isLoading"  />
     </div>
+
 </template>
 
 <script setup lang="ts">

@@ -17,6 +17,13 @@
             >CodeBucks</a
           >
         </p>
+         <p>
+          Inspired by
+          <a target="_blank" class="underline underline-offset-2" href="https://flext.dev/"
+            >Felix Tellmann</a
+          >
+        </p>
+          
 
         <div class="flex items-center space-x-4">
           <div class="space-x-8 flex xl:hidden">

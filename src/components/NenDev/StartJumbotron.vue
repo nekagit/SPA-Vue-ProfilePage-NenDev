@@ -1,14 +1,16 @@
 <template>
-  <div class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container mb-44">
+  <div
+    class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container mb-44"
+  >
     <div>
       <header>
         <h1 class="text-amber-400 text-lg">Welcome to my site.</h1>
-        <h1 class="text-6xl font-bold robot-bold my-2">
+        <h1 class="text-6xl font-extrabold robot-bold my-2">
           I'm <span class="bg-clip-text text-transparent gradientText">Nenad Kalicanin</span>, a
           Fullstack developer.
         </h1>
         <div class="flex items-center space-x-4 my-4">
-            <span class="flex items-center gap-2">
+          <span class="flex items-center gap-2">
             <Icon icon="logos:vue" width="24" height="24" /> Vue.js</span
           >
           <span class="flex items-center gap-2">
@@ -22,29 +24,38 @@
           >
         </div>
       </header>
-      <section class="my-4 roboto max-w-full text-gray-400 leading-relaxed space-y-4">
+      <section class="my-4 roboto max-w-[90%] text-gray-400 leading-relaxed space-y-4">
         <p>
-          I love writing code that takes things next level creating highly performant websites,
-          automated API integrations, building my own dev-tools, and creating stunning user
-          experiences that make you feel WOW!
+          As an enthusiastic intermediate full-stack developer, I'm on a journey to transform ideas
+          into functional web applications. I'm constantly learning and improving my skills in
+          Vue.js, React.js and web development. 
         </p>
         <p>
-          I am always keen to learn and explore new technologies, frameworks, and programming
-          languages. Currently, I'm learning about Astro and Replicache.
+          Explore my growing portfolio of projects and
+          articles that demonstrate my progress and passion for coding.
+          Currently, I'm learning about React and Vue in the front and Java and Python in the back.
         </p>
       </section>
 
       <section class="flex space-x-4">
-        <button class="px-4 py-2 bg-gray-800 rounded-md shadow__btn">Hire me</button>
-        <button class="btn">Button</button>
+        <button id="hire-me-button" class="px-4 py-2 bg-gray-800 rounded-md shadow__btn">
+          Hire me
+        </button>
+        <button class="btn" @click="handleResumeClick">Resume</button>
       </section>
     </div>
 
     <div class="flex flex-col mt-16">
-      <section class="flex space-x-2 my-4 justify-center flex-wrap gap-2">
-        <span class="h-fit bg-[#2a6172] px-3 py-1 rounded-md text-sm font-medium text-white">Hiker</span>
-        <span class="h-fit bg-[#255a3b] px-3 py-1 rounded-md text-sm font-medium text-white">Chef</span>
-        <span class="h-fit bg-[#925131] px-3 py-1 rounded-md text-sm font-medium text-white">Runner</span>
+      <section class="flex space-x-2 my-4 xl:justify-center flex-wrap gap-2 justify-end">
+        <span class="h-fit bg-[#2a6172] px-3 py-1 rounded-md text-sm font-medium text-white"
+          >Hiker</span
+        >
+        <span class="h-fit bg-[#255a3b] px-3 py-1 rounded-md text-sm font-medium text-white"
+          >Chef</span
+        >
+        <span class="h-fit bg-[#925131] px-3 py-1 rounded-md text-sm font-medium text-white"
+          >Runner</span
+        >
         <span class="h-fit bg-[#8a2b53] px-3 py-1 rounded-md text-sm font-medium text-white"
           >Mixologist</span
         >
@@ -55,7 +66,6 @@
       <section>
         <CodeSnippet />
       </section>
-
     </div>
   </div>
 </template>
@@ -63,6 +73,21 @@
 <script setup>
 import CodeSnippet from '@/components/NenDev/CodeSnippet.vue'
 import { Icon } from '@iconify/vue'
+import resumePdf from '@/../public/NenadKalicanin.pdf'
+import { onMounted } from 'vue'
+const handleResumeClick = () => {
+  const link = document.createElement('a')
+  link.href = resumePdf
+  link.download = 'Nenad-Kalicanin.pdf'
+  link.click()
+}
+onMounted(() => {
+  const button = document.getElementById('hire-me-button')
+  button.addEventListener('click', () => {
+    window.location.href =
+      'mailto:your-email@example.com?subject=Hiring Inquiry&body=Hello,%0D%0A%0D%0AI am interested in hiring you.'
+  })
+})
 </script>
 
 <style scoped>
@@ -90,9 +115,10 @@ import { Icon } from '@iconify/vue'
 }
 
 .gradientText {
-  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  background: linear-gradient(90deg, #16d8fa, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: -3px;
 }
 .shadow__btn {
   padding: 0px 20px;

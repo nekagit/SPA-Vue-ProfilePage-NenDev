@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import Nenad from "@/assets/Nenad.png";
-import Jumbotron from '@/components/NenDev/Jumbotron.vue';
-import SpinningButton from "@/components/NenDev/SpinningButton.vue";
 import StartJumbotron from "@/components/NenDev/StartJumbotron.vue";
 import { onMounted } from 'vue';
 
@@ -33,6 +30,5 @@ onMounted(() => {
 
     <StartJumbotron/>
   </div>
-    <SpinningButton />
 
 </template>

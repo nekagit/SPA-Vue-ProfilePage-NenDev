@@ -1,16 +1,15 @@
 <template>
-
   <div class="card shadow-xl relative xl:max-w-l">
-    <div class="header flex justify-between items-center align-center">
+    <div class="header flex justify-between items-center">
       <!-- Circles on the left -->
-      <div class="flex space-x-1">
+      <div class="flex space-x-1 items-center">
         <div class="circle red"></div>
         <div class="circle yellow"></div>
         <div class="circle green"></div>
       </div>
 
       <!-- Centered title -->
-      <p class="" id="title2">index.tsx</p>
+      <p class="text-center" id="title2">index.tsx</p>
 
       <!-- Copy SVG icon on the right -->
       <svg
@@ -61,22 +60,22 @@ export default Welcome;
         </code>
       </pre>
     </div>
-    <div class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-8 xl:top-auto xl:-right-auto bouncing-element ">
+    <div class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-6 xl:top-auto xl:-right-auto bouncing-element ">
       <div class="flex items-center">
         <img
-          src="https://pbs.twimg.com/profile_images/1639008402361382912/g_4l71rM_400x400.jpg"
+          src="/src/assets/NenadOG.jpg"
           alt="Profile Picture"
           class="w-10 h-10 rounded-full mr-3"
         />
         <div>
           <h2 class="font-bold text-lg">Nenad Kalicanin</h2>
-          <span class="text-sm">@nenadkal</span>
+          <span class="text-sm text-gray-300">@nenadkal</span>
         </div>
         <button class="ml-auto px-4 py-2 rounded-2xl bg-[#3855a5c7] text-white hover:bg-blue-700">
           Follow
         </button>
       </div>
-      <p class="mt-3">
+      <p class="mt-3 text-gray-400">
         Hey, I'm new to Twitter and not really a social media person 😟. I'm looking to connect with
         fellow developers and to learn about the latest...
       </p>
@@ -100,15 +99,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-.shadow__btn:hover {
-  box-shadow:
-    0 0 5px rgb(0, 140, 255),
-    0 0 25px rgb(0, 140, 255),
-    0 0 50px rgb(0, 140, 255),
-    0 0 100px rgb(0, 140, 255);
-}
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0); /* Initial position */
@@ -119,11 +109,12 @@ onMounted(() => {
 }
 
 .bouncing-element {
-   /* background: linear-gradient(90deg, #06b6d4, #3b82f6); */
-  box-shadow: 0 0 25px rgb(0, 140, 255);
+  /* background: linear-gradient(90deg, #06b6d4, #3b82f6); */
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.363);
   border:1px solid rgba(255, 255, 255, 0.24);
   animation: float 6s ease-in-out infinite; /* Animation duration and infinite loop */
 }
+
 .card {
   height: 400px;
   margin: 0 auto;
@@ -136,11 +127,12 @@ onMounted(() => {
 }
 
 .header {
-  align-items: center;;
-  padding: 0 0.5rem;
+  align-items: center;
+  padding: 1rem 0.5rem;
   border-radius: 5px;
   border-bottom:1px solid rgba(255, 255, 255, 0.233);
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .circle {
@@ -164,7 +156,6 @@ onMounted(() => {
 #title2 {
   color: white;
   font-size: 15px;
-  text-align: center;
 }
 
 .code-container {
