@@ -10,8 +10,8 @@ onMounted(() => {
 })
 const developing = [
   {
-    title: 'Swimming Licenses and LifeGuard',
-    imgSrc: 'https://www.sportwelt-dortmund.de/uploads/pics/HOMBRUCH.JPG'
+    title: 'React Course',
+    imgSrc: '../../assets/certReact.png'
   } // Swimming Pool
 ]
 
@@ -48,7 +48,7 @@ const sports = [
 
 <template>
   <div class="p-6 min-h-screen">
-    <!-- <h1 class="text-3xl font-bold mb-6 text-center">Developing</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center">Developing</h1>
     <div class="my-8 grid grid-cols-1 xl:grid-cols-2">
       <div v-for="(item, index) in developing" :key="index" class="relative">
         <AInternetUpFlipCard
@@ -58,7 +58,7 @@ const sports = [
           class="transition-transform duration-300 ease-in-out transform hover:scale-105 cursor-pointer mx-auto"
         />
       </div>
-    </div> -->
+    </div>
     <h1 class="text-3xl font-bold mb-6 text-center">Schooling</h1>
     <div class="my-8 grid grid-cols-1 xl:grid-cols-2">
       <div v-for="(item, index) in schooling" :key="index" class="relative">
