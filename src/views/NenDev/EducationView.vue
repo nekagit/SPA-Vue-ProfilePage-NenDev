@@ -2,6 +2,7 @@
 import AInternetUpFlipCard from '@/components/atoms/cards/internet/AInternetUpFlipCard.vue'
 import { onMounted } from 'vue'
 import ReactCert from '@/assets/certReact.png'
+import PhotoStack from '@/components/NenDev/PhotoStack.vue';
 onMounted(() => {
   window.scrollTo({
     top: 0,
@@ -11,7 +12,8 @@ onMounted(() => {
 const developing = [
   {
     title: 'React Course',
-    imgSrc: ReactCert
+    imgSrc: ReactCert,
+    tags: 'Web Development, Software Development, Computer Science'
   } // Swimming Pool
 ]
 
@@ -47,6 +49,7 @@ const sports = [
 </script>
 
 <template>
+  <PhotoStack/>
   <div class="p-6 min-h-screen">
     <h1 class="text-3xl font-bold mb-6 text-center">Developing</h1>
     <div class="my-8 grid grid-cols-1 xl:grid-cols-2">
