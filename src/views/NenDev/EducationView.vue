@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AInternetUpFlipCard from '@/components/atoms/cards/internet/AInternetUpFlipCard.vue'
 import { onMounted } from 'vue'
-
+import ReactCert from '@/assets/certReact.png'
 onMounted(() => {
   window.scrollTo({
     top: 0,
@@ -11,7 +11,7 @@ onMounted(() => {
 const developing = [
   {
     title: 'React Course',
-    imgSrc: '../../assets/certReact.png'
+    imgSrc: ReactCert
   } // Swimming Pool
 ]
 
