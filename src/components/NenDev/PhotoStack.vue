@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center min-h-screen bg-gray-900 text-white p-4">
-    <div class="flex w-full max-w-6xl">
+    <div class="grid grid-cols-1 xl:grid-cols-2">
       <div class="w-1/2 pr-8">
         <div class="relative w-full h-80 mb-8">
           <TransitionGroup name="photo-stack">
@@ -22,13 +22,11 @@
             </div>
           </TransitionGroup>
         </div>
-        <Transition name="fade">
-          <h3 class="text-2xl font-bold mb-4 text-center" :key="currentPhoto.title">
+          <h3 class="text-2xl font-bold mb-4 text-end float-end" :key="currentPhoto.title">
             {{ currentPhoto.title }}
           </h3>
-        </Transition>
       </div>
-      <div class="w-1/2">
+      <div class="">
         <div class="flex justify-between mb-8">
           <div v-for="(value, key) in stats" :key="key" class="text-center">
             <span class="text-blue-400 text-3xl block">{{ value }}</span>
@@ -52,8 +50,8 @@
 </template>
 
 <script setup>
+import ReactCert from '@/assets/certReact.png';
 import { computed, ref } from 'vue';
-import ReactCert from '@/assets/certReact.png'
 
 const photos = [
   {
