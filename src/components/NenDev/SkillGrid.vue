@@ -82,6 +82,7 @@ const frontendTech = computed(() => technologies.value.filter((tech) => tech.typ
 const backendTech = computed(() => technologies.value.filter((tech) => tech.type === 'backend'))
 </script>
 
+
 <style scoped>
 .tech-grid {
   margin: auto;
@@ -90,7 +91,7 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
   gap: 40px;
   padding: 20px;
   overflow: hidden;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
 }
 
 .tech-row {
@@ -152,14 +153,15 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
   flex: 0 0 auto;
   width: 150px;
   height: 130px;
-  background-color:rgba(0, 0, 0, 0.342);
-  padding:1.5rem;
-  margin:auto;
-  border-radius:15%
+  background-color: rgba(0, 0, 0, 0.342);
+  padding: 1.5rem;
+  margin: auto;
+  border-radius: 15%;
+  transition: background-color 0.3s ease;
 }
 
 .tech-item:hover {
-  background-color:black;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .tech-icon {
@@ -185,13 +187,17 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
   opacity: 0;
-  transition:
-    opacity 0.3s,
-    transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
 }
 
 .tech-item:hover .modal {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* Ensure animations continue on hover */
+.tech-items-container:hover .tech-items {
+  animation-play-state: running !important;
 }
 </style>

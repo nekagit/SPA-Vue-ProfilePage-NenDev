@@ -1,34 +1,38 @@
 <template>
-  <div class="card text-center relative">
-    <img :src="imgSrc" alt="" class="card-image" />
-    <div class="tech-icons">
-      <Icon
-        v-for="(tech) in technologyIcons"
-        :key="tech.name"
-        :icon="tech.icon"
-        width="48"
-        height="48"
-      />
+  <div class="book">
+    <div class="card text-center relative">
+      <div class="tech-icons">
+        <Icon
+          v-for="tech in technologyIcons"
+          :key="tech.name"
+          :icon="tech.icon"
+          width="48"
+          height="48"
+        />
+      </div>
+
+      <p class="description">{{ description }}</p>
+      <p class="technology">
+        {{
+          technology
+            .split(',')
+            .map((t) => t.trim())
+            .join(', ')
+        }}
+      </p>
+      <p class="codeLink">
+        <a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a>
+      </p>
+      <div class="cover">
+        <h3 class="title">{{ title }}</h3>
+      </div>
     </div>
-    <h3 class="title">{{ title }}</h3>
-    <p class="description">{{ description }}</p>
-    <p class="technology">
-      {{
-        technology
-          .split(',')
-          .map((t) => t.trim())
-          .join(', ')
-      }}
-    </p>
-    <p class="codeLink">
-      <a :href="codeLink" target="_blank" rel="noopener noreferrer">View</a>
-    </p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { Icon } from '@iconify/vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps({
   title: {
@@ -90,20 +94,80 @@ const technologyIcons = computed(() => {
 </script>
 
 <style scoped>
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: dark;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #000;
+  padding: 10px;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-90deg);
+  -ms-transform: rotatey(-90deg);
+  transform: rotatey(-90deg);
+}
+
 .card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(37, 37, 37);
+  background-color: #0f172a;
   color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 80%;
   max-width: 300px;
+  height: auto;
   margin: 1rem auto;
   transition: all 0.3s ease;
-  padding-bottom:1rem;
-  
+  padding-bottom: 1rem;
 }
 
 .card-image {
@@ -199,15 +263,15 @@ const technologyIcons = computed(() => {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
-  padding:1rem;
-  padding-bottom:0;
+  padding: 1rem;
+  padding-bottom: 0;
   color: white;
 }
 
 .description {
   color: white;
   font-size: 0.875rem;
-  padding:1rem;
+  padding: 1rem;
   margin-bottom: 0.75rem;
 }
 

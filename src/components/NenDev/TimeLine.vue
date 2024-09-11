@@ -18,9 +18,9 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue';
 
-const container = ref(null)
+const container = ref(null);
 const timelineItems = ref([
   {
     color: '#ffffff',
@@ -29,8 +29,7 @@ const timelineItems = ref([
     date: 'June 2024 - Present',
     title: 'bytes Coding GmbH',
     subtitle: 'Software Developer (Freelancer)',
-    description:
-      'Working on various software development projects, utilizing skills in full-stack web development, React, TypeScript, and more.'
+    description: 'Working on various software development projects, utilizing skills in full-stack web development, React, TypeScript, and more.'
   },
   {
     color: '#ffffff',
@@ -39,8 +38,7 @@ const timelineItems = ref([
     date: 'January 2023 – March 2024',
     title: 'qmBase-Dortmund',
     subtitle: 'Software Developer',
-    description:
-      'Developed full-stack web applications using React, TypeScript, ASP.Net, and Azure DevOps. Contributed to the development and maintenance of complex web solutions.'
+    description: 'Developed full-stack web applications using React, TypeScript, ASP.Net, and Azure DevOps. Contributed to the development and maintenance of complex web solutions.'
   },
   {
     color: '#ffffff',
@@ -49,8 +47,7 @@ const timelineItems = ref([
     date: 'January 2021 – December 2022',
     title: 'OrgaTech Solution Engineering Consulting GmbH-Lünen',
     subtitle: 'Software Developer',
-    description:
-      'Worked on Java backend development integrated with HTML, CSS, and JavaScript for frontend solutions. Also involved in Flutter mobile development.'
+    description: 'Worked on Java backend development integrated with HTML, CSS, and JavaScript for frontend solutions. Also involved in Flutter mobile development.'
   },
   {
     color: '#ffffff',
@@ -59,8 +56,7 @@ const timelineItems = ref([
     date: '2020 – 2021',
     title: 'Decathlon-Dortmund',
     subtitle: 'Order Picker',
-    description:
-      'Responsible for efficiently picking and packing orders, ensuring timely and accurate delivery of products.'
+    description: 'Responsible for efficiently picking and packing orders, ensuring timely and accurate delivery of products.'
   },
   {
     color: '#ffffff',
@@ -69,8 +65,7 @@ const timelineItems = ref([
     date: '2017 – 2020',
     title: 'Service am Gast GmbH-Dortmund',
     subtitle: 'Waiter/Bartender',
-    description:
-      'Provided excellent customer service in a fast-paced environment, managing orders and ensuring a high-quality dining experience.'
+    description: 'Provided excellent customer service in a fast-paced environment, managing orders and ensuring a high-quality dining experience.'
   },
   {
     color: '#ffffff',
@@ -79,74 +74,72 @@ const timelineItems = ref([
     date: '2015 – 2017',
     title: 'Kaufland-Dortmund',
     subtitle: 'Newspaper Delivery',
-    description:
-      'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
-  }
-])
+    description: 'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
+  },
+]);
 
 const observerOptions = {
   root: null,
   rootMargin: '0px',
   threshold: 0.1
-}
+};
 
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      const index = parseInt(entry.target.dataset.index)
-      timelineItems.value[index].visible = true
-      observer.unobserve(entry.target)
+      const index = parseInt(entry.target.dataset.index);
+      timelineItems.value[index].visible = true;
+      observer.unobserve(entry.target);
     }
-  })
-}
+  });
+};
 
-let observer
+let observer;
 
 onMounted(() => {
-  observer = new IntersectionObserver(observerCallback, observerOptions)
-
-  const timelineElements = container.value.querySelectorAll('.timeline-item')
+  observer = new IntersectionObserver(observerCallback, observerOptions);
+  
+  const timelineElements = container.value.querySelectorAll('.timeline-item');
   timelineElements.forEach((el, index) => {
-    el.dataset.index = index
-    observer.observe(el)
-  })
+    el.dataset.index = index;
+    observer.observe(el);
+  });
 
   const updateColors = () => {
-    const containerRect = container.value.getBoundingClientRect()
-    const containerHeight = containerRect.height
-    const scrollPosition = window.scrollY - containerRect.top + window.innerHeight / 2
+    const containerRect = container.value.getBoundingClientRect();
+    const containerHeight = containerRect.height;
+    const scrollPosition = window.scrollY - containerRect.top + window.innerHeight / 2;
 
     timelineItems.value.forEach((item, index) => {
-      const itemPosition = (index / (timelineItems.value.length - 1)) * containerHeight
-      const progress =
-        (scrollPosition - itemPosition) / (containerHeight / (timelineItems.value.length - 1))
-
+      const itemPosition = (index / (timelineItems.value.length - 1)) * containerHeight;
+      const progress = (scrollPosition - itemPosition) / (containerHeight / (timelineItems.value.length - 1));
+      
       if (progress >= 1) {
-        item.color = '#4a0e4e'
+        item.color = '#4a0e4e';
       } else if (progress > 0) {
-        const r = Math.round(255 - progress * (255 - 74))
-        const g = Math.round(255 - progress * (255 - 14))
-        const b = Math.round(255 - progress * (255 - 78))
-        item.color = `rgb(${r}, ${g}, ${b})`
+        const r = Math.round(255 - progress * (255 - 74));
+        const g = Math.round(255 - progress * (255 - 14));
+        const b = Math.round(255 - progress * (255 - 78));
+        item.color = `rgb(${r}, ${g}, ${b})`;
       } else {
-        item.color = '#ffffff'
+        item.color = '#ffffff';
       }
 
       if (index < timelineItems.value.length - 1) {
-        item.lineProgress = Math.max(0, Math.min(100, progress * 100))
+        item.lineProgress = Math.max(0, Math.min(100, progress * 100));
       }
-    })
-  }
+    });
+  };
 
-  window.addEventListener('scroll', updateColors)
-  updateColors()
-})
+  window.addEventListener('scroll', updateColors);
+  updateColors();
+});
 
 onUnmounted(() => {
   if (observer) {
-    observer.disconnect()
+    observer.disconnect();
   }
-})
+});
 </script>
 
 <style scoped>
@@ -185,9 +178,8 @@ onUnmounted(() => {
   height: min-content;
   opacity: 0;
   transform: translateY(50px);
-  transition:
-    opacity 0.5s,
-    transform 0.5s;
+  transition: opacity 0.5s, transform 0.5s;
+
 }
 
 .timeline-content.fade-in {
@@ -208,22 +200,13 @@ onUnmounted(() => {
 }
 
 .card {
+  background-color: #f9f9f9;
   border-radius: 8px;
   padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
-  transition: all 0.3s ease;
-
-  background: rgb(236, 236, 236);
-  box-shadow:
-    rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
-    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
 .card-title {
   margin: 0;
   font-size: 25px;
@@ -278,9 +261,11 @@ onUnmounted(() => {
   .timeline-container {
     padding: 5px;
   }
-
+  
   .timeline-item {
     margin-bottom: 30px;
   }
+
+
 }
 </style>
