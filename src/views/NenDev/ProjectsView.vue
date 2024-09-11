@@ -118,7 +118,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="projectContainer" class="grid grid-cols-1 xl:grid-cols-3 mx-auto pt-8">
+  <div ref="projectContainer" class="grid grid-cols-1 xl:grid-cols-3 place-content-center mx-auto gap-8 pt-8">
     <ProjectCard
       v-for="(card, index) in cards"
       class="projectCard"

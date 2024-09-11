@@ -1,5 +1,5 @@
 <template>
-  <div class="book">
+  <div class="book mx-auto">
     <div class="card text-center relative">
       <div class="tech-icons">
         <Icon
@@ -97,18 +97,15 @@ const technologyIcons = computed(() => {
 .book {
   position: relative;
   border-radius: 10px;
-  width: 100%;
+  max-width: 300px;
+  max-height: 300px;
   height: 100%;
   background-color: dark;
-  -webkit-box-shadow: 1px 1px 12px #000;
-  box-shadow: 1px 1px 12px #000;
   -webkit-transform: preserve-3d;
   -ms-transform: preserve-3d;
   transform: preserve-3d;
   -webkit-perspective: 2000px;
   perspective: 2000px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -116,8 +113,6 @@ const technologyIcons = computed(() => {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  color: #000;
-  padding: 10px;
 }
 
 .cover {
@@ -133,8 +128,6 @@ const technologyIcons = computed(() => {
   -webkit-transform-origin: 0;
   -ms-transform-origin: 0;
   transform-origin: 0;
-  -webkit-box-shadow: 1px 1px 12px #000;
-  box-shadow: 1px 1px 12px #000;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,12 +155,11 @@ const technologyIcons = computed(() => {
   background-color: #0f172a;
   color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   max-width: 300px;
-  height: auto;
-  margin: 1rem auto;
+  height: 100%;
+  max-height: 300px;
   transition: all 0.3s ease;
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 .card-image {
@@ -270,9 +262,8 @@ const technologyIcons = computed(() => {
 
 .description {
   color: white;
-  font-size: 0.875rem;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 .technology {
