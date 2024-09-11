@@ -58,6 +58,11 @@ const websites = ref([
     description: 'Profile of a sports club in Rotterdam',
     url: 'https://stichtingsoprotterdam.nl',
     showIframe: false
+  },  {
+    title: 'DocuVerse',
+    description: 'Documentation website of my public knowledge',
+    url: 'https://docuverse.netlify.app',
+    showIframe: false
   }
 ])
 

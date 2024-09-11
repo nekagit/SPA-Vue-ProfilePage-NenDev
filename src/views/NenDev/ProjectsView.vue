@@ -6,6 +6,22 @@ import WebsiteShowcase from '@/components/NenDev/WebsiteShowcase.vue'
 import { onMounted, ref } from 'vue'
 // Sample card data
 const cards = ref([
+   {
+    title: 'ChatBot on Server',
+    description:
+      'Using AnythingLLM, LLama 3.1 and a cloud Linux Server enabled ChatBot for Medical Application of customer',
+    technology: 'TypeScript, HTML, CSS',
+    codeLink: '',
+    imgSrc: CodePic
+  },
+   {
+    title: 'WebApp Survey',
+    description:
+      'WebApp on AWS deployed for customer company private survey tool',
+    technology: 'Python, React, JavaScript',
+    codeLink: '',
+    imgSrc: CodePic
+  },
   {
     title: 'WebApp TimeIT',
     description:

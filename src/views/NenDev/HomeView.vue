@@ -2,10 +2,6 @@
 import StartJumbotron from "@/components/NenDev/StartJumbotron.vue";
 import { onMounted } from 'vue';
 
-
-const handleContactClick = () => {
-  // Handle contact button click
-}
 onMounted(() => {
   window.scrollTo({
     top: 0,

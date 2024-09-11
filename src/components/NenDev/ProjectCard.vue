@@ -67,15 +67,14 @@ const technologies = ref<Technology[]>([
   { name: 'Java', icon: 'logos:java', type: 'frontend' },
   { name: 'Vue', icon: 'logos:vue', type: 'frontend' },
   { name: 'Angular', icon: 'logos:angular-icon', type: 'frontend' },
-  { name: 'React', icon: 'logos:react', type: 'frontend' },
   { name: 'Javascript', icon: 'logos:javascript', type: 'frontend' },
-  { name: 'TypeScript', icon: 'logos:typescript-icon', type: 'frontend' },
   { name: 'HTML', icon: 'logos:html-5', type: 'frontend' },
   { name: 'CSS', icon: 'logos:css-3', type: 'frontend' },
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', type: 'frontend' },
   { name: 'Bootstrap', icon: 'logos:bootstrap', type: 'frontend' },
   { name: 'Sass', icon: 'logos:sass', type: 'frontend' },
   { name: 'Flutter', icon: 'logos:flutter', type: 'frontend' },
+  { name: 'Python', icon: 'logos:python', type: 'backend' },
   { name: 'Docker', icon: 'logos:docker-icon', type: 'backend' },
   { name: 'Git', icon: 'logos:git-icon', type: 'backend' },
   { name: 'Express', icon: 'simple-icons:express', type: 'backend' },
@@ -84,7 +83,11 @@ const technologies = ref<Technology[]>([
   { name: 'Mongo DB', icon: 'logos:mongodb-icon', type: 'backend' },
   { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', type: 'backend' },
   { name: 'Postman', icon: 'simple-icons:postman', type: 'backend' },
-  { name: 'C#', icon: 'logos:dotnet', type: 'backend' }
+  { name: 'C#', icon: 'logos:dotnet', type: 'backend' },
+  { name: 'React', icon: 'logos:react', type: 'frontend' },
+  { name: 'TypeScript', icon: 'logos:typescript-icon', type: 'frontend' },
+
+
 ])
 
 const technologyIcons = computed(() => {
@@ -98,6 +101,7 @@ const technologyIcons = computed(() => {
   position: relative;
   border-radius: 10px;
   max-width: 300px;
+  width: 100%;
   max-height: 300px;
   height: 100%;
   background-color: dark;
@@ -117,8 +121,11 @@ const technologyIcons = computed(() => {
 
 .cover {
   top: 0;
+  left: 0;
   position: absolute;
-  background-color: black;
+  background-color:rgb(0, 0, 0);
+   box-shadow: 0 0 25px rgba(0, 140, 255, 0.363);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -155,9 +162,9 @@ const technologyIcons = computed(() => {
   background-color: #0f172a;
   color: white;
   border-radius: 8px;
-  max-width: 300px;
   height: 100%;
   max-height: 300px;
+  max-width: 300px;
   transition: all 0.3s ease;
   padding: 1rem;
 }
