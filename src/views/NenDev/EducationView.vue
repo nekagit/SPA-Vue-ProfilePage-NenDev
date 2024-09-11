@@ -10,7 +10,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="mb-16">
+  <div class="xl:mb-0 mb-16">
 
     <PhotoStack/>
   </div>

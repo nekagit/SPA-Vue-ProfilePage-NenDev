@@ -28,7 +28,7 @@ onMounted(() => {
   <div class="container">
 
     <SkillGrid />
-    <AbilitySection />
+    <!-- <AbilitySection /> -->
   </div>
 
 </template>

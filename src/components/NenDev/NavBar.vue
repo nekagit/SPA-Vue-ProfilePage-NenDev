@@ -6,10 +6,10 @@
 
   <nav class="flex items-center justify-between p-32 pt-8 pb-12 bg-[#00000057] sticky top-0 z-10 mb-16">
     <div class="flex space-x-8 hidden xl:block dark:text-white">
-      <RouterLink to="/" class="nav-link" active-class="activeLink">Home</RouterLink>
-      <RouterLink to="/about" class="nav-link" active-class="activeLink">About</RouterLink>
-      <RouterLink to="/projects" class="nav-link" active-class="activeLink">Projects</RouterLink>
-      <RouterLink to="/education" class="nav-link" active-class="activeLink">Education</RouterLink>
+      <RouterLink to="/" class="nav-link arimo" active-class="activeLink">Home</RouterLink>
+      <RouterLink to="/about" class="nav-link arimo" active-class="activeLink">About</RouterLink>
+      <RouterLink to="/projects" class="nav-link arimo" active-class="activeLink">Projects</RouterLink>
+      <RouterLink to="/education" class="nav-link arimo" active-class="activeLink">Education</RouterLink>
     </div>
     <div class="flex justify-center flex-1">
       <RouterLink to="/" class="logo">NK</RouterLink>

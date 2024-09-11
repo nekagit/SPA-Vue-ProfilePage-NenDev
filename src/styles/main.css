@@ -45,10 +45,9 @@ body {
     rgb(var(--background-start-rgb));
   padding: 0;
   scroll-behavior: smooth;
-  height: 100%;
-
+  height: 100%;  
+  font-family: "Arimo", sans-serif;
   font-optical-sizing: auto;
-  font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -63,14 +62,16 @@ body {
   text-overflow: ellipsis;
 }
 
-
-p,
+a,
 h1,
 h2,
 h3 {
   font-family: 'Roboto', sans-serif;
 }
+.arimo{
+  font-family: "Arimo", sans-serif;
 
+}
 
 
 .charmFont {
