@@ -88,12 +88,19 @@ const getLanguageLevel = (language) => {
   max-width: 500px;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease-in-out;
+ 
+  background: rgb(236, 236, 236);
+  box-shadow:
+    rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transition: all 1s ease-in-out;
 }
 
 .portrait-image:hover {
-  transform: rotateX(-10deg) translateZ(20px);
+ 
+  transform: translateY(-5px);
+  box-shadow: 0 15px 400px rgba(27, 121, 230, 0.507);
 }
 
 .languages {

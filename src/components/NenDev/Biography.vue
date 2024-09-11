@@ -8,7 +8,7 @@
     <ImageLanguageSection/>
      <div class="text-content my-auto">
       <h1 class="title text-center pb-8 text-amber-400">{{ title }}</h1>
-      <p class="description shadow-2xl" v-html="description"></p>
+      <p class="description" v-html="description"></p>
     </div>
   </div>
 </template>
@@ -30,7 +30,6 @@ defineProps({
 
 </script>
 <style scoped>
-
 .text-content {
   flex: 1;
   display: flex;
@@ -46,19 +45,18 @@ defineProps({
 }
 
 .description {
-  font-size: 1.1rem;
   line-height: 1.6;
   color: #34495e;
-  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 2rem;
-  margin:2rem;
   transition: all 0.3s ease;
+    background: rgb(236, 236, 236);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .description:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 400px rgba(27, 121, 230, 0.507);
 }
 
 .button-group {
