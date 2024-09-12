@@ -3,8 +3,8 @@
   <div class="timeline" ref="timelineRef">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
       <div class="timeline-dot-container">
-        <svg class="timeline-dot" width="40" height="40">
-          <circle cx="20" cy="20" r="18" fill="transparent" stroke="#3b82f6" stroke-width="2" />
+      <svg class="timeline-dot" width="40" height="40">
+          <circle cx="20" cy="20" r="18" fill="transparent" stroke="#1a1a1a" stroke-width="2" />
           <circle 
             cx="20" 
             cy="20" 
@@ -162,7 +162,4 @@ const getFillColor = (index) => {
   margin-bottom: 10px;
 }
 
-.timeline-dot circle {
-  transition: stroke-dashoffset 0.3s ease;
-}
 </style>
