@@ -29,7 +29,7 @@
       <div class="timeline-content">
         <h3 class="text-2xl gradientText">{{ item.title }}</h3>
         <p class="timeline-date">{{ item.date }}</p>
-        <p>{{ item.description }}</p>
+        <p class="text-black dark:text-white">{{ item.description }}</p>
       </div>
     </div>
   </div>

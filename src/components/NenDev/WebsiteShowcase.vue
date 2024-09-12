@@ -1,11 +1,12 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <h2 class="text-3xl font-bold mb-8 text-center gradientText ">Featured Websites</h2>
-    <div class="grid grid-cols-1 gap-6">
+    <div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
       <div
         v-for="(site, index) in websites"
         :key="index"
-        class="bg-[#23314e8c] rounded-lg shadow-lg overflow-hidden"
+        class="bg-[#090E19] rounded-lg shadow-lg overflow-hidden w-fit mx-auto"
+        :class="{'border':site.showIframe }"
       >
         <div class="p-4 cursor-pointer text-center" @click="toggleIframe(index)">
           <h3 class="text-xl font-semibold mb-2 text-white">{{ site.title }}</h3>
@@ -26,7 +27,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue';
 
 const websites = ref([
   {

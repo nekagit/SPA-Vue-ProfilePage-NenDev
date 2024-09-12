@@ -1,7 +1,7 @@
 <template>
   <div class="tech-grid">
     <div class="tech-row">
-      <h2 class="row-title">Frontend Technologies</h2>
+      <h2 class="row-title gradientText">Frontend Technologies</h2>
       <div class="tech-items-container">
         <div class="tech-items move-left-to-right">
           <div
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="tech-row">
-      <h2 class="row-title">Backend, Database and Tools</h2>
+      <h2 class="row-title gradientText">Backend, Database and Tools</h2>
       <div class="tech-items-container">
         <div class="tech-items move-right-to-left">
           <div
@@ -158,7 +158,7 @@ const toolsTech = computed(() => technologies.value.filter((tech) => tech.type =
   flex: 0 0 auto;
   width: 150px;
   height: 130px;
-  background-color: rgba(0, 0, 0, 0.342);
+  background-color: rgba(0, 0, 0, 0);
   padding: 1.5rem;
   margin: auto;
   border-radius: 15%;
