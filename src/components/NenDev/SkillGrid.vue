@@ -18,11 +18,11 @@
       </div>
     </div>
     <div class="tech-row">
-      <h2 class="row-title">Backend Technologies</h2>
+      <h2 class="row-title">Backend, Database and Tools</h2>
       <div class="tech-items-container">
         <div class="tech-items move-right-to-left">
           <div
-            v-for="tech in [...backendTech, ...backendTech]"
+            v-for="tech in [...backendTech, ...databaseTech, ...toolsTech,...backendTech, ...databaseTech, ...toolsTech]"
             :key="`${tech.name}`"
             class="tech-item"
             @mouseover="showModal(tech.name)"
@@ -45,7 +45,7 @@ interface Technology {
   name: string
   icon: string
   rating: number
-  type: 'frontend' | 'backend'
+  type: 'frontend' | 'backend' | 'database' | 'tools'
 }
 
 const activeTech = ref<string | null>(null)
@@ -68,18 +68,23 @@ const technologies = ref<Technology[]>([
   { name: 'Tailwind CSS', icon: 'logos:tailwindcss-icon', rating: 7, type: 'frontend' },
   { name: 'Bootstrap', icon: 'logos:bootstrap', rating: 7, type: 'frontend' },
   { name: 'Sass', icon: 'logos:sass', rating: 5, type: 'frontend' },
-  { name: 'Docker', icon: 'logos:docker-icon', rating: 7, type: 'backend' },
-  { name: 'Git', icon: 'logos:git-icon', rating: 7, type: 'backend' },
+  { name: 'Python', icon: 'logos:python', rating: 5, type: 'backend' },
+  { name: 'Java', icon: 'logos:java', rating: 5, type: 'backend' },
   { name: 'Express', icon: 'simple-icons:express', rating: 5, type: 'backend' },
   { name: 'NodeJS', icon: 'logos:nodejs-icon', rating: 5, type: 'backend' },
-  { name: 'MySQL', icon: 'logos:mysql', rating: 6, type: 'backend' },
-  { name: 'Mongo DB', icon: 'logos:mongodb-icon', rating: 7, type: 'backend' },
-  { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', rating: 6, type: 'backend' },
-  { name: 'Postman', icon: 'simple-icons:postman', rating: 4, type: 'backend' }
+  { name: 'MySQL', icon: 'logos:mysql', rating: 6, type: 'database' },
+  { name: 'Mongo DB', icon: 'logos:mongodb-icon', rating: 7, type: 'database' },
+  { name: 'MSSQL', icon: 'devicon:microsoftsqlserver-wordmark', rating: 6, type: 'database' },
+  { name: 'Postman', icon: 'simple-icons:postman', rating: 4, type: 'tools' },
+  { name: 'Docker', icon: 'logos:docker-icon', rating: 7, type: 'tools' },
+  { name: 'Git', icon: 'logos:git-icon', rating: 7, type: 'tools' },
+  { name: 'Linux', icon: 'simple-icons:linux', rating: 4, type: 'tools' },
 ])
 
 const frontendTech = computed(() => technologies.value.filter((tech) => tech.type === 'frontend'))
 const backendTech = computed(() => technologies.value.filter((tech) => tech.type === 'backend'))
+const databaseTech = computed(() => technologies.value.filter((tech) => tech.type === 'database'))
+const toolsTech = computed(() => technologies.value.filter((tech) => tech.type === 'tools'))
 </script>
 
 
@@ -200,4 +205,11 @@ const backendTech = computed(() => technologies.value.filter((tech) => tech.type
 .tech-items-container:hover .tech-items {
   animation-play-state: running !important;
 }
+
+/* Pause the animation when hovering over the tech-row */
+.tech-row:hover .move-left-to-right,
+.tech-row:hover .move-right-to-left {
+  animation-play-state: paused;
+}
+
 </style>
