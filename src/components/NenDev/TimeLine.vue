@@ -1,271 +1,149 @@
 <template>
-  <div class="timeline-container" ref="container">
+  <div class="timeline" ref="timelineRef">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
-      <div class="date">{{ item.date }}</div>
-      <div class="timeline-content" :class="{ 'fade-in': item.visible }">
-        <div class="circle" :style="{ backgroundColor: item.color }"></div>
-        <div class="card xl:max-w-[75%] mx-auto">
-          <h3 class="card-title">{{ item.title }}</h3>
-          <h4 class="card-subtitle">{{ item.subtitle }}</h4>
-          <p class="card-description">{{ item.description }}</p>
+      <div class="timeline-dot-container">
+        <svg class="timeline-dot" width="40" height="40">
+          <circle cx="20" cy="20" r="18" fill="transparent" stroke="#1a1a1a" stroke-width="2" />
+          <circle 
+            cx="20" 
+            cy="20" 
+            r="18" 
+            fill="transparent" 
+            stroke="#4ade80" 
+            stroke-width="2" 
+            :stroke-dasharray="2 * Math.PI * 18"
+            :stroke-dashoffset="getDashOffset(index)"
+          />
+          <circle cx="20" cy="20" r="6" fill="#4ade80" />
+        </svg>
+        <div v-if="index < timelineItems.length - 1" class="timeline-line">
+          <div class="timeline-line-fill" :style="{ height: getLineHeight(index) + '%' }"></div>
         </div>
       </div>
-      <div v-if="index < timelineItems.length - 1" class="line">
-        <div class="line-fill" :style="{ height: item.lineProgress + '%' }"></div>
+      <div class="timeline-content">
+        <h3>{{ item.title }}</h3>
+        <p class="timeline-date">{{ item.date }}</p>
+        <p>{{ item.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-const container = ref(null);
-const timelineItems = ref([
+    const timelineRef = ref(null);
+    const scrollProgress = ref(0);
+
+const timelineItems = [
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: 'June 2024 - Present',
     title: 'bytes Coding GmbH',
-    subtitle: 'Software Developer (Freelancer)',
+    date: 'Software Developer (Freelancer) | June 2024 - Present',
     description: 'Working on various software development projects, utilizing skills in full-stack web development, React, TypeScript, and more.'
   },
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: 'January 2023 – March 2024',
     title: 'qmBase-Dortmund',
-    subtitle: 'Software Developer',
+    date: 'Software Developer | January 2023 – March 2024',
     description: 'Developed full-stack web applications using React, TypeScript, ASP.Net, and Azure DevOps. Contributed to the development and maintenance of complex web solutions.'
   },
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: 'January 2021 – December 2022',
     title: 'OrgaTech Solution Engineering Consulting GmbH-Lünen',
-    subtitle: 'Software Developer',
+    date: 'Software Developer | January 2021 – December 2022',
     description: 'Worked on Java backend development integrated with HTML, CSS, and JavaScript for frontend solutions. Also involved in Flutter mobile development.'
   },
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: '2020 – 2021',
     title: 'Decathlon-Dortmund',
-    subtitle: 'Order Picker',
+    date: 'Order Picker | 2020 – 2021',
     description: 'Responsible for efficiently picking and packing orders, ensuring timely and accurate delivery of products.'
   },
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: '2017 – 2020',
     title: 'Service am Gast GmbH-Dortmund',
-    subtitle: 'Waiter/Bartender',
+    date: 'Waiter/Bartender | 2017 – 2020',
     description: 'Provided excellent customer service in a fast-paced environment, managing orders and ensuring a high-quality dining experience.'
   },
   {
-    color: '#ffffff',
-    lineProgress: 0,
-    visible: false,
-    date: '2015 – 2017',
     title: 'Kaufland-Dortmund',
-    subtitle: 'Newspaper Delivery',
+    date: 'Newspaper Delivery | 2015 – 2017',
     description: 'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
   },
-]);
+]
 
-const observerOptions = {
-  root: null,
-  rootMargin: '0px',
-  threshold: 0.1
-};
+    const updateScrollProgress = () =>
 
-const observerCallback = (entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const index = parseInt(entry.target.dataset.index);
-      timelineItems.value[index].visible = true;
-      observer.unobserve(entry.target);
-    }
-  });
-};
+ {
+      if (!timelineRef.value) return;
+      const rect = timelineRef.value.getBoundingClientRect();
+      const scrollPercentage = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
+      scrollProgress.value = scrollPercentage;
+    };
 
-let observer;
-
-onMounted(() => {
-  observer = new IntersectionObserver(observerCallback, observerOptions);
-  
-  const timelineElements = container.value.querySelectorAll('.timeline-item');
-  timelineElements.forEach((el, index) => {
-    el.dataset.index = index;
-    observer.observe(el);
-  });
-
-  const updateColors = () => {
-    const containerRect = container.value.getBoundingClientRect();
-    const containerHeight = containerRect.height;
-    const scrollPosition = window.scrollY - containerRect.top + window.innerHeight / 2;
-
-    timelineItems.value.forEach((item, index) => {
-      const itemPosition = (index / (timelineItems.value.length - 1)) * containerHeight;
-      const progress = (scrollPosition - itemPosition) / (containerHeight / (timelineItems.value.length - 1));
-      
-      if (progress >= 1) {
-        item.color = '#4a0e4e';
-      } else if (progress > 0) {
-        const r = Math.round(255 - progress * (255 - 74));
-        const g = Math.round(255 - progress * (255 - 14));
-        const b = Math.round(255 - progress * (255 - 78));
-        item.color = `rgb(${r}, ${g}, ${b})`;
-      } else {
-        item.color = '#ffffff';
-      }
-
-      if (index < timelineItems.value.length - 1) {
-        item.lineProgress = Math.max(0, Math.min(100, progress * 100));
-      }
+    onMounted(() => {
+      window.addEventListener('scroll', updateScrollProgress);
+      updateScrollProgress();
     });
-  };
 
-  window.addEventListener('scroll', updateColors);
-  updateColors();
-});
+    onUnmounted(() => {
+      window.removeEventListener('scroll', updateScrollProgress);
+    });
 
-onUnmounted(() => {
-  if (observer) {
-    observer.disconnect();
-  }
-});
+    const getDashOffset = (index) => {
+      const itemProgress = Math.max(0, Math.min(1, (scrollProgress.value * timelineItems.length) - index));
+      return 2 * Math.PI * 22 * (1 - itemProgress);
+    };
+
+    const getLineHeight = (index) => {
+      const itemProgress = Math.max(0, Math.min(1, (scrollProgress.value * timelineItems.length) - index - 1));
+      return itemProgress * 100;
+    };
 </script>
 
 <style scoped>
-.timeline-container {
-  display: grid;
-  place-content: center;
-  min-height: 100vh;
-  padding: 20px 20px;
-  max-width: 1000px;
-  width: 90%;
-  margin: 2rem auto;
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #ffffff;
 }
 
 .timeline-item {
-  height: 250px;
+  display: flex;
+  margin-bottom: 120px;
+}
+
+.timeline-dot-container {
   position: relative;
-  display: flex;
-  margin-bottom: 50px;
-}
-.timeline-item:nth-last-child() {
-  margin-bottom: 0px;
-}
-.date {
-  width: 100px;
-  text-align: right;
-  padding-right: 30px;
-  font-size: 21px;
-  color: #666;
-  flex-shrink: 0;
-  padding-top: 3px;
-}
-
-.timeline-content {
-  display: flex;
-  flex-grow: 1;
-  height: min-content;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s, transform 0.5s;
-
-}
-
-.timeline-content.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.circle {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid rgb(217 119 6 / var(--tw-text-opacity));
-  background-color: #fff;
-  transition: background-color 0.3s ease;
   margin-right: 20px;
-  flex-shrink: 0;
-  z-index: 2;
 }
 
-.card {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex-grow: 1;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 25px;
-  color: rgb(217 119 6 / var(--tw-text-opacity));
-}
-
-.card-subtitle {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #666;
-  font-weight: normal;
-}
-
-.card-description {
-  margin: 10px 0 0;
-  font-size: 18px;
-  color: #333;
-}
-
-.line {
+.timeline-line {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 2px;
-  background-color: #e0e0e0;
-  position: absolute;
-  left: 109px;
-  top: 25px;
-  bottom: -20px;
-  z-index: 1;
+  height: calc(100% );
+  overflow: hidden;
 }
 
-.line-fill {
+.timeline-line-fill {
   width: 100%;
-  background-color: #4a0e4e;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  height: 0;
+  background-color: #4ade80;
   transition: height 0.3s ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .timeline-container {
-    padding: 10px;
-  }
+.timeline-content {
+  flex: 1;
 }
 
-@media (max-width: 480px) {
-  .card {
-    max-width: 300px;
-    max-height: 200px;
-    overflow: auto;
-  }
-  .timeline-container {
-    padding: 5px;
-  }
-  
-  .timeline-item {
-    margin-bottom: 30px;
-  }
+.timeline-content h3 {
+  color: #4ade80;
+  margin-bottom: 5px;
+}
 
-
+.timeline-date {
+  color: #888888;
+  font-size: 0.9em;
+  margin-bottom: 10px;
 }
 </style>
