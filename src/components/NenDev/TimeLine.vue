@@ -1,27 +1,33 @@
 <template>
+  <h1 class="text-center my-16 text-4xl gradientText underline">Carrier Overview</h1>
   <div class="timeline" ref="timelineRef">
     <div v-for="(item, index) in timelineItems" :key="index" class="timeline-item">
       <div class="timeline-dot-container">
         <svg class="timeline-dot" width="40" height="40">
-          <circle cx="20" cy="20" r="18" fill="transparent" stroke="#1a1a1a" stroke-width="2" />
+          <circle cx="20" cy="20" r="18" fill="transparent" stroke="#3b82f6" stroke-width="2" />
           <circle 
             cx="20" 
             cy="20" 
             r="18" 
             fill="transparent" 
-            stroke="#4ade80" 
+            stroke="#3b82f6" 
             stroke-width="2" 
             :stroke-dasharray="2 * Math.PI * 18"
             :stroke-dashoffset="getDashOffset(index)"
           />
-          <circle cx="20" cy="20" r="6" fill="#4ade80" />
+          <circle 
+            cx="20" 
+            cy="20" 
+            r="6" 
+            :fill="getFillColor(index)"
+          />
         </svg>
         <div v-if="index < timelineItems.length - 1" class="timeline-line">
           <div class="timeline-line-fill" :style="{ height: getLineHeight(index) + '%' }"></div>
         </div>
       </div>
       <div class="timeline-content">
-        <h3>{{ item.title }}</h3>
+        <h3 class="text-2xl gradientText">{{ item.title }}</h3>
         <p class="timeline-date">{{ item.date }}</p>
         <p>{{ item.description }}</p>
       </div>
@@ -29,11 +35,12 @@
   </div>
 </template>
 
+
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-    const timelineRef = ref(null);
-    const scrollProgress = ref(0);
+const timelineRef = ref(null);
+const scrollProgress = ref(0);
 
 const timelineItems = [
   {
@@ -67,37 +74,46 @@ const timelineItems = [
     description: 'Delivered newspapers to customers on time, maintaining a reliable and efficient delivery route.'
   },
 ]
+const updateScrollProgress = () => {
+  if (!timelineRef.value) return;
+  const rect = timelineRef.value.getBoundingClientRect();
+  const scrollPercentage = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
+  scrollProgress.value = scrollPercentage;
+};
 
-    const updateScrollProgress = () =>
+onMounted(() => {
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress();
+});
 
- {
-      if (!timelineRef.value) return;
-      const rect = timelineRef.value.getBoundingClientRect();
-      const scrollPercentage = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (rect.height + window.innerHeight)));
-      scrollProgress.value = scrollPercentage;
-    };
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateScrollProgress);
+});
 
-    onMounted(() => {
-      window.addEventListener('scroll', updateScrollProgress);
-      updateScrollProgress();
-    });
+const getDashOffset = (index) => {
+  const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
+  const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index));
+  return 2 * Math.PI * 18 * (1 - itemProgress);
+};
 
-    onUnmounted(() => {
-      window.removeEventListener('scroll', updateScrollProgress);
-    });
+const getLineHeight = (index) => {
+  const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
+  const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index - 0.5));
+  return itemProgress * 100;
+};
 
-    const getDashOffset = (index) => {
-      const itemProgress = Math.max(0, Math.min(1, (scrollProgress.value * timelineItems.length) - index));
-      return 2 * Math.PI * 22 * (1 - itemProgress);
-    };
-
-    const getLineHeight = (index) => {
-      const itemProgress = Math.max(0, Math.min(1, (scrollProgress.value * timelineItems.length) - index - 1));
-      return itemProgress * 100;
-    };
+const getFillColor = (index) => {
+  const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
+  const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index));
+  return itemProgress >= 1 ? '#3b82f6' : 'transparent';
+};
 </script>
 
 <style scoped>
+
+.timeline-dot circle {
+  transition: fill 0.3s ease;
+}
 .timeline {
   max-width: 800px;
   margin: 0 auto;
@@ -107,11 +123,11 @@ const timelineItems = [
 
 .timeline-item {
   display: flex;
-  margin-bottom: 120px;
 }
 
 .timeline-dot-container {
   position: relative;
+  margin-bottom: 200px; 
   margin-right: 20px;
 }
 
@@ -121,14 +137,14 @@ const timelineItems = [
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: calc(100% );
+  height: calc(100% + 150px);
   overflow: hidden;
 }
 
 .timeline-line-fill {
   width: 100%;
   height: 0;
-  background-color: #4ade80;
+  background: linear-gradient(90deg, #16d8fa, #3b82f6);
   transition: height 0.3s ease;
 }
 
@@ -137,7 +153,6 @@ const timelineItems = [
 }
 
 .timeline-content h3 {
-  color: #4ade80;
   margin-bottom: 5px;
 }
 
@@ -145,5 +160,9 @@ const timelineItems = [
   color: #888888;
   font-size: 0.9em;
   margin-bottom: 10px;
+}
+
+.timeline-dot circle {
+  transition: stroke-dashoffset 0.3s ease;
 }
 </style>

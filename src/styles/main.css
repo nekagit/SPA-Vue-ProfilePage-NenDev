@@ -61,7 +61,13 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.gradientText {
+  background: linear-gradient(90deg, #16d8fa, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -1px;
+}
 a,
 h1,
 h2,
