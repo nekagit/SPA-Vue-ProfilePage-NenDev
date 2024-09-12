@@ -121,9 +121,8 @@ const getLanguageLevel = (language) => {
   width: 100px;
   height: 100px;
   padding: 1rem;
-  background-color: #363636;
+  box-shadow: 0 15px 400px rgba(27, 121, 230, 0.507);
   color: white;
-  border: 1px solid #ffffff;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;

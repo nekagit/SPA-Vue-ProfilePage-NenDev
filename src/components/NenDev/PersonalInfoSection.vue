@@ -3,9 +3,9 @@
     <div
       v-for="(item, index) in infoItems"
       :key="index"
-      class="flex flex-col items-center p-4 w-full xl:flex-grow xl:w-auto box rounded-full"
+      class="flex flex-col items-center p-4 w-full xl:flex-grow xl:w-full"
     >
-      <p class="text-amber-400 text-xl font-semibold mb-2 text-center title">
+      <p class="gradientText text-xl font-semibold mb-2 text-center title">
         {{ item.label }}
       </p>
       <p
