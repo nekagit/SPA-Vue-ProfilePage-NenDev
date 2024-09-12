@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import Life from '@/../public/life.jpg'
-import AbilitySection from '@/components/NenDev/AbilitySection.vue'
 import Biography from '@/components/NenDev/Biography.vue'
+import ParralaxSection from '@/components/NenDev/ParralaxSection.vue'
 import SkillGrid from '@/components/NenDev/SkillGrid.vue'
 import TimeLine from '@/components/NenDev/TimeLine.vue'
-import ParralaxSection from '@/components/NenDev/ParralaxSection.vue'
 import { onMounted } from 'vue'
 onMounted(() => {
   window.scrollTo({

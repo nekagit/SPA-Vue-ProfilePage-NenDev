@@ -1,9 +1,9 @@
 <template>
-  <ABaseHorizontalSection class="font-bold" :title="'Contact'" />
-  <div class="container pb-8">
+  <ABaseHorizontalSection class="gradientText text-2xl" :title="'Contact'" />
+  <div class="container">
     <footer>
       <div
-        class="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center mb-8 font-bold"
+        class="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-3 gap-8 place-content-center text-center font-bold"
       >
         <div class="">
           <a href="mailto:nenad99@hotmail.de" class="opacity-60 hover:text-blue-300"

@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-6 text-center">Featured Websites</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center gradientText ">Featured Websites</h2>
     <div class="grid grid-cols-1 gap-6">
       <div
         v-for="(site, index) in websites"

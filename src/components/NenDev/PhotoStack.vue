@@ -1,5 +1,5 @@
 <template>
- <div class="relative">
+ <div class="relative p-8">
     <div class="flex flex-col md:flex-row items-center justify-center text-white p-4 container">
       <div class="w-full md:w-1/2 md:pr-8">
         <div class="relative w-full h-96 mb-8">
