@@ -27,7 +27,7 @@
           </div>
           <iframe
             :src="websites[selectedIndex].url"
-            class="w-full h-96 transition-all duration-500"
+            class="w-full h-[80vh] transition-all duration-500"
             frameborder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen
@@ -35,6 +35,9 @@
         </div>
         <button class="arrow right-arrow" @click="nextSite">&#9654;</button>
       </div>
+
+      <!-- X Button for closing the central display -->
+      <button class="close-button" @click="closeSite">&#10006;</button>
     </div>
   </div>
 </template>
@@ -101,17 +104,18 @@ function nextSite() {
     selectedIndex.value += 1;
   }
 }
+
+function closeSite() {
+  selectedIndex.value = null;  // Return to the original state
+}
 </script>
 
-<style scoped>
-.grid {
-  transition: opacity 0.5s ease;
-}
 
+<style scoped>
 .central-display {
   position: relative;
-  height: 600px;
   display: flex;
+  height: 1000px;
   align-items: center;
   justify-content: center;
 }
@@ -137,4 +141,22 @@ function nextSite() {
 .left-arrow:hover, .right-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.close-button:hover {
+  background-color: darkred;
+}
+
 </style>
