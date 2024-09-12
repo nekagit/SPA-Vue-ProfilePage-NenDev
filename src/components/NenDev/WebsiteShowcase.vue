@@ -1,33 +1,45 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-8 text-center gradientText ">Featured Websites</h2>
-    <div class="grid grid-cols-1 gap-6 xl:grid-cols-3">
+    <h2 class="text-3xl font-bold mb-8 text-center gradientText">Featured Websites</h2>
+
+    <div v-if="selectedIndex === null" class="grid grid-cols-1 gap-6 xl:grid-cols-3">
       <div
         v-for="(site, index) in websites"
         :key="index"
         class="bg-[#090E19] rounded-lg shadow-lg overflow-hidden w-fit mx-auto"
-        :class="{'border':site.showIframe }"
+        @click="selectSite(index)"
       >
-        <div class="p-4 cursor-pointer text-center" @click="toggleIframe(index)">
-          <h3 class="text-xl font-semibold mb-2 text-white">{{ site.title }}</h3>
-          <p class="text-gray-600 mb-4">{{ site.description }}</p>
+        <div class="p-4 cursor-pointer text-center w-[300px]">
+          <h3 class="text-2xl font-semibold mb-2 text-white">{{ site.title }}</h3>
+          <p class="text-gray-600 mb-4 text-xl">{{ site.description }}</p>
         </div>
-        <div class="relative transition-all duration-500" v-show="site.showIframe">
+      </div>
+    </div>
+
+    <!-- Central display when a website is selected -->
+    <div v-else class="central-display relative">
+      <div class="absolute top-0 left-0 w-full h-full flex items-center justify-between">
+        <button class="arrow left-arrow" @click="previousSite">&#9664;</button>
+        <div class="flex-grow mx-auto w-11/12 bg-[#090E19] rounded-lg shadow-lg overflow-hidden">
+          <div class="p-4 text-center">
+            <h3 class="text-xl font-semibold mb-2 text-white">{{ websites[selectedIndex].title }}</h3>
+            <p class="text-gray-600 mb-4">{{ websites[selectedIndex].description }}</p>
+          </div>
           <iframe
-            :src="site.url"
-            class="absolute top-0 left-0 w-full h-full transition-all duration-500"
+            :src="websites[selectedIndex].url"
+            class="w-full h-96 transition-all duration-500"
             frameborder="0"
             allow="autoplay; encrypted-media"
             allowfullscreen
           ></iframe>
         </div>
+        <button class="arrow right-arrow" @click="nextSite">&#9654;</button>
       </div>
     </div>
   </div>
 </template>
-
 <script setup>
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const websites = ref([
   {
@@ -59,33 +71,70 @@ const websites = ref([
     description: 'Profile of a sports club in Rotterdam',
     url: 'https://stichtingsoprotterdam.nl',
     showIframe: false
-  },  {
+  },  
+  {
     title: 'DocuVerse',
     description: 'Documentation website of my public knowledge',
     url: 'https://docuverse.netlify.app',
     showIframe: false
   }
-])
+]);
 
-function toggleIframe(index) {
-  websites.value[index].showIframe = !websites.value[index].showIframe
+const selectedIndex = ref(null);  // To track the selected website
+
+function selectSite(index) {
+  selectedIndex.value = index;
 }
 
-// Optional: Automatically load all iframes on mount
-onMounted(() => {
-  websites.value.forEach((site, index) => {
-    site.showIframe = false // Ensure iframes are not shown initially
-  })
-})
+function previousSite() {
+  if (selectedIndex.value === 0) {
+    selectedIndex.value = websites.value.length - 1;
+  } else {
+    selectedIndex.value -= 1;
+  }
+}
+
+function nextSite() {
+  if (selectedIndex.value === websites.value.length - 1) {
+    selectedIndex.value = 0;
+  } else {
+    selectedIndex.value += 1;
+  }
+}
 </script>
 
 <style scoped>
-/* Adjust the default height and transition settings */
-.relative {
-  height: 500px; /* Default height when iframe is not shown */
+.grid {
+  transition: opacity 0.5s ease;
 }
 
-.transition-all {
-  transition: height 0.5s ease;
+.central-display {
+  position: relative;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  z-index: 10;
+}
+
+.left-arrow {
+  margin-left: 1rem;
+}
+
+.right-arrow {
+  margin-right: 1rem;
+}
+
+.left-arrow:hover, .right-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 </style>

@@ -42,7 +42,7 @@ onUnmounted(() => {
 <style scoped>
 .parallax-container {
   position: relative;
-  height: 60vh;
+  height: 50vh;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
