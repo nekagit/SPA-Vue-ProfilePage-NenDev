@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-const timelineRef = ref(null);
+const timelineRef = ref();
 const scrollProgress = ref(0);
 
 const timelineItems = [
