@@ -90,19 +90,19 @@ onUnmounted(() => {
   window.removeEventListener('scroll', updateScrollProgress);
 });
 
-const getDashOffset = (index) => {
+const getDashOffset = (index:number) => {
   const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
   const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index));
   return 2 * Math.PI * 18 * (1 - itemProgress);
 };
 
-const getLineHeight = (index) => {
+const getLineHeight = (index:number) => {
   const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
   const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index - 0.5));
   return itemProgress * 100;
 };
 
-const getFillColor = (index) => {
+const getFillColor = (index:number) => {
   const adjustedProgress = Math.min(1, scrollProgress.value * 1.2);
   const itemProgress = Math.max(0, Math.min(1, (adjustedProgress * timelineItems.length) - index));
   return itemProgress >= 1 ? '#3b82f6' : 'transparent';
