@@ -121,6 +121,7 @@ function closeSite() {
 }
 
 .arrow {
+  position:absolute;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -131,10 +132,13 @@ function closeSite() {
 }
 
 .left-arrow {
+  top:0;
   margin-left: 1rem;
 }
 
 .right-arrow {
+  top:0;
+  right:0;
   margin-right: 1rem;
 }
 
@@ -144,8 +148,8 @@ function closeSite() {
 
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0px;
+  right: 50%px;
   background-color: red;
   color: white;
   border: none;

@@ -41,7 +41,7 @@ const cards = ref([
   {
     title: 'WebApp qmBase',
     description:
-      'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase(https://github.com/qmBase))',
+      'I worked for 1 year on the application of qmbase.com as a Working Student.(I don not claim its my application or work! All rights reserved to qmBase)',
     technology: 'React, C#, TypeScript',
     codeLink: 'https://github.com/qmBase/docs',
     imgSrc: CodePic

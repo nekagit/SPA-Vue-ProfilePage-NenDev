@@ -270,7 +270,7 @@ const technologyIcons = computed(() => {
 .description {
   color: white;
   font-size: 1rem;
-  padding: 0.5rem;
+  padding: 1.5rem;
 }
 
 .technology {
