@@ -15,7 +15,7 @@
               }"
               @click="nextPhoto"
             >
-              <img
+              <imgd
                 :src="photo.src"
                 :alt="photo.alt"
                 class="w-full h-full object-cover rounded-lg shadow-lg cursor-pointer"
@@ -33,9 +33,9 @@
         </div>
         <div class="space-y-4 text-black dark:text-white">
           <p>
-            I completed all my formal education in Dortmund, recently finishing my
-            <strong class="text-amber-400">Bachelor’s Degree in Computer Science</strong> at TU Dortmund. Earlier, I
-            graduated from Gymnasium, earning my diploma with a solid foundation in multiple
+            I completed my formal education in Dortmund, recently finishing my
+            <strong class="text-amber-400">Bachelor’s Degree in Computer Science (3.3) at TU Dortmund</strong>. Earlier, I
+            graduated from <strong class="text-amber-400">Gymnasium (Helene-Lange Gymnasium, 2.7)</strong>, earning my diploma with a solid foundation in multiple
             disciplines. 
           </p>
           <p>
@@ -46,9 +46,9 @@
           </p>
           <p>
             I'm multilingual, having earned certificates in various languages, including achieving a
-            <strong class="text-amber-400">C2 level in Serbian</strong>, which connects me to my cultural roots, and a
-            <strong class="text-amber-400">B2 level in Spanish</strong>, demonstrating my global perspective and
-            adaptability.
+            <strong class="text-amber-400">C2 level in Serbian</strong>, which connects me to my cultural roots.
+             Demonstrating my global perspective and wish to explore different countries i hold a 
+            <strong class="text-amber-400">B2 level in Spanish</strong>.
           </p>
         </div>
       </div>

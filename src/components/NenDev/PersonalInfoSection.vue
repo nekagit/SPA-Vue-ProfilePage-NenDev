@@ -29,7 +29,6 @@ const ageRef = ref(null)
 
 const infoItems = reactive([
   { label: 'AGE', value: '' },
-  { label: 'DATE OF BIRTH', value: '16-10-1999' },
   { label: 'PLACE OF BIRTH', value: 'Germany, Dortmund' },
   { label: 'ACADEMICS', value: 'Computer Science Bachelor' }
 ])

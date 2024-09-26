@@ -17,11 +17,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
-const text = 'Full Stack Developer • UI/UX Designer •'
+const text = ' • Frontend  •  Backend • UI/UX'
 const chars = text.split('')
-const rotationAngle = computed(() => 360 / chars.length)
+const rotationAngle = computed(() => 360 / text.length)
 </script>
 
 <style scoped>
@@ -49,7 +49,7 @@ const rotationAngle = computed(() => 360 / chars.length)
 .rotating-text span {
   position: absolute;
   left: 50%;
-  font-size: 12pt;
+  font-size: 13pt;
   transform-origin: 0 75px;
 }
 
@@ -59,8 +59,8 @@ const rotationAngle = computed(() => 360 / chars.length)
   background-color: #000;
   color: #fff;
   cursor: pointer;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   font-size: 12pt;
   font-weight: bold;
   transition: all 0.3s ease;
