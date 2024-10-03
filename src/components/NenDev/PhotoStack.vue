@@ -15,7 +15,7 @@
               }"
               @click="nextPhoto"
             >
-              <imgd
+              <img
                 :src="photo.src"
                 :alt="photo.alt"
                 class="w-full h-full object-cover rounded-lg shadow-lg cursor-pointer"
@@ -67,40 +67,45 @@
 
 <script setup>
 import ReactCert from '@/assets/certReact.png';
+import TUSHOMBRUCH from '@/assets/tushombruch.jpg';
+import HLG from '@/assets/hlgdortmund.jpg';
+import spain from '@/assets/spainflag.svg';
+import serbia from '@/assets/serbiaflag.png';
+import TU from '@/assets/tudortmund.jpg';
 import { computed, ref } from 'vue';
 
 const photos = [
   {
     title: 'Swimming Licenses and LifeGuard',
-    src: 'https://www.sportwelt-dortmund.de/uploads/pics/HOMBRUCH.JPG',
+    src: TUSHOMBRUCH,
     alt: 'Swimming Pool',
     
     rotation: (Math.random() - 0.5) * 20
   },
   {
     title: 'Finished Gymnasium (2.7)',
-    src: 'https://www.ruhrnachrichten.de/wp-content/uploads/2023/01/11/13/630_0900_2653689_WS_Hlg-1648x824.jpg',
+    src: HLG,
     alt: 'German School',
     
     rotation: (Math.random() - 0.5) * 20
   },
   {
     title: 'Serbian Course until C2',
-    src: 'https://meritocracyparty.org/wp-content/uploads/2013/12/Flag-of-Serbia.png',
+    src: serbia,
     alt: 'Serbian Flag',
     
     rotation: (Math.random() - 0.5) * 20
   },
   {
     title: 'Spanish Course B2',
-    src: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg',
+    src: spain,
     alt: 'Spanish Flag',
     
     rotation: (Math.random() - 0.5) * 20
   },
   {
     title: 'Finished Bachelor in Computer Science (3.3)',
-    src: 'https://iw-up.com/wp-content/uploads/2013/09/logo-tu-dortmund.jpg',
+    src: TU,
     alt: 'TU Dortmund Logo',
     
     rotation: (Math.random() - 0.5) * 20

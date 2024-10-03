@@ -1,51 +1,93 @@
-/** @type {import('tailwindcss').Config} */
-import defaultTheme from 'tailwindcss/defaultTheme';
+const animate = require("tailwindcss-animate")
 
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  safelist: ["dark"],
+  prefix: "",
+  
   content: [
     './pages/**/*.{ts,tsx,vue}',
     './components/**/*.{ts,tsx,vue}',
     './app/**/*.{ts,tsx,vue}',
-    './src/**/*.{ts,tsx,vue}'
-  ],
-  darkMode: 'class',
+    './src/**/*.{ts,tsx,vue}',
+	],
+  
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      boxShadow: {
-        '2xl-green': '0 25px 50px -12px rgba(0, 128, 0, 0.5)' // Custom green shadow
-      },
-      fontFamily: {
-        libre: ['"Libre Baskerville"', ...defaultTheme.fontFamily.sans]
-      },
       colors: {
-        // Customize your colors
-        customColor: '#123456',
-        ...defaultTheme.colors
-      },
-      spacing: {
-        // Customize your spacing
-        128: '32rem',
-        144: '36rem',
-        ...defaultTheme.spacing
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
       },
       borderRadius: {
-        // Customize your border radius
-        '4xl': '2rem',
-        ...defaultTheme.borderRadius
+      	xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
-      // Add any other customization you need
-      screens: {
-        xs: '400px',
-        ...defaultTheme.screens
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+        "collapsible-down": {
+          from: { height: 0 },
+          to: { height: 'var(--radix-collapsible-content-height)' },
+        },
+        "collapsible-up": {
+          from: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: 0 },
+        },
       },
-      fontSize: {
-        xxs: '0.65rem',
-        ...defaultTheme.fontSize
-      }
-      // Extend other theme properties as needed
-    }
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "collapsible-down": "collapsible-down 0.2s ease-in-out",
+        "collapsible-up": "collapsible-up 0.2s ease-in-out",
+      },
+    },
   },
-  plugins: [
-    // Add any Tailwind CSS plugins here
-  ]
+  plugins: [animate],
 }
