@@ -61,7 +61,7 @@ export default Greetings;
       </pre>
     </div>
     <div
-      class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-20 xl:-left-80 md:top-24 md:-right-6 xl:top-auto xl:-right-auto bouncing-element"
+      class="bg-gray-800 h-fit text-white p-4 rounded-lg shadow-md max-w-sm absolute xl:-bottom-28 xl:-left-52 md:top-24 md:-right-6 xl:top-auto xl:-right-auto bouncing-element"
     >
       <div class="flex items-center">
         <img
