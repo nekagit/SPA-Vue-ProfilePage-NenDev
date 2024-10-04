@@ -31,7 +31,7 @@
         <h3 class="text-2xl gradientText2">{{ item.title }}</h3>
         <p class="text-black dark:text-white w-[75%]">{{ item.description }}</p>
       </div>
-      <div class="timeline-logo">
+      <div class="timeline-logo hidden md:flex">
         <a target="_blank" href="https://www.linkedin.com/in/nenad-kalicanin-23924119a/">
           <img
             :src="item.logo"
@@ -154,6 +154,11 @@ const getFillColor = (index: number) => {
 </script>
 
 <style scoped>
+@media (max-width: 720px) {
+  .timeline {
+}
+}
+
 .sectionHeader {
   box-shadow: 0 15px 400px rgba(27, 121, 230, 0.507);
 }

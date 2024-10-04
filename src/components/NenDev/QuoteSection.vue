@@ -24,6 +24,11 @@
   backdrop-filter: blur(4px);
   text-align:center;
 }
+@media (max-width: 1320px) {
+    .quote-container {
+  max-width: 500px;
+}
+}
 
 .quote-content {
   position: relative;

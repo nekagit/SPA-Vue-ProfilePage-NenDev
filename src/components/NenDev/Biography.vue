@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 xl:grid-cols-2 container">
+  <div class="grid grid-cols-1 xl:grid-cols-2 md:container">
     <ImageLanguageSection />
     <div class="text-content my-auto">
       <h1 class="title text-center pb-8 gradientText">{{ title }}</h1>

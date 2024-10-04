@@ -129,12 +129,22 @@ const getLanguageLevel = (language) => {
 }
 
 @media (max-width: 720px) {
+  .image-container {
+  margin:1rem 0rem;
+
+}
   .modal {
     top: -100px;
     left: 200px;
   }
 }
 @media (min-width: 720px) {
+    .image-container {
+  margin:auto;
+  margin-bottom:3rem;
+
+
+}
   .modal {
     top: 0px;
     right: 0px;
