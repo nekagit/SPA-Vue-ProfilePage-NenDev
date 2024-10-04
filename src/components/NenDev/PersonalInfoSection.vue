@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col xl:flex-row justify-around items-center gap-6 p-6 my-8 w-full">
+  <div class="flex flex-col xl:flex-row justify-around items-center gap-32 p-6 my-8 w-full">
     <div
       v-for="(item, index) in infoItems"
       :key="index"

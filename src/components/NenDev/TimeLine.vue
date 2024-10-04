@@ -43,6 +43,11 @@ const timelineRef = ref();
 const scrollProgress = ref(0);
 
 const timelineItems = [
+   {
+    title: 'MasterSchool',
+    date: 'Mentor (Freelancer) | October 2024 - Present',
+    description: 'Tracking Learning Progress of Participants and assisting them in any way necessary.'
+  },
   {
     title: 'bytes Coding GmbH',
     date: 'Software Developer (Freelancer) | June 2024 - Present',

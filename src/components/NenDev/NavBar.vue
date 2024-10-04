@@ -4,15 +4,15 @@
   </div>
     <SpinningButton />
 
-  <nav class="flex items-center justify-between p-32 pt-8 pb-12 bg-[#00000057] sticky top-0 z-10 mb-16">
-    <div class="flex space-x-8 hidden xl:block dark:text-white">
+   <nav ref="navbarRef" class="flex items-center justify-between p-32 pt-8 pb-12 bg-[#00000057] sticky top-0 z-10 mb-16">
+     <div class="flex space-x-8 hidden xl:block dark:text-white">
       <RouterLink to="/" class="nav-link arimo" active-class="activeLink">Home</RouterLink>
       <RouterLink to="/about" class="nav-link arimo" active-class="activeLink">About</RouterLink>
       <RouterLink to="/projects" class="nav-link arimo" active-class="activeLink">Projects</RouterLink>
       <RouterLink to="/education" class="nav-link arimo" active-class="activeLink">Education</RouterLink>
     </div>
     <div class="flex justify-center flex-1">
-      <RouterLink to="/" class="logo">NK</RouterLink>
+      <RouterLink to="/" class="logo gradientText">NK</RouterLink>
     </div>
     <div class="flex items-center space-x-4">
       <div class="space-x-8 hidden xl:flex">
@@ -59,9 +59,56 @@ import AMenuButton from '@/components/NenDev/AMenuButton.vue';
 import DarkModeToggle from '@/components/NenDev/DarkModeToggle.vue';
 import SpinningButton from "@/components/NenDev/SpinningButton.vue";
 import { Icon } from '@iconify/vue';
+import { onMounted, onBeforeUnmount, ref } from 'vue';
 
+const lastScrollTop = ref(0);
+const navbarRef = ref<HTMLElement | null>(null);
+const isNavbarHidden = ref(false);
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const currentlyHidden = isNavbarHidden.value;
+
+  if (scrollTop > lastScrollTop.value && scrollTop > 50) {
+    isNavbarHidden.value = true;
+  } else {
+    isNavbarHidden.value = false;
+  }
+
+  if (currentlyHidden !== isNavbarHidden.value) {
+    console.log(`Navbar visibility changed. Hidden: ${isNavbarHidden.value}`);
+    if (isNavbarHidden.value) {
+      navbarRef.value?.classList.add('hidden-nav');
+    } else {
+      navbarRef.value?.classList.remove('hidden-nav');
+    }
+    console.log('Navbar classes:', navbarRef.value?.classList);
+  }
+
+  lastScrollTop.value = scrollTop;
+};
+
+onMounted(() => {
+  console.log('Component mounted. Initial navbar classes:', navbarRef.value?.classList);
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
+
+
+
 <style scoped>
+nav {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hidden-nav {
+  transform: translateY(-100%);
+}
+
 .nav-link {
   position: relative;
   text-decoration: none;
@@ -99,7 +146,7 @@ import { Icon } from '@iconify/vue';
   left: 48%;
   background-color: white;
   color: black;
-  border: 1px dotted black;
+  border: 1px dotted white;
   border-radius: 50%;
   font-weight: bold;
   font-size: 24px;
