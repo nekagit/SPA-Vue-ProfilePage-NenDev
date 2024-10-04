@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container mb-44"
+    class="text-white xl:max-w-[70%] p-8 grid gap-0 mx-auto grid-cols-1 xl:grid-cols-2 blob-container"
   >
     <div>
       <header>
@@ -24,7 +24,7 @@
           >
         </div>
       </header>
-      <section class="my-4 roboto max-w-[90%] text-gray-400 leading-relaxed space-y-4">
+      <section class="my-4 roboto xl:max-w-[90%] text-gray-400 leading-relaxed space-y-4">
         <p>
           As an enthusiastic intermediate full-stack developer, I'm on a journey to transform ideas
           into functional web applications. I'm constantly learning and improving my skills in

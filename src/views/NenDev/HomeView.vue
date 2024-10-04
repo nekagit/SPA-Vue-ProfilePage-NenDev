@@ -22,9 +22,9 @@ onMounted(() => {
     secondaryButtonText="Resume"
     @secondaryAction="handleContactClick"
   /> -->
-  <div class="mt-16">
+<div class="mb-64 md:mb-0">
 
-    <StartJumbotron/>
-  </div>
+  <StartJumbotron/>
+</div>
 
 </template>
