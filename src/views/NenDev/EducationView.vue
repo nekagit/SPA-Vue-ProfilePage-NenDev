@@ -10,7 +10,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="md:h-[50vh] mb-44 md:mb-0">
+  <div class="md:h-screen mb-44 md:mb-0">
 
     <PhotoStack/>
   </div>
