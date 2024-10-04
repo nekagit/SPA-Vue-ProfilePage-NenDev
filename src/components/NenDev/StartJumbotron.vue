@@ -4,7 +4,7 @@
   >
     <div>
       <header>
-        <h1 class="text-amber-400 text-lg">Welcome to my site.</h1>
+        <h1 class="text-[#c4007a] text-lg">Welcome to my site.</h1>
         <h1 class="text-6xl font-extrabold robot-bold my-2">
           I'm <span class="bg-clip-text text-transparent gradientText">Nenad Kalicanin</span>, a
           Fullstack developer.

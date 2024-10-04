@@ -1,6 +1,10 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-8 text-center gradientText">Featured Websites</h2>
+    <SectionHeader
+      subtitle="Implementations"
+      title="Finished Websites"
+      description="Jobs and private tasks until today"
+    />
 
     <div v-if="selectedIndex === null" class="grid grid-cols-1 gap-6 xl:grid-cols-3">
       <div
@@ -10,7 +14,7 @@
         @click="selectSite(index)"
       >
         <div class="p-4 cursor-pointer text-center w-[300px]">
-          <h3 class="text-2xl font-semibold mb-2 text-white">{{ site.title }}</h3>
+          <h3 class="text-2xl font-semibold mb-2 gradientText">{{ site.title }}</h3>
           <p class="text-gray-600 mb-4 text-xl">{{ site.description }}</p>
         </div>
       </div>
@@ -22,7 +26,9 @@
         <button class="arrow left-arrow" @click="previousSite">&#9664;</button>
         <div class="flex-grow mx-auto w-11/12 bg-[#090E19] rounded-lg shadow-lg overflow-hidden">
           <div class="p-4 text-center">
-            <h3 class="text-xl font-semibold mb-2 text-white">{{ websites[selectedIndex].title }}</h3>
+            <h3 class="text-xl font-semibold mb-2 gradientText">
+              {{ websites[selectedIndex].title }}
+            </h3>
             <p class="text-gray-600 mb-4">{{ websites[selectedIndex].description }}</p>
           </div>
           <iframe
@@ -42,8 +48,8 @@
   </div>
 </template>
 <script setup>
-import { ref } from 'vue';
-
+import { ref } from 'vue'
+import SectionHeader from './SectionHeader.vue'
 const websites = ref([
   {
     title: 'RY Sport',
@@ -74,42 +80,41 @@ const websites = ref([
     description: 'Profile of a sports club in Rotterdam',
     url: 'https://stichtingsoprotterdam.nl',
     showIframe: false
-  },  
+  },
   {
     title: 'DocuVerse',
     description: 'Documentation website of my public knowledge',
     url: 'https://docuverse.netlify.app',
     showIframe: false
   }
-]);
+])
 
-const selectedIndex = ref(null);  // To track the selected website
+const selectedIndex = ref(null) // To track the selected website
 
 function selectSite(index) {
-  selectedIndex.value = index;
+  selectedIndex.value = index
 }
 
 function previousSite() {
   if (selectedIndex.value === 0) {
-    selectedIndex.value = websites.value.length - 1;
+    selectedIndex.value = websites.value.length - 1
   } else {
-    selectedIndex.value -= 1;
+    selectedIndex.value -= 1
   }
 }
 
 function nextSite() {
   if (selectedIndex.value === websites.value.length - 1) {
-    selectedIndex.value = 0;
+    selectedIndex.value = 0
   } else {
-    selectedIndex.value += 1;
+    selectedIndex.value += 1
   }
 }
 
 function closeSite() {
-  selectedIndex.value = null;  // Return to the original state
+  selectedIndex.value = null // Return to the original state
 }
 </script>
-
 
 <style scoped>
 .central-display {
@@ -121,7 +126,7 @@ function closeSite() {
 }
 
 .arrow {
-  position:absolute;
+  position: absolute;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -132,17 +137,18 @@ function closeSite() {
 }
 
 .left-arrow {
-  top:0;
+  top: 0;
   margin-left: 1rem;
 }
 
 .right-arrow {
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   margin-right: 1rem;
 }
 
-.left-arrow:hover, .right-arrow:hover {
+.left-arrow:hover,
+.right-arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -162,5 +168,4 @@ function closeSite() {
 .close-button:hover {
   background-color: darkred;
 }
-
 </style>

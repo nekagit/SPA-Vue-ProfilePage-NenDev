@@ -3,6 +3,7 @@ import CodePic from '@/../public/code.jpg'
 import ParralaxSection from '@/components/NenDev/ParralaxSection.vue'
 import ProjectCard from '@/components/NenDev/ProjectCard.vue'
 import WebsiteShowcase from '@/components/NenDev/WebsiteShowcase.vue'
+import SectionHeader from '@/components/NenDev/SectionHeader.vue'
 import { onMounted, ref } from 'vue'
 // Sample card data
 const cards = ref([
@@ -134,7 +135,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <h2 class="text-3xl font-bold mb-6 text-center gradientText">Finished Projects</h2>
+     <SectionHeader
+    subtitle="Implementations"
+    title="Finished Projects"
+    description="Jobs and private tasks until today"
+  />
 
   <div ref="projectContainer" class="grid grid-cols-1 xl:grid-cols-3 place-content-center mx-auto gap-8 pt-8">
     <ProjectCard

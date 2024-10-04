@@ -96,19 +96,22 @@
 }
 
 .roboto-bold {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   font-weight: 900;
   font-style: normal;
 }
 .roboto {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: "Roboto", sans-serif; */
 }
 body {
   /* background-color: #090E19; */
   padding: 0;
   scroll-behavior: smooth;
   height: 100%;  
-  font-family: "Arimo", sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: "Arimo", sans-serif; */
   font-optical-sizing: auto;
 }
 
@@ -127,17 +130,29 @@ body {
   background: linear-gradient(90deg, #16d8fa, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+  color: #c4007a; /* Pink color */
+  letter-spacing: -1px;
+}
+.gradientText2 {
+  background: linear-gradient(90deg, #c4007a, #ff69b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   letter-spacing: -1px;
 }
 a,
 h1,
 h2,
 h3 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
 }
 .arimo{
-  font-family: "Arimo", sans-serif;
+  font-family: 'Georgia', sans-serif;
+  /* font-family: "Arimo", sans-serif; */
 
 }
 

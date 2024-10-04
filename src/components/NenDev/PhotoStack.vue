@@ -56,7 +56,7 @@
 
     <Transition name="fade">
       <h3
-        class="absolute right-4 xl:right-[20%] text-2xl font-bold text-center"
+        class="absolute right-4 xl:right-[20%] text-2xl font-bold text-center title"
         :key="currentPhoto.title"
       >
         {{ currentPhoto.title }}
@@ -175,5 +175,14 @@ img {
 img:hover {
   transform: scale(1.05);
   opacity: 0.9;
+}
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #c4007a, #ff69b4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.2;
 }
 </style>

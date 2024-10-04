@@ -1,7 +1,12 @@
 <template>
+    <SectionHeader
+    subtitle="Technologies"
+    title="Tech-Stack"
+    description="Frontend and Backend Frameworks and Tools"
+  />
   <div class="tech-grid">
     <div class="tech-row">
-      <h2 class="row-title gradientText">Frontend Technologies</h2>
+      <!-- <h2 class="row-title gradientText2">Frontend</h2> -->
       <div class="tech-items-container">
         <div class="tech-items move-left-to-right">
           <div
@@ -18,7 +23,7 @@
       </div>
     </div>
     <div class="tech-row">
-      <h2 class="row-title gradientText">Backend, Database and Tools</h2>
+      <!-- <h2 class="row-title gradientText2">Backend, Database and Tools</h2> -->
       <div class="tech-items-container">
         <div class="tech-items move-right-to-left">
           <div
@@ -40,7 +45,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue';
 import { computed, ref } from 'vue';
-
+import SectionHeader from './SectionHeader.vue';
 interface Technology {
   name: string
   icon: string

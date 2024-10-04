@@ -137,7 +137,7 @@ nav {
 }
 
 .activeLink {
-  color: #d4840a;
+  color: #c4007a;
 }
 
 .logo {
@@ -146,7 +146,7 @@ nav {
   left: 48%;
   background-color: white;
   color: black;
-  border: 1px dotted white;
+  border: 1px solid white;
   border-radius: 50%;
   font-weight: bold;
   font-size: 24px;
