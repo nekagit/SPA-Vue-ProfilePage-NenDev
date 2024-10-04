@@ -50,7 +50,8 @@
   font-size: 2rem;
   line-height: 1.4;
   color: transparent;
-  background: linear-gradient(135deg, #ff00ff, #ff69b4);
+  background: linear-gradient(90deg, #16d8fa, #3b82f6);
+  /* background: linear-gradient(135deg, #ff00ff, #ff69b4); */
   -webkit-background-clip: text;
   background-clip: text;
   font-weight: bold;
@@ -66,7 +67,8 @@
   transform: translateX(-50%);
   width: 50px;
   height: 2px;
-  background: linear-gradient(90deg, #ff00ff, #ff69b4);
+  background: linear-gradient(90deg, #16d8fa, #3b82f6);
+  /* background: linear-gradient(90deg, #ff00ff, #ff69b4); */
 }
 
 .quote-author {
