@@ -1,39 +1,73 @@
-# vite-project
+# SPA Vue Profile Page - Developer Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+A modern, single-page application portfolio built with Vue.js to showcase my development projects and professional experience.
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Responsive single-page application
+- Modern UI/UX design
+- Project showcase
+- Professional experience timeline
+- Skills and technologies section
+- Contact information
 
-## Type Support for `.vue` Imports in TS
+## 🛠️ Technology Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Vue.js (94.2%)
+- CSS (2.4%)
+- TypeScript (1.9%)
+- Additional technologies (1.5%)
 
-## Customize configuration
+## 🏗️ Project Setup
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Run development server
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# Build for production
 npm run build
+
+# Run tests
+npm run test
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 📁 Project Structure
 
-```sh
-npm run lint
-```
+- `/src` - Main application source code
+- `/public` - Static assets
+- `/components` - Vue components
+- `.env` - Environment variables
+- `vite.config.ts` - Vite configuration
+
+## 🚀 Deployment
+
+This portfolio is deployed on Netlify. For deployment, simply:
+
+1. Connect your GitHub repository to Netlify
+2. Configure build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+3. Deploy!
+
+## 🧑‍💻 Development
+
+To contribute or modify this portfolio:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📞 Contact
+
+Nenad Kalicanin - [Portfolio](https://nenadkalicanin.netlify.app)
+
+Project Link: [https://github.com/nekagit/SPA-Vue-ProfilePage-NenDev](https://github.com/nekagit/SPA-Vue-ProfilePage-NenDev)
