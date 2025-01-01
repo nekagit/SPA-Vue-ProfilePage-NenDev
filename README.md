@@ -18,21 +18,6 @@ A modern, single-page application portfolio built with Vue.js to showcase my dev
 - TypeScript (1.9%)
 - Additional technologies (1.5%)
 
-## 🏗️ Project Setup
-
-```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Run tests
-npm run test
-```
 
 ## 📁 Project Structure
 
